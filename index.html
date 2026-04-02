@@ -100,23 +100,31 @@
     }
 
     nav {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      background: white;
-      padding: 10px 20px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-      display: flex;
-      justify-content: space-between;
-      z-index: 1000;
-    }
-
-    nav a {
-      text-decoration: none;
-      color: #004080;
-      margin-left: 15px;
-      font-weight: 600;
-    }
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: white;
+    padding: 10px 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    flex-wrap: wrap;
+  }
+  
+  nav div {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  nav a {
+    text-decoration: none;
+    color: #004080;
+    margin-left: 15px;
+    font-weight: 600;
+    white-space: nowrap; /* evita cortar palavra */
+  }
 
     .spacer {
       height: 60px;
@@ -131,7 +139,9 @@
   <strong>INNOVY</strong>
   <div>
     <a href="ti-servico.html">TI como Serviço</a>
-    <a href="https://innovy.freshdesk.com/support/home" target="_blank">Chamados</a>
+    <a href="https://innovy.freshdesk.com/support/home" target="_blank">
+  💬 Suporte
+</a>
   </div>
 </nav>
 
