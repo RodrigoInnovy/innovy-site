@@ -99,17 +99,21 @@
       padding: 20px;
     }
 
+box-sizing: border-box;
+    
 .navbar {
   position: fixed;
   top: 0;
   width: 100%;
-  background: white;
   padding: 12px 30px;
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
+  background: white;
   box-shadow: 0 2px 10px rgba(0,0,0,0.05);
   z-index: 1000;
+
+  box-sizing: border-box; /* 🔥 ESSA LINHA RESOLVE */
 }
 
 .logo {
@@ -132,27 +136,11 @@
 .actions {
   display: flex;
   gap: 10px;
+  flex-shrink: 0; /* impede esmagar/cortar */
 }
 
-/* BOTÃO CONTORNO (Suporte) */
+.btn-primary,
 .btn-outline {
-  border: 2px solid #004080;
-  color: #004080;
-  padding: 8px 14px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: 600;
-  white-space: nowrap;
-}
-
-/* BOTÃO PRINCIPAL */
-.btn-primary {
-  background: #ff6600;
-  color: white;
-  padding: 10px 16px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: bold;
   white-space: nowrap;
 }
 
