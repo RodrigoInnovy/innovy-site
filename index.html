@@ -99,39 +99,83 @@
       padding: 20px;
     }
 
-nav {
+.navbar {
   position: fixed;
   top: 0;
   width: 100%;
   background: white;
-  padding: 10px 20px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  padding: 12px 30px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
   z-index: 1000;
 }
 
-#menu {
-  display: flex;
-  gap: 20px;
+.logo {
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: #004080;
 }
 
-nav a {
+.menu {
+  display: flex;
+  gap: 25px;
+}
+
+.menu a {
   text-decoration: none;
+  color: #333;
+  font-weight: 500;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+}
+
+/* BOTÃO CONTORNO (Suporte) */
+.btn-outline {
+  border: 2px solid #004080;
   color: #004080;
+  padding: 8px 14px;
+  border-radius: 8px;
+  text-decoration: none;
   font-weight: 600;
   white-space: nowrap;
 }
 
-.menu-toggle {
-  display: none;
-  font-size: 24px;
-  background: none;
-  border: none;
-  cursor: pointer;
+/* BOTÃO PRINCIPAL */
+.btn-primary {
+  background: #ff6600;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  white-space: nowrap;
 }
 
+/* RESPONSIVO */
+@media (max-width: 768px) {
+
+  .menu {
+    display: none;
+  }
+
+  .btn-primary {
+    display: none;
+  }
+
+  .navbar {
+    padding: 10px 15px;
+  }
+
+  .btn-outline {
+    padding: 6px 10px;
+    font-size: 14px;
+  }
+}
 /* MOBILE */
 @media (max-width: 768px) {
 
@@ -165,14 +209,21 @@ nav a {
 
 <body>
 
-<nav>
-  <strong>INNOVY</strong>
+<nav class="navbar">
+  <div class="logo">INNOVY</div>
 
-  <button class="menu-toggle" onclick="toggleMenu()">☰</button>
-
-  <div id="menu">
+  <div class="menu">
     <a href="ti-servico.html">TI como Serviço</a>
-    <a href="https://innovy.freshdesk.com/support/home" target="_blank">Suporte</a>
+  </div>
+
+  <div class="actions">
+    <a href="https://innovy.freshdesk.com/support/home" target="_blank" class="btn-outline">
+      💬 Suporte
+    </a>
+
+    <a href="https://wa.me/5511961787709" target="_blank" class="btn-primary">
+      Falar com especialista
+    </a>
   </div>
 </nav>
 
