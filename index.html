@@ -5,10 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- SEO & Meta Tags Estratégicas -->
-  <title>INNOVY | Parceiro Estratégico de Negócio e Tecnologia para PMEs</title>
-  <meta name="description" content="Apoiamos pequenos e médios empresários a destravar gargalos operacionais, otimizar o ERP Totvs Protheus e estruturar a tecnologia para gerar lucro e escala.">
-  <meta name="keywords" content="parceiro de tecnologia, consultoria protheus para pme, gestão de ti terceirizada, cto fracionado, otimização de erp, totvs são paulo, governança de ti pme">
+  <title id="pageTitle">INNOVY | Parceiro Estratégico de Negócio e Tecnologia para PMEs</title>
+  <meta id="pageMetaDesc" name="description" content="Apoiamos empresários a destravar gargalos operacionais, otimizar o ERP Totvs Protheus e estruturar a tecnologia para gerar lucro e escala.">
+  <meta name="keywords" content="parceiro de tecnologia, consultoria protheus para pme, gestão de ti terceirizada, cto fracionado, otimização de erp, totvs são paulo, totvs brazil partner, fractional cto brazil">
   <meta name="author" content="Rodrigo Martins - INNOVY">
+
+  <!-- Hreflang para SEO Multilíngue -->
+  <link rel="alternate" hreflang="pt-BR" href="https://www.innovy.com.br/?lang=pt" />
+  <link rel="alternate" hreflang="en" href="https://www.innovy.com.br/?lang=en" />
+  <link rel="alternate" hreflang="es" href="https://www.innovy.com.br/?lang=es" />
+  <link rel="alternate" hreflang="x-default" href="https://www.innovy.com.br/" />
 
   <!-- Open Graph / Redes Sociais / WhatsApp Preview -->
   <meta property="og:type" content="website">
@@ -25,7 +31,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-  <!-- Tailwind CSS CDN com customizações sob medida -->
+  <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -50,9 +56,6 @@
               400: '#34d399',
               500: '#10b981',
               600: '#059669',
-            },
-            amber: {
-              500: '#f59e0b',
             }
           }
         }
@@ -61,17 +64,13 @@
   </script>
 
   <style>
-    /* Suavização de renderização de fontes */
     body {
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
     }
-    
-    /* Gradiente sutil e efeitos de blur */
     .hero-glow {
       background: radial-gradient(circle at 50% 20%, rgba(0, 102, 204, 0.18) 0%, rgba(5, 150, 105, 0.08) 45%, transparent 70%);
     }
-
     .card-hover-effect {
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
@@ -88,20 +87,20 @@
   <div class="bg-brand-950 text-slate-200 text-xs sm:text-sm py-2 px-4 border-b border-white/10">
     <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
       <div class="flex items-center gap-2">
-        <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-growth-500/20 text-growth-400 border border-growth-500/30">
+        <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-growth-500/20 text-growth-400 border border-growth-500/30" data-i18n="topbar.badge">
           Atendimento Executivo
         </span>
-        <span class="hidden sm:inline">Apoio tático e estratégico para PMEs industriais, distribuidoras e serviços</span>
-        <span class="sm:hidden">Apoio tático e estratégico para PMEs</span>
+        <span class="hidden sm:inline" data-i18n="topbar.text">
+          Apoio tático e estratégico para PMEs industriais, distribuidoras e serviços
+        </span>
       </div>
+      
       <div class="flex items-center gap-4 text-xs">
-        <a href="https://wa.me/5511961787709?text=Ol%C3%A1%20Rodrigo!%20Vim%20pelo%20site%20da%20INNOVY%20e%20gostaria%20de%20agendar%20um%20diagn%C3%B3stico%20de%20tecnologia." 
-           target="_blank" 
-           class="hover:text-white transition flex items-center gap-1 font-medium text-growth-400">
+        <a id="topbarWhatsappLink" href="https://wa.me/5511961787709" target="_blank" class="hover:text-white transition flex items-center gap-1 font-medium text-growth-400">
           <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.299.144.347.491 1.2.534 1.288.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.2.662.589 1.221.771 1.394.858.173.086.275.072.376-.043.101-.116.433-.506.549-.68.116-.173.231-.144.39-.086s1.011.477 1.184.564.289.13.332.202c.043.073.043.419-.101.824z"/></svg>
           (11) 96178-7709
         </a>
-        <a href="https://innovy.freshdesk.com/support/home" target="_blank" class="hover:text-white transition text-slate-400">
+        <a href="https://innovy.freshdesk.com/support/home" target="_blank" class="hover:text-white transition text-slate-400" data-i18n="topbar.clientPortal">
           Portal do Cliente
         </a>
       </div>
@@ -118,51 +117,82 @@
           <img src="assets/logo-rms-innovy.png" alt="RMS INNOVY" class="h-12 w-auto object-contain">
           <div class="flex flex-col">
             <span class="font-extrabold text-xl tracking-tight text-brand-900 group-hover:text-brand-700 transition">INNOVY</span>
-            <span class="text-[10px] uppercase tracking-widest text-slate-500 font-semibold">Tecnologia & Negócios</span>
+            <span class="text-[10px] uppercase tracking-widest text-slate-500 font-semibold" data-i18n="nav.tagline">Tecnologia & Negócios</span>
           </div>
         </a>
 
         <!-- Desktop Navigation Links -->
-        <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-slate-600">
-          <a href="#por-que-innovy" class="hover:text-brand-700 transition">Por que a INNOVY</a>
-          <a href="#pilares" class="hover:text-brand-700 transition">Onde Atuamos</a>
-          <a href="#metodologia" class="hover:text-brand-700 transition">Como Funciona</a>
-          <a href="#especialista" class="hover:text-brand-700 transition">O Especialista</a>
-          <a href="#faq" class="hover:text-brand-700 transition">Dúvidas</a>
+        <nav class="hidden md:flex items-center gap-7 text-sm font-semibold text-slate-600">
+          <a href="#por-que-innovy" class="hover:text-brand-700 transition" data-i18n="nav.why">Por que a INNOVY</a>
+          <a href="#pilares" class="hover:text-brand-700 transition" data-i18n="nav.services">Onde Atuamos</a>
+          <a href="#metodologia" class="hover:text-brand-700 transition" data-i18n="nav.methodology">Como Funciona</a>
+          <a href="#especialista" class="hover:text-brand-700 transition" data-i18n="nav.expert">O Especialista</a>
+          <a href="#faq" class="hover:text-brand-700 transition" data-i18n="nav.faq">Dúvidas</a>
         </nav>
 
-        <!-- CTA Header -->
-        <div class="hidden md:flex items-center gap-3">
-          <a href="https://wa.me/5511961787709?text=Ol%C3%A1%20Rodrigo!%20Vim%20pelo%20site%20e%20gostaria%20de%20solicitar%20um%20diagn%C3%B3stico%20estrat%C3%A9gico%20gratuito." 
-             target="_blank"
-             class="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl font-bold text-sm text-white bg-gradient-to-r from-brand-700 via-brand-600 to-growth-600 hover:from-brand-800 hover:to-growth-500 shadow-md shadow-brand-700/20 hover:shadow-lg hover:shadow-brand-700/30 transition-all duration-200">
-            <span>Diagnóstico Gratuito</span>
+        <!-- Right Side: Language Switcher + CTA -->
+        <div class="hidden md:flex items-center gap-4">
+          
+          <!-- SELETOR DE IDIOMA DESKTOP -->
+          <div class="relative" id="langSelectorWrapper">
+            <button id="langDropdownBtn" type="button" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-slate-200 bg-slate-50 hover:bg-slate-100 text-xs font-bold text-slate-700 transition shadow-sm" aria-expanded="false" aria-label="Alterar idioma">
+              <span id="currentLangFlag" class="text-base leading-none">🇧🇷</span>
+              <span id="currentLangText">PT</span>
+              <svg class="w-3.5 h-3.5 text-slate-400 ml-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+
+            <!-- Dropdown menu -->
+            <div id="langDropdownMenu" class="hidden absolute right-0 mt-1.5 w-36 bg-white border border-slate-200 rounded-xl shadow-xl py-1.5 z-50 text-xs font-semibold text-slate-700">
+              <button type="button" onclick="switchLanguage('pt')" class="w-full text-left px-3.5 py-2 hover:bg-slate-100 flex items-center gap-2 transition">
+                <span>🇧🇷</span> Português
+              </button>
+              <button type="button" onclick="switchLanguage('en')" class="w-full text-left px-3.5 py-2 hover:bg-slate-100 flex items-center gap-2 transition">
+                <span>🇺🇸</span> English
+              </button>
+              <button type="button" onclick="switchLanguage('es')" class="w-full text-left px-3.5 py-2 hover:bg-slate-100 flex items-center gap-2 transition">
+                <span>🇪🇸</span> Español
+              </button>
+            </div>
+          </div>
+
+          <!-- CTA Header -->
+          <a id="navCtaBtn" href="https://wa.me/5511961787709" target="_blank" class="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl font-bold text-sm text-white bg-gradient-to-r from-brand-700 via-brand-600 to-growth-600 hover:from-brand-800 hover:to-growth-500 shadow-md shadow-brand-700/20 hover:shadow-lg transition-all duration-200">
+            <span data-i18n="nav.cta">Diagnóstico Gratuito</span>
             <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
           </a>
         </div>
 
-        <!-- Mobile Menu Toggle Button -->
-        <button id="mobileMenuBtn" type="button" class="md:hidden p-2.5 rounded-xl text-slate-700 hover:bg-slate-100 transition" aria-label="Abrir menu">
-          <svg id="menuIconClosed" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
-          <svg id="menuIconOpen" class="w-6 h-6 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
-        </button>
+        <!-- Mobile Menu Toggle Button + Quick Lang -->
+        <div class="md:hidden flex items-center gap-2">
+          <!-- Mobile Lang Button -->
+          <div class="flex items-center gap-1 bg-slate-100 p-1 rounded-lg text-xs font-bold border border-slate-200">
+            <button type="button" onclick="switchLanguage('pt')" id="mobileBtnPt" class="px-2 py-1 rounded bg-white shadow-sm text-slate-900">🇧🇷</button>
+            <button type="button" onclick="switchLanguage('en')" id="mobileBtnEn" class="px-2 py-1 rounded text-slate-500 hover:text-slate-900">🇺🇸</button>
+            <button type="button" onclick="switchLanguage('es')" id="mobileBtnEs" class="px-2 py-1 rounded text-slate-500 hover:text-slate-900">🇪🇸</button>
+          </div>
+
+          <button id="mobileMenuBtn" type="button" class="p-2 rounded-xl text-slate-700 hover:bg-slate-100 transition" aria-label="Abrir menu">
+            <svg id="menuIconClosed" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+            <svg id="menuIconOpen" class="w-6 h-6 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+          </button>
+        </div>
+
       </div>
     </div>
 
     <!-- Mobile Dropdown Menu -->
     <div id="mobileMenu" class="hidden md:hidden bg-white border-b border-slate-200 px-4 pt-3 pb-6 space-y-3 shadow-xl">
-      <a href="#por-que-innovy" class="block py-2 text-base font-semibold text-slate-700 hover:text-brand-700 mobile-nav-link">Por que a INNOVY</a>
-      <a href="#pilares" class="block py-2 text-base font-semibold text-slate-700 hover:text-brand-700 mobile-nav-link">Onde Atuamos</a>
-      <a href="#metodologia" class="block py-2 text-base font-semibold text-slate-700 hover:text-brand-700 mobile-nav-link">Como Funciona</a>
-      <a href="#especialista" class="block py-2 text-base font-semibold text-slate-700 hover:text-brand-700 mobile-nav-link">O Especialista</a>
-      <a href="#faq" class="block py-2 text-base font-semibold text-slate-700 hover:text-brand-700 mobile-nav-link">Dúvidas</a>
+      <a href="#por-que-innovy" class="block py-2 text-base font-semibold text-slate-700 hover:text-brand-700 mobile-nav-link" data-i18n="nav.why">Por que a INNOVY</a>
+      <a href="#pilares" class="block py-2 text-base font-semibold text-slate-700 hover:text-brand-700 mobile-nav-link" data-i18n="nav.services">Onde Atuamos</a>
+      <a href="#metodologia" class="block py-2 text-base font-semibold text-slate-700 hover:text-brand-700 mobile-nav-link" data-i18n="nav.methodology">Como Funciona</a>
+      <a href="#especialista" class="block py-2 text-base font-semibold text-slate-700 hover:text-brand-700 mobile-nav-link" data-i18n="nav.expert">O Especialista</a>
+      <a href="#faq" class="block py-2 text-base font-semibold text-slate-700 hover:text-brand-700 mobile-nav-link" data-i18n="nav.faq">Dúvidas</a>
+      
       <div class="pt-4 border-t border-slate-100 flex flex-col gap-2">
-        <a href="https://wa.me/5511961787709?text=Ol%C3%A1%20Rodrigo!%20Gostaria%20de%20agendar%20um%20diagn%C3%B3stico%20estrat%C3%A9gico%20para%20minha%20empresa." 
-           target="_blank"
-           class="w-full text-center py-3 rounded-xl font-bold text-white bg-gradient-to-r from-brand-700 to-growth-600 shadow-md">
+        <a id="mobileCtaBtn" href="https://wa.me/5511961787709" target="_blank" class="w-full text-center py-3 rounded-xl font-bold text-white bg-gradient-to-r from-brand-700 to-growth-600 shadow-md" data-i18n="hero.ctaPrimary">
           Solicitar Diagnóstico Gratuito
         </a>
-        <a href="https://innovy.freshdesk.com/support/home" target="_blank" class="w-full text-center py-2 text-sm text-slate-500 hover:text-brand-700">
+        <a href="https://innovy.freshdesk.com/support/home" target="_blank" class="w-full text-center py-2 text-sm text-slate-500 hover:text-brand-700" data-i18n="topbar.clientPortal">
           Área do Cliente (Suporte)
         </a>
       </div>
@@ -180,20 +210,20 @@
           <!-- Badge -->
           <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-50 border border-brand-200/80 text-brand-800 text-xs sm:text-sm font-semibold shadow-sm">
             <span class="flex h-2 w-2 rounded-full bg-growth-500 animate-pulse"></span>
-            Parceiro Estratégico de Negócio e Tecnologia para PMEs
+            <span data-i18n="hero.badge">Parceiro Estratégico de Negócio e Tecnologia para PMEs</span>
           </div>
 
           <!-- Headline de Alto Impacto -->
           <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-brand-950 tracking-tight leading-[1.15]">
-            Sua empresa não precisa de mais um consultor técnico.
-            <span class="block mt-2 text-transparent bg-clip-text bg-gradient-to-r from-brand-700 via-brand-600 to-growth-600">
+            <span data-i18n="hero.titleLead">Sua empresa não precisa de mais um consultor técnico.</span>
+            <span class="block mt-2 text-transparent bg-clip-text bg-gradient-to-r from-brand-700 via-brand-600 to-growth-600" data-i18n="hero.titleAccent">
               Precisa de um parceiro que faça a tecnologia gerar lucro e escala.
             </span>
           </h1>
 
           <!-- Subheadline -->
-          <p class="text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto lg:mx-0">
-            Apoiamos empresários a destravar gargalos operacionais, transformar o ERP (Totvs Protheus e outros) em uma máquina de eficiência e organizar a governança de TI — <strong>sem o custo e a lentidão de um diretor de tecnologia CLT</strong>.
+          <p class="text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto lg:mx-0" data-i18n="hero.subtitle">
+            Apoiamos empresários a destravar gargalos operacionais, transformar o ERP (Totvs Protheus e outros) em uma máquina de eficiência e organizar a governança de TI — sem o custo e a lentidão de um diretor de tecnologia CLT.
           </p>
 
           <!-- Diferenciais Rápidos com Check -->
@@ -202,56 +232,61 @@
               <div class="p-1 rounded-full bg-growth-500/10 text-growth-600 mt-0.5">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
               </div>
-              <span class="text-sm font-medium text-slate-700"><strong>Linguagem de Negócio:</strong> Foco em margem, processo e fluxo de caixa</span>
+              <span class="text-sm font-medium text-slate-700" data-i18n-html="hero.check1">
+                <strong>Linguagem de Negócio:</strong> Foco em margem, processo e fluxo de caixa
+              </span>
             </div>
             <div class="flex items-start gap-2.5">
               <div class="p-1 rounded-full bg-growth-500/10 text-growth-600 mt-0.5">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
               </div>
-              <span class="text-sm font-medium text-slate-700"><strong>Fim do "Tiopês":</strong> Você entende exatamente onde cada centavo rende</span>
+              <span class="text-sm font-medium text-slate-700" data-i18n-html="hero.check2">
+                <strong>Fim do "Tiopês":</strong> Você entende exatamente onde cada centavo rende
+              </span>
             </div>
             <div class="flex items-start gap-2.5">
               <div class="p-1 rounded-full bg-growth-500/10 text-growth-600 mt-0.5">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
               </div>
-              <span class="text-sm font-medium text-slate-700"><strong>ERP sem Trava:</strong> Otimização de módulos, compras, faturamento e estoque</span>
+              <span class="text-sm font-medium text-slate-700" data-i18n-html="hero.check3">
+                <strong>ERP sem Trava:</strong> Otimização de módulos, compras, faturamento e estoque
+              </span>
             </div>
             <div class="flex items-start gap-2.5">
               <div class="p-1 rounded-full bg-growth-500/10 text-growth-600 mt-0.5">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
               </div>
-              <span class="text-sm font-medium text-slate-700"><strong>Interlocutor Sênior:</strong> Você fala diretamente com quem resolve</span>
+              <span class="text-sm font-medium text-slate-700" data-i18n-html="hero.check4">
+                <strong>Interlocutor Sênior:</strong> Você fala diretamente com quem resolve
+              </span>
             </div>
           </div>
 
           <!-- CTAs Primários -->
           <div class="pt-4 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
-            <a href="https://wa.me/5511961787709?text=Ol%C3%A1%20Rodrigo!%20Gostaria%20de%20agendar%20o%20Diagn%C3%B3stico%20Estrat%C3%A9gico%20de%20TI%20e%20Processos%20(30%20min)%20sem%20custo." 
-               target="_blank"
-               class="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl font-bold text-base text-white bg-gradient-to-r from-brand-700 via-brand-600 to-growth-600 hover:from-brand-800 hover:to-growth-500 shadow-xl shadow-brand-700/25 hover:shadow-2xl hover:shadow-brand-700/35 transition-all duration-200 transform hover:-translate-y-0.5">
-              <span>Agendar Diagnóstico Gratuito (30 min)</span>
+            <a id="heroPrimaryCta" href="https://wa.me/5511961787709" target="_blank" class="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl font-bold text-base text-white bg-gradient-to-r from-brand-700 via-brand-600 to-growth-600 hover:from-brand-800 hover:to-growth-500 shadow-xl shadow-brand-700/25 hover:shadow-2xl transition-all duration-200 transform hover:-translate-y-0.5">
+              <span data-i18n="hero.ctaPrimary">Agendar Diagnóstico Gratuito (30 min)</span>
               <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
             </a>
             
-            <a href="#diagnostico-quiz" 
-               class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl font-semibold text-sm text-slate-700 bg-white hover:bg-slate-100 border border-slate-300 shadow-sm transition duration-200">
+            <a href="#diagnostico-quiz" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl font-semibold text-sm text-slate-700 bg-white hover:bg-slate-100 border border-slate-300 shadow-sm transition duration-200">
               <svg class="w-4 h-4 text-brand-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
-              <span>Fazer Autoavaliação Rápida</span>
+              <span data-i18n="hero.ctaSecondary">Fazer Autoavaliação Rápida</span>
             </a>
           </div>
 
           <!-- Mini Prova Social -->
           <div class="pt-4 flex flex-wrap items-center justify-center lg:justify-start gap-6 text-xs text-slate-500 border-t border-slate-200/60">
             <div class="flex items-center gap-1.5">
-              <span class="font-bold text-slate-900 text-sm">+15 Anos</span> de vivência em ERP & Processos
+              <span class="font-bold text-slate-900 text-sm">+15</span> <span data-i18n="hero.stat1">Anos de vivência em ERP & Processos</span>
             </div>
             <span class="hidden sm:inline text-slate-300">|</span>
             <div class="flex items-center gap-1.5">
-              <span class="font-bold text-slate-900 text-sm">Foco 100%</span> em Pequenas e Médias Empresas
+              <span class="font-bold text-slate-900 text-sm" data-i18n="hero.stat2Label">Foco 100%</span> <span data-i18n="hero.stat2">em Pequenas e Médias Empresas</span>
             </div>
             <span class="hidden sm:inline text-slate-300">|</span>
             <div class="flex items-center gap-1.5">
-              <span class="font-bold text-growth-600 text-sm">Zero</span> Dependência Técnica Vazia
+              <span class="font-bold text-growth-600 text-sm">Zero</span> <span data-i18n="hero.stat3">Dependência Técnica Vazia</span>
             </div>
           </div>
 
@@ -274,11 +309,11 @@
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
                   </div>
                   <div>
-                    <h3 class="font-bold text-slate-900 text-base">Papel do Parceiro Estratégico</h3>
-                    <p class="text-xs text-slate-500">Negócios, Governança & Sistemas</p>
+                    <h3 class="font-bold text-slate-900 text-base" data-i18n="card.title">Papel do Parceiro Estratégico</h3>
+                    <p class="text-xs text-slate-500" data-i18n="card.subtitle">Negócios, Governança & Sistemas</p>
                   </div>
                 </div>
-                <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-growth-100 text-growth-700">
+                <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-growth-100 text-growth-700" data-i18n="card.badge">
                   Sob Demanda
                 </span>
               </div>
@@ -291,8 +326,8 @@
                     <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
                   </div>
                   <div>
-                    <h4 class="font-bold text-slate-800 text-sm">Destravamento Operacional</h4>
-                    <p class="text-xs text-slate-600 mt-0.5">Alinhamos os módulos do ERP (Protheus) ao fluxo real de compras, estoque e vendas da sua empresa.</p>
+                    <h4 class="font-bold text-slate-800 text-sm" data-i18n="card.item1Title">Destravamento Operacional</h4>
+                    <p class="text-xs text-slate-600 mt-0.5" data-i18n="card.item1Desc">Alinhamos os módulos do ERP (Protheus) ao fluxo real de compras, estoque e vendas da sua empresa.</p>
                   </div>
                 </div>
 
@@ -301,8 +336,8 @@
                     <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
                   </div>
                   <div>
-                    <h4 class="font-bold text-slate-800 text-sm">Dados e Indicadores para Decisão</h4>
-                    <p class="text-xs text-slate-600 mt-0.5">Relatórios confiáveis e conciliação em tempo real. Fim das planilhas paralelas e da surpresa no fim do mês.</p>
+                    <h4 class="font-bold text-slate-800 text-sm" data-i18n="card.item2Title">Dados e Indicadores para Decisão</h4>
+                    <p class="text-xs text-slate-600 mt-0.5" data-i18n="card.item2Desc">Relatórios confiáveis e conciliação em tempo real. Fim das planilhas paralelas e da surpresa no fim do mês.</p>
                   </div>
                 </div>
 
@@ -311,8 +346,8 @@
                     <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
                   </div>
                   <div>
-                    <h4 class="font-bold text-slate-800 text-sm">Coordenação de Terceiros e TI</h4>
-                    <p class="text-xs text-slate-600 mt-0.5">Assumimos a interlocução com fornecedores de software, infraestrutura e segurança para proteger seu tempo.</p>
+                    <h4 class="font-bold text-slate-800 text-sm" data-i18n="card.item3Title">Coordenação de Terceiros e TI</h4>
+                    <p class="text-xs text-slate-600 mt-0.5" data-i18n="card.item3Desc">Assumimos a interlocução com fornecedores de software, infraestrutura e segurança para proteger seu tempo.</p>
                   </div>
                 </div>
 
@@ -320,14 +355,12 @@
 
               <!-- Footer do Card com CTA -->
               <div class="pt-4 border-t border-slate-100 bg-slate-50/50 -mx-6 sm:-mx-8 -mb-6 sm:-mb-8 p-6 text-center">
-                <p class="text-xs text-slate-600 mb-3">
+                <p class="text-xs text-slate-600 mb-3" data-i18n="card.footerText">
                   Precisa de clareza sobre o estado atual da sua tecnologia?
                 </p>
-                <a href="https://wa.me/5511961787709?text=Ol%C3%A1%20Rodrigo!%20Quero%20uma%20conversa%20estrat%C3%A9gica%20de%2030%20minutos%20para%20avaliar%20meu%20ERP%20e%20processos." 
-                   target="_blank"
-                   class="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl text-sm font-bold text-brand-900 bg-white border border-slate-300 hover:bg-slate-50 shadow-sm transition">
+                <a id="cardWhatsappBtn" href="https://wa.me/5511961787709" target="_blank" class="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl text-sm font-bold text-brand-900 bg-white border border-slate-300 hover:bg-slate-50 shadow-sm transition">
                   <span class="w-2 h-2 rounded-full bg-growth-500"></span>
-                  <span>Falar com Rodrigo Martins</span>
+                  <span data-i18n="card.footerBtn">Falar com Rodrigo Martins</span>
                 </a>
               </div>
 
@@ -346,19 +379,19 @@
       <div class="flex flex-wrap items-center justify-center gap-6 sm:gap-12 text-xs font-semibold text-slate-600">
         <div class="flex items-center gap-2">
           <span class="w-2 h-2 rounded-full bg-brand-600"></span>
-          <span>Indústrias e Manufatura</span>
+          <span data-i18n="segments.ind">Indústrias e Manufatura</span>
         </div>
         <div class="flex items-center gap-2">
           <span class="w-2 h-2 rounded-full bg-growth-600"></span>
-          <span>Distribuidoras e Atacado</span>
+          <span data-i18n="segments.dist">Distribuidoras e Atacado</span>
         </div>
         <div class="flex items-center gap-2">
           <span class="w-2 h-2 rounded-full bg-blue-600"></span>
-          <span>Empresas de Serviços e B2B</span>
+          <span data-i18n="segments.serv">Empresas de Serviços e B2B</span>
         </div>
         <div class="flex items-center gap-2">
           <span class="w-2 h-2 rounded-full bg-purple-600"></span>
-          <span>Ecossistema TOTVS Protheus</span>
+          <span data-i18n="segments.totvs">Ecossistema TOTVS Protheus</span>
         </div>
       </div>
     </div>
@@ -369,13 +402,13 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <div class="text-center max-w-3xl mx-auto mb-16">
-        <span class="text-xs font-bold uppercase tracking-widest text-brand-700 bg-brand-50 px-3 py-1 rounded-full border border-brand-200">
+        <span class="text-xs font-bold uppercase tracking-widest text-brand-700 bg-brand-50 px-3 py-1 rounded-full border border-brand-200" data-i18n="pains.badge">
           O Desafio da PME
         </span>
-        <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-950 mt-4 tracking-tight">
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-950 mt-4 tracking-tight" data-i18n="pains.title">
           Sua empresa cresceu, mas a tecnologia virou uma dor de cabeça diária?
         </h2>
-        <p class="text-slate-600 mt-4 text-base sm:text-lg">
+        <p class="text-slate-600 mt-4 text-base sm:text-lg" data-i18n="pains.subtitle">
           Na maioria das pequenas e médias empresas, o cenário é sempre o mesmo: sistemas caros que ninguém usa direito e a sensação constante de insegurança operacional.
         </p>
       </div>
@@ -388,12 +421,12 @@
             <div class="w-12 h-12 rounded-xl bg-red-50 text-red-600 flex items-center justify-center font-bold mb-5 border border-red-100">
               <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
             </div>
-            <h3 class="text-lg font-bold text-slate-900 mb-2">O ERP virou um gargalo</h3>
-            <p class="text-slate-600 text-sm leading-relaxed">
+            <h3 class="text-lg font-bold text-slate-900 mb-2" data-i18n="pains.card1Title">O ERP virou um gargalo</h3>
+            <p class="text-slate-600 text-sm leading-relaxed" data-i18n="pains.card1Desc">
               Você investiu uma fortuna em implantação ou licenças do Protheus, mas a equipe ainda depende de dezenas de planilhas de Excel paralelas para trabalhar.
             </p>
           </div>
-          <div class="mt-6 pt-4 border-t border-slate-100 text-xs font-semibold text-red-700">
+          <div class="mt-6 pt-4 border-t border-slate-100 text-xs font-semibold text-red-700" data-i18n="pains.card1Impact">
             Consequência: Desperdício de licenças e lentidão operacional
           </div>
         </div>
@@ -404,12 +437,12 @@
             <div class="w-12 h-12 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center font-bold mb-5 border border-amber-100">
               <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
             </div>
-            <h3 class="text-lg font-bold text-slate-900 mb-2">Consultorias que cobram horas</h3>
-            <p class="text-slate-600 text-sm leading-relaxed">
+            <h3 class="text-lg font-bold text-slate-900 mb-2" data-i18n="pains.card2Title">Consultorias que cobram horas</h3>
+            <p class="text-slate-600 text-sm leading-relaxed" data-i18n="pains.card2Desc">
               Você abre chamados, paga pacotes de horas caros, e os técnicos resolvem o sintoma imediato mas nunca a causa raiz do seu fluxo de negócio.
             </p>
           </div>
-          <div class="mt-6 pt-4 border-t border-slate-100 text-xs font-semibold text-amber-700">
+          <div class="mt-6 pt-4 border-t border-slate-100 text-xs font-semibold text-amber-700" data-i18n="pains.card2Impact">
             Consequência: Custos imprevisíveis e eterno retrabalho
           </div>
         </div>
@@ -420,12 +453,12 @@
             <div class="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center font-bold mb-5 border border-blue-100">
               <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
             </div>
-            <h3 class="text-lg font-bold text-slate-900 mb-2">Decisões no escuro</h3>
-            <p class="text-slate-600 text-sm leading-relaxed">
+            <h3 class="text-lg font-bold text-slate-900 mb-2" data-i18n="pains.card3Title">Decisões no escuro</h3>
+            <p class="text-slate-600 text-sm leading-relaxed" data-i18n="pains.card3Desc">
               O fechamento contábil e fiscal é demorado, o estoque real nunca bate com o sistema e a diretoria não tem números transparentes de margem e lucratividade.
             </p>
           </div>
-          <div class="mt-6 pt-4 border-t border-slate-100 text-xs font-semibold text-blue-700">
+          <div class="mt-6 pt-4 border-t border-slate-100 text-xs font-semibold text-blue-700" data-i18n="pains.card3Impact">
             Consequência: Risco de caixa e insegurança nas decisões
           </div>
         </div>
@@ -436,12 +469,12 @@
             <div class="w-12 h-12 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center font-bold mb-5 border border-purple-100">
               <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
             </div>
-            <h3 class="text-lg font-bold text-slate-900 mb-2">Empresário refém da TI</h3>
-            <p class="text-slate-600 text-sm leading-relaxed">
+            <h3 class="text-lg font-bold text-slate-900 mb-2" data-i18n="pains.card4Title">Empresário refém da TI</h3>
+            <p class="text-slate-600 text-sm leading-relaxed" data-i18n="pains.card4Desc">
               Como a empresa não tem um Diretor de TI interno, o próprio dono ou diretor financeiro gasta tempo precioso cobrando técnicos e mediando fornecedores.
             </p>
           </div>
-          <div class="mt-6 pt-4 border-t border-slate-100 text-xs font-semibold text-purple-700">
+          <div class="mt-6 pt-4 border-t border-slate-100 text-xs font-semibold text-purple-700" data-i18n="pains.card4Impact">
             Consequência: Desvio do foco em vendas, clientes e expansão
           </div>
         </div>
@@ -451,18 +484,16 @@
       <!-- Resumo Estratégico -->
       <div class="mt-12 bg-gradient-to-r from-brand-900 via-brand-800 to-slate-900 rounded-3xl p-8 sm:p-10 text-white shadow-xl relative overflow-hidden">
         <div class="max-w-3xl relative z-10 space-y-4">
-          <span class="text-growth-400 font-bold uppercase tracking-wider text-xs">A virada de chave</span>
-          <h3 class="text-2xl sm:text-3xl font-extrabold leading-tight">
+          <span class="text-growth-400 font-bold uppercase tracking-wider text-xs" data-i18n="pains.summaryBadge">A virada de chave</span>
+          <h3 class="text-2xl sm:text-3xl font-extrabold leading-tight" data-i18n="pains.summaryTitle">
             Você não precisa trocar de software e nem contratar uma equipe cara de TI.
           </h3>
-          <p class="text-slate-300 text-base leading-relaxed">
+          <p class="text-slate-300 text-base leading-relaxed" data-i18n-html="pains.summaryDesc">
             O que sua empresa precisa é de alguém que entenda o <strong>fluxo do seu negócio</strong> (compras, estoque, chão de fábrica, fiscal e finanças) e configure a tecnologia para trabalhar a seu favor, com governança e prestação de contas.
           </p>
           <div class="pt-2">
-            <a href="https://wa.me/5511961787709?text=Ol%C3%A1%20Rodrigo!%20Quero%20destravar%20os%20processos%20e%20sistemas%20da%20minha%20empresa.%20Podemos%20conversar?" 
-               target="_blank"
-               class="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-bold text-sm bg-growth-500 hover:bg-growth-600 text-slate-950 transition shadow-lg">
-              <span>Conversar com a INNOVY no WhatsApp</span>
+            <a id="painsWhatsappBtn" href="https://wa.me/5511961787709" target="_blank" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-bold text-sm bg-growth-500 hover:bg-growth-600 text-slate-950 transition shadow-lg">
+              <span data-i18n="pains.summaryCta">Conversar com a INNOVY no WhatsApp</span>
               <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.299.144.347.491 1.2.534 1.288.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.2.662.589 1.221.771 1.394.858.173.086.275.072.376-.043.101-.116.433-.506.549-.68.116-.173.231-.144.39-.086s1.011.477 1.184.564.289.13.332.202c.043.073.043.419-.101.824z"/></svg>
             </a>
           </div>
@@ -477,13 +508,13 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <div class="text-center max-w-3xl mx-auto mb-16">
-        <span class="text-xs font-bold uppercase tracking-widest text-growth-600 bg-growth-50 px-3 py-1 rounded-full border border-growth-200">
+        <span class="text-xs font-bold uppercase tracking-widest text-growth-600 bg-growth-50 px-3 py-1 rounded-full border border-growth-200" data-i18n="comp.badge">
           Diferencial Competitivo
         </span>
-        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-4 tracking-tight">
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-4 tracking-tight" data-i18n="comp.title">
           Por que não somos apenas mais uma consultoria?
         </h2>
-        <p class="text-slate-600 mt-4 text-base sm:text-lg">
+        <p class="text-slate-600 mt-4 text-base sm:text-lg" data-i18n="comp.subtitle">
           Veja a diferença prática entre contratar alguém que apenas digita código e ter um verdadeiro parceiro à mesa da sua diretoria.
         </p>
       </div>
@@ -494,8 +525,8 @@
         <div class="rounded-2xl p-8 bg-slate-50 border border-slate-200 text-slate-600 space-y-6">
           <div class="flex items-center justify-between pb-4 border-b border-slate-200">
             <div>
-              <h3 class="font-bold text-xl text-slate-800">Consultoria ERP Tradicional</h3>
-              <p class="text-xs text-slate-500">O modelo antigo que gera dependência</p>
+              <h3 class="font-bold text-xl text-slate-800" data-i18n="comp.tradTitle">Consultoria ERP Tradicional</h3>
+              <p class="text-xs text-slate-500" data-i18n="comp.tradSub">O modelo antigo que gera dependência</p>
             </div>
             <span class="p-2 rounded-lg bg-red-100 text-red-600">
               <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
@@ -505,33 +536,33 @@
           <ul class="space-y-4 text-sm">
             <li class="flex items-start gap-3">
               <span class="text-red-500 font-bold">✕</span>
-              <span><strong>Foco em horas faturadas:</strong> Quanto mais tempo demorar para resolver o problema, mais horas a consultoria fatura de você.</span>
+              <span data-i18n-html="comp.tradItem1"><strong>Foco em horas faturadas:</strong> Quanto mais tempo demorar para resolver o problema, mais horas a consultoria fatura de você.</span>
             </li>
             <li class="flex items-start gap-3">
               <span class="text-red-500 font-bold">✕</span>
-              <span><strong>"Faz o que manda":</strong> Se você pedir para customizar um processo errado, eles fazem sem alertar sobre o impacto financeiro.</span>
+              <span data-i18n-html="comp.tradItem2"><strong>"Faz o que manda":</strong> Se você pedir para customizar um processo errado, eles fazem sem alertar sobre o impacto financeiro.</span>
             </li>
             <li class="flex items-start gap-3">
               <span class="text-red-500 font-bold">✕</span>
-              <span><strong>Tiopês excessivo:</strong> Relatórios cheios de jargões técnicos que não ajudam o dono a entender a rentabilidade real.</span>
+              <span data-i18n-html="comp.tradItem3"><strong>Tiopês excessivo:</strong> Relatórios cheios de jargões técnicos que não ajudam o dono a entender a rentabilidade real.</span>
             </li>
             <li class="flex items-start gap-3">
               <span class="text-red-500 font-bold">✕</span>
-              <span><strong>Ausência de visão global:</strong> Cuidam só do Protheus e ignoram se o servidor caiu, se a internet falha ou se o fiscal vai ser autuado.</span>
+              <span data-i18n-html="comp.tradItem4"><strong>Ausência de visão global:</strong> Cuidam só do Protheus e ignoram se o servidor caiu, se a internet falha ou se o fiscal vai ser autuado.</span>
             </li>
           </ul>
         </div>
 
         <!-- A INNOVY (Parceiro de Negócio e Tecnologia) -->
         <div class="rounded-2xl p-8 bg-gradient-to-br from-brand-900 via-brand-850 to-brand-950 text-white border-2 border-growth-500/50 shadow-2xl relative space-y-6">
-          <div class="absolute -top-3 right-6 bg-growth-500 text-slate-950 text-xs font-extrabold uppercase px-3 py-1 rounded-full shadow-md">
+          <div class="absolute -top-3 right-6 bg-growth-500 text-slate-950 text-xs font-extrabold uppercase px-3 py-1 rounded-full shadow-md" data-i18n="comp.innovyBadge">
             O Jeito INNOVY
           </div>
 
           <div class="flex items-center justify-between pb-4 border-b border-white/10">
             <div>
-              <h3 class="font-bold text-xl text-white">INNOVY: Parceiro de Negócio & Tecnologia</h3>
-              <p class="text-xs text-slate-300">Gestão integrada orientada a lucro e eficiência</p>
+              <h3 class="font-bold text-xl text-white" data-i18n="comp.innovyTitle">INNOVY: Parceiro de Negócio & Tecnologia</h3>
+              <p class="text-xs text-slate-300" data-i18n="comp.innovySub">Gestão integrada orientada a lucro e eficiência</p>
             </div>
             <span class="p-2 rounded-lg bg-growth-500/20 text-growth-400">
               <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
@@ -541,19 +572,19 @@
           <ul class="space-y-4 text-sm text-slate-200">
             <li class="flex items-start gap-3">
               <span class="text-growth-400 font-bold">✓</span>
-              <span><strong>Foco em ROI e produtividade:</strong> Buscamos a solução mais ágil e barata para que o sistema se pague e gere economia real.</span>
+              <span data-i18n-html="comp.innovyItem1"><strong>Foco em ROI e produtividade:</strong> Buscamos a solução mais ágil e barata para que o sistema se pague e gere economia real.</span>
             </li>
             <li class="flex items-start gap-3">
               <span class="text-growth-400 font-bold">✓</span>
-              <span><strong>Inteligência de Processos:</strong> Questionamos o fluxo antes de gastar com customizações: simplificar o processo antes de codificar.</span>
+              <span data-i18n-html="comp.innovyItem2"><strong>Inteligência de Processos (BPM):</strong> Questionamos o fluxo antes de gastar com customizações: simplificar o processo antes de codificar.</span>
             </li>
             <li class="flex items-start gap-3">
               <span class="text-growth-400 font-bold">✓</span>
-              <span><strong>Linguagem Executiva:</strong> Falamos sobre margem de contribuição, DRE, ruptura de estoque, produtividade e prazo de entrega.</span>
+              <span data-i18n-html="comp.innovyItem3"><strong>Linguagem Executiva:</strong> Falamos sobre margem de contribuição, DRE, ruptura de estoque, produtividade e prazo de entrega.</span>
             </li>
             <li class="flex items-start gap-3">
               <span class="text-growth-400 font-bold">✓</span>
-              <span><strong>Head de TI como Serviço:</strong> Blindamos sua operação gerenciando fornecedores de ERP, nuvem, infra e segurança.</span>
+              <span data-i18n-html="comp.innovyItem4"><strong>Head de TI como Serviço:</strong> Blindamos sua operação gerenciando fornecedores de ERP, nuvem, infra e segurança.</span>
             </li>
           </ul>
         </div>
@@ -568,105 +599,105 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <div class="text-center max-w-3xl mx-auto mb-16">
-        <span class="text-xs font-bold uppercase tracking-widest text-brand-700 bg-brand-50 px-3 py-1 rounded-full border border-brand-200">
+        <span class="text-xs font-bold uppercase tracking-widest text-brand-700 bg-brand-50 px-3 py-1 rounded-full border border-brand-200" data-i18n="pillars.badge">
           Onde Geramos Valor
         </span>
-        <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-950 mt-4 tracking-tight">
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-950 mt-4 tracking-tight" data-i18n="pillars.title">
           Nossas Frentes de Apoio e Escala
         </h2>
-        <p class="text-slate-600 mt-4 text-base sm:text-lg">
+        <p class="text-slate-600 mt-4 text-base sm:text-lg" data-i18n="pillars.subtitle">
           Atuamos em quatro frentes coordenadas para que a tecnologia seja a alavanca de crescimento da sua empresa, nunca o obstáculo.
         </p>
       </div>
 
       <div class="grid md:grid-cols-2 gap-8">
         
-        <!-- Pilar 1: Otimização Estratégica de ERP (Totvs Protheus) -->
+        <!-- Pilar 1: ERP Protheus -->
         <div class="bg-white rounded-3xl p-8 border border-slate-200/90 shadow-sm card-hover-effect">
           <div class="w-12 h-12 rounded-2xl bg-brand-50 text-brand-700 flex items-center justify-center font-bold mb-6 border border-brand-200">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
           </div>
-          <span class="text-xs font-bold uppercase text-brand-600 tracking-wider">Especialidade Central</span>
-          <h3 class="text-2xl font-bold text-slate-900 mt-1 mb-3">Gestão Estratégica de ERP Totvs Protheus</h3>
-          <p class="text-slate-600 text-sm leading-relaxed mb-6">
+          <span class="text-xs font-bold uppercase text-brand-600 tracking-wider" data-i18n="pillars.p1Badge">Especialidade Central</span>
+          <h3 class="text-2xl font-bold text-slate-900 mt-1 mb-3" data-i18n="pillars.p1Title">Gestão Estratégica de ERP Totvs Protheus</h3>
+          <p class="text-slate-600 text-sm leading-relaxed mb-6" data-i18n="pillars.p1Desc">
             O Protheus é poderoso, mas se mal configurado vira uma âncora pesada. Nós saneamos a base de dados, destravamos rotinas e alinhamos o sistema aos seus processos reais.
           </p>
           <ul class="space-y-2.5 text-sm text-slate-700">
             <li class="flex items-center gap-2">
               <span class="w-1.5 h-1.5 rounded-full bg-brand-600"></span>
-              <span>Revisão e parametrização de módulos (Compras, Estoque, Faturamento, Financeiro, Fiscal)</span>
+              <span data-i18n="pillars.p1Item1">Revisão e parametrização de módulos (Compras, Estoque, Faturamento, Financeiro, Fiscal)</span>
             </li>
             <li class="flex items-center gap-2">
               <span class="w-1.5 h-1.5 rounded-full bg-brand-600"></span>
-              <span>Eliminação de customizações desnecessárias que travam atualizações</span>
+              <span data-i18n="pillars.p1Item2">Eliminação de customizações desnecessárias que travam atualizações</span>
             </li>
             <li class="flex items-center gap-2">
               <span class="w-1.5 h-1.5 rounded-full bg-brand-600"></span>
-              <span>Apoio em migrações de versão, pacotes legais e rotinas fiscais sem surpresas</span>
+              <span data-i18n="pillars.p1Item3">Apoio em migrações de versão, pacotes legais e rotinas fiscais sem surpresas</span>
             </li>
             <li class="flex items-center gap-2">
               <span class="w-1.5 h-1.5 rounded-full bg-brand-600"></span>
-              <span>Capacitação prática dos operadores e usuários-chave da empresa</span>
+              <span data-i18n="pillars.p1Item4">Capacitação prática dos operadores e usuários-chave da empresa</span>
             </li>
           </ul>
         </div>
 
-        <!-- Pilar 2: TI Fracionado & Governança Executiva -->
+        <!-- Pilar 2: TI Fracionado -->
         <div class="bg-white rounded-3xl p-8 border border-slate-200/90 shadow-sm card-hover-effect">
           <div class="w-12 h-12 rounded-2xl bg-growth-50 text-growth-700 flex items-center justify-center font-bold mb-6 border border-growth-200">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
           </div>
-          <span class="text-xs font-bold uppercase text-growth-600 tracking-wider">Governança & Segurança</span>
-          <h3 class="text-2xl font-bold text-slate-900 mt-1 mb-3">TI como Serviço & Gestão Fracionada (Fractional CTO)</h3>
-          <p class="text-slate-600 text-sm leading-relaxed mb-6">
-            Tenha a liderança de um Diretor de Tecnologia experiente para estruturar sua empresa, sem precisar contratar um executivo de 25 a 40 mil reais por mês.
+          <span class="text-xs font-bold uppercase text-growth-600 tracking-wider" data-i18n="pillars.p2Badge">Governança & Segurança</span>
+          <h3 class="text-2xl font-bold text-slate-900 mt-1 mb-3" data-i18n="pillars.p2Title">TI como Serviço & Gestão Fracionada (Fractional CTO)</h3>
+          <p class="text-slate-600 text-sm leading-relaxed mb-6" data-i18n="pillars.p2Desc">
+            Tenha a liderança de um Diretor de Tecnologia experiente para estruturar sua empresa, sem precisar contratar um executivo de alto custo fixo.
           </p>
           <ul class="space-y-2.5 text-sm text-slate-700">
             <li class="flex items-center gap-2">
               <span class="w-1.5 h-1.5 rounded-full bg-growth-600"></span>
-              <span>Coordenação rigorosa de fornecedores externos (links, servidores, consultorias)</span>
+              <span data-i18n="pillars.p2Item1">Coordenação rigorosa de fornecedores externos (links, servidores, consultorias)</span>
             </li>
             <li class="flex items-center gap-2">
               <span class="w-1.5 h-1.5 rounded-full bg-growth-600"></span>
-              <span>Política de segurança, blindagem contra ataques e auditoria de backups diários</span>
+              <span data-i18n="pillars.p2Item2">Política de segurança, blindagem contra ataques e auditoria de backups diários</span>
             </li>
             <li class="flex items-center gap-2">
               <span class="w-1.5 h-1.5 rounded-full bg-growth-600"></span>
-              <span>Padronização de infraestrutura física e computação em nuvem</span>
+              <span data-i18n="pillars.p2Item3">Padronização de infraestrutura física e computação em nuvem</span>
             </li>
             <li class="flex items-center gap-2">
               <span class="w-1.5 h-1.5 rounded-full bg-growth-600"></span>
-              <span>Reuniões executivas mensais de alinhamento com a diretoria</span>
+              <span data-i18n="pillars.p2Item4">Reuniões executivas periódicas de alinhamento com a diretoria</span>
             </li>
           </ul>
         </div>
 
-        <!-- Pilar 3: Integração de Ecossistemas & Automação -->
+        <!-- Pilar 3: Automação & Processos -->
         <div class="bg-white rounded-3xl p-8 border border-slate-200/90 shadow-sm card-hover-effect">
           <div class="w-12 h-12 rounded-2xl bg-purple-50 text-purple-700 flex items-center justify-center font-bold mb-6 border border-purple-200">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/></svg>
           </div>
-          <span class="text-xs font-bold uppercase text-purple-600 tracking-wider">Produtividade Máxima</span>
-          <h3 class="text-2xl font-bold text-slate-900 mt-1 mb-3">Automação de Processos & Integrações</h3>
-          <p class="text-slate-600 text-sm leading-relaxed mb-6">
-            Elimine a digitação duplicada entre setores. Conectamos seu ERP a canais de vendas, bancos, transportadoras, CRMs e plataformas de e-commerce.
+          <span class="text-xs font-bold uppercase text-purple-600 tracking-wider" data-i18n="pillars.p3Badge">Produtividade Máxima</span>
+          <h3 class="text-2xl font-bold text-slate-900 mt-1 mb-3" data-i18n="pillars.p3Title">Automação de Processos & Integrações</h3>
+          <p class="text-slate-600 text-sm leading-relaxed mb-6" data-i18n="pillars.p3Desc">
+            Elimine a digitação duplicada entre setores. Conectamos seu ERP a canais de vendas, bancos, transportadoras, CRMs e plataformas digitais.
           </p>
           <ul class="space-y-2.5 text-sm text-slate-700">
             <li class="flex items-center gap-2">
               <span class="w-1.5 h-1.5 rounded-full bg-purple-600"></span>
-              <span>Integração de APIs entre ERP e sistemas de terceiros</span>
+              <span data-i18n="pillars.p3Item1">Integração de APIs entre ERP e sistemas de terceiros</span>
             </li>
             <li class="flex items-center gap-2">
               <span class="w-1.5 h-1.5 rounded-full bg-purple-600"></span>
-              <span>Conciliação financeira e bancária automatizada sem conferência manual</span>
+              <span data-i18n="pillars.p3Item2">Conciliação financeira e bancária automatizada sem conferência manual</span>
             </li>
             <li class="flex items-center gap-2">
               <span class="w-1.5 h-1.5 rounded-full bg-purple-600"></span>
-              <span>Rastreabilidade de pedidos da fábrica até a entrega ao cliente</span>
+              <span data-i18n="pillars.p3Item3">Rastreabilidade de pedidos da fábrica até a entrega ao cliente</span>
             </li>
             <li class="flex items-center gap-2">
               <span class="w-1.5 h-1.5 rounded-full bg-purple-600"></span>
-              <span>Alertas automáticos de inconsistências fiscais e rupturas de estoque</span>
+              <span data-i18n="pillars.p3Item4">Alertas automáticos de inconsistências fiscais e rupturas de estoque</span>
             </li>
           </ul>
         </div>
@@ -676,27 +707,27 @@
           <div class="w-12 h-12 rounded-2xl bg-blue-50 text-blue-700 flex items-center justify-center font-bold mb-6 border border-blue-200">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
           </div>
-          <span class="text-xs font-bold uppercase text-blue-600 tracking-wider">Tomada de Decisão</span>
-          <h3 class="text-2xl font-bold text-slate-900 mt-1 mb-3">Dashboards & Relatórios Gerenciais Confiáveis</h3>
-          <p class="text-slate-600 text-sm leading-relaxed mb-6">
-            Tenha os números vitais da sua empresa na tela do seu computador ou celular, sem precisar pedir planilhas para a equipe toda semana.
+          <span class="text-xs font-bold uppercase text-blue-600 tracking-wider" data-i18n="pillars.p4Badge">Tomada de Decisão</span>
+          <h3 class="text-2xl font-bold text-slate-900 mt-1 mb-3" data-i18n="pillars.p4Title">Dashboards & Relatórios Gerenciais Confiáveis</h3>
+          <p class="text-slate-600 text-sm leading-relaxed mb-6" data-i18n="pillars.p4Desc">
+            Tenha os números vitais da sua empresa na tela do seu computador ou celular, sem depender de planilhas manuais da equipe.
           </p>
           <ul class="space-y-2.5 text-sm text-slate-700">
             <li class="flex items-center gap-2">
               <span class="w-1.5 h-1.5 rounded-full bg-blue-600"></span>
-              <span>Visão executiva de DRE gerencial, margens brutas e ponto de equilíbrio</span>
+              <span data-i18n="pillars.p4Item1">Visão executiva de DRE gerencial, margens brutas e ponto de equilíbrio</span>
             </li>
             <li class="flex items-center gap-2">
               <span class="w-1.5 h-1.5 rounded-full bg-blue-600"></span>
-              <span>Curva ABC de clientes, faturamento por vendedor e produtos mais rentáveis</span>
+              <span data-i18n="pillars.p4Item2">Curva ABC de clientes, faturamento por vendedor e produtos mais rentáveis</span>
             </li>
             <li class="flex items-center gap-2">
               <span class="w-1.5 h-1.5 rounded-full bg-blue-600"></span>
-              <span>Indicadores de giro de estoque, compras em excesso e capital parado</span>
+              <span data-i18n="pillars.p4Item3">Indicadores de giro de estoque, compras em excesso e capital parado</span>
             </li>
             <li class="flex items-center gap-2">
               <span class="w-1.5 h-1.5 rounded-full bg-blue-600"></span>
-              <span>Dados extraídos diretamente da fonte, sem manipulação manual</span>
+              <span data-i18n="pillars.p4Item4">Dados extraídos diretamente da fonte, sem manipulação manual</span>
             </li>
           </ul>
         </div>
@@ -711,13 +742,13 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <div class="text-center max-w-3xl mx-auto mb-16">
-        <span class="text-xs font-bold uppercase tracking-widest text-brand-700 bg-brand-50 px-3 py-1 rounded-full border border-brand-200">
+        <span class="text-xs font-bold uppercase tracking-widest text-brand-700 bg-brand-50 px-3 py-1 rounded-full border border-brand-200" data-i18n="method.badge">
           Metodologia Sem Fricção
         </span>
-        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-4 tracking-tight">
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-4 tracking-tight" data-i18n="method.title">
           Como transformamos a tecnologia da sua empresa em 4 passos
         </h2>
-        <p class="text-slate-600 mt-4 text-base sm:text-lg">
+        <p class="text-slate-600 mt-4 text-base sm:text-lg" data-i18n="method.subtitle">
           Sem diagnósticos intermináveis que nunca saem do papel. Entregamos clareza e resultados táticos rápidos.
         </p>
       </div>
@@ -729,8 +760,8 @@
           <div class="w-10 h-10 rounded-xl bg-brand-700 text-white font-extrabold flex items-center justify-center text-lg mb-4 shadow-md">
             1
           </div>
-          <h3 class="text-lg font-bold text-slate-900 mb-2">Diagnóstico Inicial (30 min)</h3>
-          <p class="text-slate-600 text-sm leading-relaxed">
+          <h3 class="text-lg font-bold text-slate-900 mb-2" data-i18n="method.step1Title">Diagnóstico Inicial (30 min)</h3>
+          <p class="text-slate-600 text-sm leading-relaxed" data-i18n="method.step1Desc">
             Uma conversa objetiva com a diretoria para mapear os 3 principais gargalos operacionais e sistêmicos que estão drenando tempo e dinheiro.
           </p>
         </div>
@@ -740,8 +771,8 @@
           <div class="w-10 h-10 rounded-xl bg-brand-600 text-white font-extrabold flex items-center justify-center text-lg mb-4 shadow-md">
             2
           </div>
-          <h3 class="text-lg font-bold text-slate-900 mb-2">Plano Tático & Quick Wins</h3>
-          <p class="text-slate-600 text-sm leading-relaxed">
+          <h3 class="text-lg font-bold text-slate-900 mb-2" data-i18n="method.step2Title">Plano Tático & Quick Wins</h3>
+          <p class="text-slate-600 text-sm leading-relaxed" data-i18n="method.step2Desc">
             Apresentamos um roteiro prioritário: vitórias rápidas para estancar erros imediatos e o plano de estruturação definitivo para o ERP.
           </p>
         </div>
@@ -751,8 +782,8 @@
           <div class="w-10 h-10 rounded-xl bg-growth-600 text-white font-extrabold flex items-center justify-center text-lg mb-4 shadow-md">
             3
           </div>
-          <h3 class="text-lg font-bold text-slate-900 mb-2">Execução & Alinhamento</h3>
-          <p class="text-slate-600 text-sm leading-relaxed">
+          <h3 class="text-lg font-bold text-slate-900 mb-2" data-i18n="method.step3Title">Execução & Alinhamento</h3>
+          <p class="text-slate-600 text-sm leading-relaxed" data-i18n="method.step3Desc">
             Mão na massa técnica no sistema, alinhamento com usuários-chave e simplificação de processos para que a equipe realmente utilize a solução.
           </p>
         </div>
@@ -762,8 +793,8 @@
           <div class="w-10 h-10 rounded-xl bg-slate-900 text-white font-extrabold flex items-center justify-center text-lg mb-4 shadow-md">
             4
           </div>
-          <h3 class="text-lg font-bold text-slate-900 mb-2">Acompanhamento & Escala</h3>
-          <p class="text-slate-600 text-sm leading-relaxed">
+          <h3 class="text-lg font-bold text-slate-900 mb-2" data-i18n="method.step4Title">Acompanhamento & Escala</h3>
+          <p class="text-slate-600 text-sm leading-relaxed" data-i18n="method.step4Desc">
             Atuação contínua como braço direito tecnológico, garantindo que o crescimento da empresa ocorra sem gargalos e com segurança.
           </p>
         </div>
@@ -771,10 +802,8 @@
       </div>
 
       <div class="mt-12 text-center">
-        <a href="https://wa.me/5511961787709?text=Ol%C3%A1%20Rodrigo!%20Gostaria%20de%20iniciar%20pelo%20Passo%201:%20Diagn%C3%B3stico%20Inicial%20sem%20custo." 
-           target="_blank"
-           class="inline-flex items-center gap-3 px-8 py-4 rounded-xl font-bold text-white bg-gradient-to-r from-brand-700 to-growth-600 hover:from-brand-800 hover:to-growth-500 shadow-xl transition">
-          <span>Começar pelo Passo 1: Diagnóstico Gratuito</span>
+        <a id="methodCtaBtn" href="https://wa.me/5511961787709" target="_blank" class="inline-flex items-center gap-3 px-8 py-4 rounded-xl font-bold text-white bg-gradient-to-r from-brand-700 to-growth-600 hover:from-brand-800 hover:to-growth-500 shadow-xl transition">
+          <span data-i18n="method.cta">Começar pelo Passo 1: Diagnóstico Gratuito</span>
           <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
         </a>
       </div>
@@ -797,7 +826,7 @@
                    alt="Rodrigo Martins - Especialista em Negócio e Tecnologia INNOVY" 
                    class="relative rounded-2xl w-full h-auto object-cover shadow-2xl border-4 border-white">
               
-              <div class="absolute -bottom-4 right-4 bg-brand-950 text-white px-4 py-2 rounded-xl text-xs font-bold shadow-lg border border-white/20">
+              <div class="absolute -bottom-4 right-4 bg-brand-950 text-white px-4 py-2 rounded-xl text-xs font-bold shadow-lg border border-white/20" data-i18n="expert.seal">
                 Especialista Sênior TOTVS
               </div>
             </div>
@@ -805,22 +834,22 @@
 
           <!-- Mini Bio Executiva -->
           <div class="lg:col-span-7 space-y-6">
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-50 text-brand-700 text-xs font-bold border border-brand-200">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-50 text-brand-700 text-xs font-bold border border-brand-200" data-i18n="expert.badge">
               Liderança & Compromisso Direto
             </div>
             
-            <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight" data-i18n="expert.quote">
               "Na INNOVY, você não fala com estagiários ou atendentes. Fala diretamente com quem entende e resolve."
             </h2>
 
             <div class="space-y-4 text-slate-600 text-base leading-relaxed">
-              <p>
+              <p data-i18n-html="expert.p1">
                 Meu nome é <strong>Rodrigo Martins da Silva</strong>, fundador da INNOVY. Ao longo de mais de 15 anos no ecossistema de gestão empresarial e ERPs (especialmente TOTVS Protheus), vi centenas de empresários frustrados por terem investido fortunas em tecnologia sem receber o retorno esperado.
               </p>
-              <p>
+              <p data-i18n="expert.p2">
                 A razão é simples: consultorias tradicionais olham apenas para linhas de código e horas faturadas. Elas não conhecem a dor de fechar a folha, de ter um caminhão parado por nota fiscal travada ou de tomar uma decisão de compra sem saber o estoque real.
               </p>
-              <p>
+              <p data-i18n-html="expert.p3">
                 Criei a INNOVY para ser o <strong>parceiro de negócio e tecnologia</strong> que eu sempre achei que as PMEs mereciam: alguém que senta à mesa da diretoria para discutir estratégia, e depois assume a rédea técnica para garantir que os sistemas trabalhem para a empresa lucrar e crescer com tranquilidade.
               </p>
             </div>
@@ -829,14 +858,12 @@
             <div class="pt-4 border-t border-slate-200 flex flex-wrap items-center justify-between gap-4">
               <div>
                 <h4 class="font-bold text-slate-900 text-lg">Rodrigo Martins da Silva</h4>
-                <p class="text-xs text-slate-500 font-medium">Fundador & Diretor de Tecnologia e Processos</p>
+                <p class="text-xs text-slate-500 font-medium" data-i18n="expert.role">Fundador & Diretor de Tecnologia e Processos</p>
                 <p class="text-xs text-brand-700 font-semibold mt-0.5">rodrigo.martins@innovy.com.br</p>
               </div>
               
-              <a href="https://wa.me/5511961787709?text=Ol%C3%A1%20Rodrigo!%20Li%20seu%20recado%20no%20site%20e%20gostaria%20de%20bater%20um%20papo%20sobre%20minha%20empresa." 
-                 target="_blank"
-                 class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-sm text-slate-800 bg-slate-100 hover:bg-slate-200 border border-slate-300 transition">
-                <span>Conversar com o Rodrigo</span>
+              <a id="expertWhatsappBtn" href="https://wa.me/5511961787709" target="_blank" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-sm text-slate-800 bg-slate-100 hover:bg-slate-200 border border-slate-300 transition">
+                <span data-i18n="expert.cta">Conversar com o Rodrigo</span>
                 <svg class="w-4 h-4 text-growth-600" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.299.144.347.491 1.2.534 1.288.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.2.662.589 1.221.771 1.394.858.173.086.275.072.376-.043.101-.116.433-.506.549-.68.116-.173.231-.144.39-.086s1.011.477 1.184.564.289.13.332.202c.043.073.043.419-.101.824z"/></svg>
               </a>
             </div>
@@ -854,13 +881,13 @@
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <div class="text-center mb-12">
-        <span class="text-xs font-bold uppercase tracking-widest text-growth-600 bg-growth-50 px-3 py-1 rounded-full border border-growth-200">
+        <span class="text-xs font-bold uppercase tracking-widest text-growth-600 bg-growth-50 px-3 py-1 rounded-full border border-growth-200" data-i18n="quiz.badge">
           Autoavaliação Rápida (1 Minuto)
         </span>
-        <h2 class="text-3xl font-extrabold text-slate-900 mt-4 tracking-tight">
+        <h2 class="text-3xl font-extrabold text-slate-900 mt-4 tracking-tight" data-i18n="quiz.title">
           Qual é o principal gargalo tecnológico da sua empresa hoje?
         </h2>
-        <p class="text-slate-600 mt-2 text-sm sm:text-base">
+        <p class="text-slate-600 mt-2 text-sm sm:text-base" data-i18n="quiz.subtitle">
           Selecione suas respostas abaixo para receber uma orientação direta e personalizada.
         </p>
       </div>
@@ -869,17 +896,17 @@
         
         <!-- Pergunta 1 -->
         <div class="mb-8">
-          <label class="block text-sm font-bold text-slate-800 mb-3">
+          <label class="block text-sm font-bold text-slate-800 mb-3" data-i18n="quiz.q1">
             1. Qual o tamanho aproximado da sua equipe?
           </label>
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
-            <button type="button" class="quiz-btn-team text-left p-3.5 rounded-xl border border-slate-300 bg-white hover:border-brand-600 hover:bg-brand-50 text-sm font-medium transition" onclick="selectQuiz('team', 'Até 25 colaboradores', this)">
+            <button type="button" class="quiz-btn-team text-left p-3.5 rounded-xl border border-slate-300 bg-white hover:border-brand-600 hover:bg-brand-50 text-sm font-medium transition" onclick="selectQuiz('team', 'Até 25 colaboradores', this)" data-i18n="quiz.q1Opt1">
               👥 Até 25 colaboradores
             </button>
-            <button type="button" class="quiz-btn-team text-left p-3.5 rounded-xl border border-slate-300 bg-white hover:border-brand-600 hover:bg-brand-50 text-sm font-medium transition" onclick="selectQuiz('team', '25 a 100 colaboradores', this)">
+            <button type="button" class="quiz-btn-team text-left p-3.5 rounded-xl border border-slate-300 bg-white hover:border-brand-600 hover:bg-brand-50 text-sm font-medium transition" onclick="selectQuiz('team', '25 a 100 colaboradores', this)" data-i18n="quiz.q1Opt2">
               🏢 25 a 100 colaboradores
             </button>
-            <button type="button" class="quiz-btn-team text-left p-3.5 rounded-xl border border-slate-300 bg-white hover:border-brand-600 hover:bg-brand-50 text-sm font-medium transition" onclick="selectQuiz('team', 'Mais de 100 colaboradores', this)">
+            <button type="button" class="quiz-btn-team text-left p-3.5 rounded-xl border border-slate-300 bg-white hover:border-brand-600 hover:bg-brand-50 text-sm font-medium transition" onclick="selectQuiz('team', 'Mais de 100 colaboradores', this)" data-i18n="quiz.q1Opt3">
               🏭 Mais de 100 colaboradores
             </button>
           </div>
@@ -887,20 +914,20 @@
 
         <!-- Pergunta 2 -->
         <div class="mb-8">
-          <label class="block text-sm font-bold text-slate-800 mb-3">
+          <label class="block text-sm font-bold text-slate-800 mb-3" data-i18n="quiz.q2">
             2. Como está o seu sistema ERP atualmente?
           </label>
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            <button type="button" class="quiz-btn-erp text-left p-3.5 rounded-xl border border-slate-300 bg-white hover:border-brand-600 hover:bg-brand-50 text-sm font-medium transition" onclick="selectQuiz('erp', 'Temos Protheus, mas está travando ou mal aproveitado', this)">
+            <button type="button" class="quiz-btn-erp text-left p-3.5 rounded-xl border border-slate-300 bg-white hover:border-brand-600 hover:bg-brand-50 text-sm font-medium transition" onclick="selectQuiz('erp', 'Temos Protheus, mas está travando ou mal aproveitado', this)" data-i18n="quiz.q2Opt1">
               ⚠️ Temos Protheus, mas está mal aproveitado
             </button>
-            <button type="button" class="quiz-btn-erp text-left p-3.5 rounded-xl border border-slate-300 bg-white hover:border-brand-600 hover:bg-brand-50 text-sm font-medium transition" onclick="selectQuiz('erp', 'Temos outro ERP e precisamos de integração/gestão', this)">
+            <button type="button" class="quiz-btn-erp text-left p-3.5 rounded-xl border border-slate-300 bg-white hover:border-brand-600 hover:bg-brand-50 text-sm font-medium transition" onclick="selectQuiz('erp', 'Temos outro ERP e precisamos de integração/gestão', this)" data-i18n="quiz.q2Opt2">
               🔄 Temos outro ERP e precisamos de integração
             </button>
-            <button type="button" class="quiz-btn-erp text-left p-3.5 rounded-xl border border-slate-300 bg-white hover:border-brand-600 hover:bg-brand-50 text-sm font-medium transition" onclick="selectQuiz('erp', 'Muitas planilhas manuais e falta de controle', this)">
+            <button type="button" class="quiz-btn-erp text-left p-3.5 rounded-xl border border-slate-300 bg-white hover:border-brand-600 hover:bg-brand-50 text-sm font-medium transition" onclick="selectQuiz('erp', 'Muitas planilhas manuais e falta de controle', this)" data-i18n="quiz.q2Opt3">
               📊 Muitas planilhas manuais e falta de controle
             </button>
-            <button type="button" class="quiz-btn-erp text-left p-3.5 rounded-xl border border-slate-300 bg-white hover:border-brand-600 hover:bg-brand-50 text-sm font-medium transition" onclick="selectQuiz('erp', 'Não temos TI interno e precisamos de direcionamento', this)">
+            <button type="button" class="quiz-btn-erp text-left p-3.5 rounded-xl border border-slate-300 bg-white hover:border-brand-600 hover:bg-brand-50 text-sm font-medium transition" onclick="selectQuiz('erp', 'Não temos TI interno e precisamos de direcionamento', this)" data-i18n="quiz.q2Opt4">
               🛡️ Não temos TI interno e precisamos de liderança
             </button>
           </div>
@@ -908,17 +935,17 @@
 
         <!-- Pergunta 3 -->
         <div class="mb-8">
-          <label class="block text-sm font-bold text-slate-800 mb-3">
+          <label class="block text-sm font-bold text-slate-800 mb-3" data-i18n="quiz.q3">
             3. Qual o principal objetivo nos próximos 6 meses?
           </label>
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
-            <button type="button" class="quiz-btn-goal text-left p-3.5 rounded-xl border border-slate-300 bg-white hover:border-brand-600 hover:bg-brand-50 text-sm font-medium transition" onclick="selectQuiz('goal', 'Cortar custos e retrabalho operacional', this)">
+            <button type="button" class="quiz-btn-goal text-left p-3.5 rounded-xl border border-slate-300 bg-white hover:border-brand-600 hover:bg-brand-50 text-sm font-medium transition" onclick="selectQuiz('goal', 'Cortar custos e retrabalho operacional', this)" data-i18n="quiz.q3Opt1">
               📉 Cortar custos e retrabalho
             </button>
-            <button type="button" class="quiz-btn-goal text-left p-3.5 rounded-xl border border-slate-300 bg-white hover:border-brand-600 hover:bg-brand-50 text-sm font-medium transition" onclick="selectQuiz('goal', 'Ter relatórios confiáveis para diretoria', this)">
+            <button type="button" class="quiz-btn-goal text-left p-3.5 rounded-xl border border-slate-300 bg-white hover:border-brand-600 hover:bg-brand-50 text-sm font-medium transition" onclick="selectQuiz('goal', 'Ter relatórios confiáveis para diretoria', this)" data-i18n="quiz.q3Opt2">
               📈 Ter relatórios confiáveis (DRE/BI)
             </button>
-            <button type="button" class="quiz-btn-goal text-left p-3.5 rounded-xl border border-slate-300 bg-white hover:border-brand-600 hover:bg-brand-50 text-sm font-medium transition" onclick="selectQuiz('goal', 'Escalar as operações com segurança', this)">
+            <button type="button" class="quiz-btn-goal text-left p-3.5 rounded-xl border border-slate-300 bg-white hover:border-brand-600 hover:bg-brand-50 text-sm font-medium transition" onclick="selectQuiz('goal', 'Escalar as operações com segurança', this)" data-i18n="quiz.q3Opt3">
               🚀 Escalar operações com segurança
             </button>
           </div>
@@ -930,10 +957,10 @@
                   type="button" 
                   onclick="submitQuizWhatsApp()"
                   class="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl font-bold text-base text-white bg-gradient-to-r from-brand-700 to-growth-600 hover:from-brand-800 hover:to-growth-500 shadow-lg transition">
-            <span>Enviar Respostas para o Rodrigo no WhatsApp</span>
+            <span data-i18n="quiz.submitBtn">Enviar Respostas para o Rodrigo no WhatsApp</span>
             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.299.144.347.491 1.2.534 1.288.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.2.662.589 1.221.771 1.394.858.173.086.275.072.376-.043.101-.116.433-.506.549-.68.116-.173.231-.144.39-.086s1.011.477 1.184.564.289.13.332.202c.043.073.043.419-.101.824z"/></svg>
           </button>
-          <p class="text-xs text-slate-500 mt-2">
+          <p class="text-xs text-slate-500 mt-2" data-i18n="quiz.footerNote">
             Resposta rápida e direta. Sem robôs, você falará diretamente com o especialista.
           </p>
         </div>
@@ -948,13 +975,13 @@
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <div class="text-center mb-16">
-        <span class="text-xs font-bold uppercase tracking-widest text-brand-700 bg-brand-50 px-3 py-1 rounded-full border border-brand-200">
+        <span class="text-xs font-bold uppercase tracking-widest text-brand-700 bg-brand-50 px-3 py-1 rounded-full border border-brand-200" data-i18n="faq.badge">
           Perguntas Frequentes
         </span>
-        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-4 tracking-tight">
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-4 tracking-tight" data-i18n="faq.title">
           Tire suas dúvidas antes de dar o próximo passo
         </h2>
-        <p class="text-slate-600 mt-4 text-base">
+        <p class="text-slate-600 mt-4 text-base" data-i18n="faq.subtitle">
           Transparência total sobre como atuamos no dia a dia da sua empresa.
         </p>
       </div>
@@ -964,10 +991,10 @@
         <!-- FAQ 1 -->
         <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden">
           <button type="button" class="w-full px-6 py-4 text-left font-bold text-slate-800 flex justify-between items-center gap-4 hover:bg-slate-50 transition" onclick="toggleFaq(this)">
-            <span>Minha empresa já tem uma consultoria técnica contratada. Vocês entram para substituir?</span>
+            <span data-i18n="faq.q1">Minha empresa já tem uma consultoria técnica contratada. Vocês entram para substituir?</span>
             <span class="faq-icon text-brand-600 font-extrabold text-xl">+</span>
           </button>
-          <div class="faq-content hidden px-6 pb-5 text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-3">
+          <div class="faq-content hidden px-6 pb-5 text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-3" data-i18n-html="faq.a1">
             Não necessariamente. Muitas vezes atuamos como o <strong>Head de Tecnologia & Negócios da sua empresa</strong>, auditando o que a consultoria atual entrega, cobrando prazos e evitando que você pague horas por soluções ineficientes. Se você já tem técnicos, nós damos a direção estratégica. Se não tem, assumimos a execução completa.
           </div>
         </div>
@@ -975,10 +1002,10 @@
         <!-- FAQ 2 -->
         <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden">
           <button type="button" class="w-full px-6 py-4 text-left font-bold text-slate-800 flex justify-between items-center gap-4 hover:bg-slate-50 transition" onclick="toggleFaq(this)">
-            <span>Precisamos trocar de ERP para ter processos organizados?</span>
+            <span data-i18n="faq.q2">Precisamos trocar de ERP para ter processos organizados?</span>
             <span class="faq-icon text-brand-600 font-extrabold text-xl">+</span>
           </button>
-          <div class="faq-content hidden px-6 pb-5 text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-3">
+          <div class="faq-content hidden px-6 pb-5 text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-3" data-i18n-html="faq.a2">
             Em 90% dos casos, <strong>não</strong>. O problema quase nunca é o software em si, mas sim como ele foi parametrizado e a falta de aderência aos processos reais da equipe. Trocar de ERP custa caro e gera caos. Nosso primeiro foco é sempre otimizar e destravar o investimento que você já fez.
           </div>
         </div>
@@ -986,10 +1013,10 @@
         <!-- FAQ 3 -->
         <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden">
           <button type="button" class="w-full px-6 py-4 text-left font-bold text-slate-800 flex justify-between items-center gap-4 hover:bg-slate-50 transition" onclick="toggleFaq(this)">
-            <span>Não temos ninguém de TI dentro da empresa. Como funciona?</span>
+            <span data-i18n="faq.q3">Não temos ninguém de TI dentro da empresa. Como funciona?</span>
             <span class="faq-icon text-brand-600 font-extrabold text-xl">+</span>
           </button>
-          <div class="faq-content hidden px-6 pb-5 text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-3">
+          <div class="faq-content hidden px-6 pb-5 text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-3" data-i18n="faq.a3">
             Esse é exatamente o perfil que mais atendemos. Assumimos o papel de departamento externo de TI e Processos. Cuidamos do ERP, coordenamos suporte a usuários, garantimos que servidores e backups funcionem e representamos sua empresa diante de qualquer fornecedor de tecnologia.
           </div>
         </div>
@@ -997,21 +1024,21 @@
         <!-- FAQ 4 -->
         <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden">
           <button type="button" class="w-full px-6 py-4 text-left font-bold text-slate-800 flex justify-between items-center gap-4 hover:bg-slate-50 transition" onclick="toggleFaq(this)">
-            <span>O atendimento é remoto ou presencial?</span>
+            <span data-i18n="faq.q4">O atendimento é remoto ou presencial?</span>
             <span class="faq-icon text-brand-600 font-extrabold text-xl">+</span>
           </button>
-          <div class="faq-content hidden px-6 pb-5 text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-3">
-            Atuamos em modelo híbrido. A grande maioria das otimizações e alinhamentos é feita de forma remota com agilidade total, com visitas presenciais estratégicas em São Paulo e região metropolitana para imersões de chão de fábrica, auditorias de processo e alinhamento de diretoria.
+          <div class="faq-content hidden px-6 pb-5 text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-3" data-i18n="faq.a4">
+            Atuamos em modelo híbrido. A grande maioria das otimizações e alinhamentos é feita de forma remota com agilidade total, com visitas presenciais estratégicas em São Paulo e região metropolitana para imersões de chão de fábrica, auditorias de processo e alinhamento de diretoria. Para clientes internacionais, atuamos 100% de forma remota com alinhamento contínuo.
           </div>
         </div>
 
         <!-- FAQ 5 -->
         <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden">
           <button type="button" class="w-full px-6 py-4 text-left font-bold text-slate-800 flex justify-between items-center gap-4 hover:bg-slate-50 transition" onclick="toggleFaq(this)">
-            <span>Como funciona o Diagnóstico Estratégico Gratuito de 30 minutos?</span>
+            <span data-i18n="faq.q5">Como funciona o Diagnóstico Estratégico Gratuito de 30 minutos?</span>
             <span class="faq-icon text-brand-600 font-extrabold text-xl">+</span>
           </button>
-          <div class="faq-content hidden px-6 pb-5 text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-3">
+          <div class="faq-content hidden px-6 pb-5 text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-3" data-i18n="faq.a5">
             É uma reunião direta entre você e o Rodrigo Martins via Google Meet ou Teams. Você nos conta a dinâmica da sua empresa e os principais entraves com sistema e processos. Nós apontamos na hora onde estão os riscos e possíveis caminhos de solução. Sem compromisso e sem termos técnicos complexos.
           </div>
         </div>
@@ -1027,35 +1054,32 @@
     
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center space-y-8">
       
-      <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-growth-500/20 text-growth-400 border border-growth-500/30 text-xs sm:text-sm font-semibold">
+      <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-growth-500/20 text-growth-400 border border-growth-500/30 text-xs sm:text-sm font-semibold" data-i18n="ctaFinal.badge">
         Dê o próximo passo com segurança
       </span>
 
-      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight max-w-3xl mx-auto leading-tight">
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight max-w-3xl mx-auto leading-tight" data-i18n="ctaFinal.title">
         Pronto para transformar sua tecnologia em uma alavanca de lucro e escala?
       </h2>
 
-      <p class="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
+      <p class="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed" data-i18n="ctaFinal.subtitle">
         Agende uma conversa estratégica de 30 minutos sem nenhum custo. Vamos analisar sua operação atual e mostrar como destravar seu ERP e sua gestão.
       </p>
 
       <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
-        <a href="https://wa.me/5511961787709?text=Ol%C3%A1%20Rodrigo!%20Quero%20agendar%20o%20Diagn%C3%B3stico%20Estrat%C3%A9gico%20de%20TI%20e%20Processos%20(30%20min)%20para%20minha%20empresa." 
-           target="_blank"
-           class="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl font-bold text-base text-slate-950 bg-growth-400 hover:bg-growth-300 shadow-2xl shadow-growth-500/30 transition transform hover:-translate-y-0.5">
-          <span>Agendar Diagnóstico Gratuito no WhatsApp</span>
+        <a id="footerPrimaryCta" href="https://wa.me/5511961787709" target="_blank" class="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl font-bold text-base text-slate-950 bg-growth-400 hover:bg-growth-300 shadow-2xl shadow-growth-500/30 transition transform hover:-translate-y-0.5">
+          <span data-i18n="ctaFinal.whatsappBtn">Agendar Diagnóstico Gratuito no WhatsApp</span>
           <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.299.144.347.491 1.2.534 1.288.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.2.662.589 1.221.771 1.394.858.173.086.275.072.376-.043.101-.116.433-.506.549-.68.116-.173.231-.144.39-.086s1.011.477 1.184.564.289.13.332.202c.043.073.043.419-.101.824z"/></svg>
         </a>
         
-        <a href="mailto:rodrigo.martins@innovy.com.br?subject=Diagnostico%20Estrategico%20INNOVY" 
-           class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl font-semibold text-sm text-white bg-white/10 hover:bg-white/15 border border-white/20 transition">
+        <a id="footerEmailBtn" href="mailto:rodrigo.martins@innovy.com.br" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl font-semibold text-sm text-white bg-white/10 hover:bg-white/15 border border-white/20 transition">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-          <span>Prefiro Enviar E-mail</span>
+          <span data-i18n="ctaFinal.emailBtn">Prefiro Enviar E-mail</span>
         </a>
       </div>
 
       <div class="pt-6 text-xs text-slate-400">
-        Direto no WhatsApp: <strong>(11) 96178-7709</strong> &nbsp;|&nbsp; E-mail: <strong>rodrigo.martins@innovy.com.br</strong>
+        WhatsApp: <strong>(11) 96178-7709</strong> &nbsp;|&nbsp; E-mail: <strong>rodrigo.martins@innovy.com.br</strong>
       </div>
 
     </div>
@@ -1073,30 +1097,30 @@
             <img src="assets/logo-rms-innovy.png" alt="RMS INNOVY" class="h-10 w-auto object-contain">
             <span class="font-extrabold text-lg text-white tracking-tight">INNOVY</span>
           </div>
-          <p class="text-slate-400 text-xs leading-relaxed max-w-md">
+          <p class="text-slate-400 text-xs leading-relaxed max-w-md" data-i18n="footer.about">
             RMS Serviços Especializados em Tecnologia | INNOVY.<br>
             Apoiando pequenas e médias empresas a conectar negócios, processos e sistemas ERP para crescer com segurança e governança.
           </p>
-          <div class="text-[11px] text-slate-500">
-            São Paulo - SP | Atendimento em todo o Brasil
+          <div class="text-[11px] text-slate-500" data-i18n="footer.location">
+            São Paulo - SP | Atendimento em todo o Brasil e Operações Internacionais
           </div>
         </div>
 
         <!-- Coluna 2: Navegação Rápida -->
         <div>
-          <h4 class="font-bold text-white uppercase text-xs tracking-wider mb-3">Navegação</h4>
+          <h4 class="font-bold text-white uppercase text-xs tracking-wider mb-3" data-i18n="footer.navTitle">Navegação</h4>
           <ul class="space-y-2">
-            <li><a href="#por-que-innovy" class="hover:text-white transition">Por que a INNOVY</a></li>
-            <li><a href="#pilares" class="hover:text-white transition">Nossos Pilares de Atuação</a></li>
-            <li><a href="#metodologia" class="hover:text-white transition">Metodologia em 4 Passos</a></li>
-            <li><a href="#especialista" class="hover:text-white transition">Sobre Rodrigo Martins</a></li>
-            <li><a href="#faq" class="hover:text-white transition">Perguntas Frequentes</a></li>
+            <li><a href="#por-que-innovy" class="hover:text-white transition" data-i18n="nav.why">Por que a INNOVY</a></li>
+            <li><a href="#pilares" class="hover:text-white transition" data-i18n="nav.services">Nossos Pilares de Atuação</a></li>
+            <li><a href="#metodologia" class="hover:text-white transition" data-i18n="nav.methodology">Metodologia em 4 Passos</a></li>
+            <li><a href="#especialista" class="hover:text-white transition" data-i18n="nav.expert">Sobre Rodrigo Martins</a></li>
+            <li><a href="#faq" class="hover:text-white transition" data-i18n="nav.faq">Perguntas Frequentes</a></li>
           </ul>
         </div>
 
         <!-- Coluna 3: Contato & Suporte -->
         <div>
-          <h4 class="font-bold text-white uppercase text-xs tracking-wider mb-3">Contato & Suporte</h4>
+          <h4 class="font-bold text-white uppercase text-xs tracking-wider mb-3" data-i18n="footer.contactTitle">Contato & Suporte</h4>
           <ul class="space-y-2">
             <li>
               <a href="https://wa.me/5511961787709" target="_blank" class="hover:text-white transition flex items-center gap-1.5">
@@ -1115,7 +1139,7 @@
             </li>
             <li class="pt-2">
               <a href="https://innovy.freshdesk.com/support/home" target="_blank" class="inline-flex items-center gap-1 text-slate-400 hover:text-white underline">
-                <span>Portal de Chamados (Clientes)</span>
+                <span data-i18n="footer.tickets">Portal de Chamados (Clientes)</span>
                 <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
               </a>
             </li>
@@ -1126,12 +1150,12 @@
 
       <div class="pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left text-slate-500 text-[11px]">
         <div>
-          &copy; 2026 INNOVY - RMS Tecnologia Integrada e Gestão de Processos. Todos os direitos reservados.
+          &copy; 2026 INNOVY - RMS Tecnologia Integrada e Gestão de Processos. <span data-i18n="footer.rights">Todos os direitos reservados.</span>
         </div>
         <div class="flex items-center gap-4">
-          <a href="#" class="hover:text-slate-400 transition">Termos de Uso</a>
+          <a href="#" class="hover:text-slate-400 transition" data-i18n="footer.terms">Termos de Uso</a>
           <span>•</span>
-          <a href="#" class="hover:text-slate-400 transition">Privacidade</a>
+          <a href="#" class="hover:text-slate-400 transition" data-i18n="footer.privacy">Privacidade</a>
           <span>•</span>
           <span>TOTVS® e Protheus® são marcas registradas de seus respectivos detentores.</span>
         </div>
@@ -1140,26 +1164,675 @@
     </div>
   </footer>
 
-  <!-- ================= JAVASCRIPT DINÂMICO & INTERATIVIDADE ================= -->
+  <!-- ================= MOTOR I18N (PORTUGUÊS / INGLÊS / ESPANHOL) ================= -->
   <script>
-    // 1. Menu Mobile Toggle
+    const translations = {
+      pt: {
+        pageTitle: "INNOVY | Parceiro Estratégico de Negócio e Tecnologia para PMEs",
+        pageMetaDesc: "Apoiamos empresários a destravar gargalos operacionais, otimizar o ERP Totvs Protheus e estruturar a tecnologia para gerar lucro e escala.",
+        whatsappMsg: "Olá Rodrigo! Gostaria de agendar o Diagnóstico Estratégico de TI e Processos (30 min) para minha empresa.",
+        emailSubject: "Diagnóstico Estratégico INNOVY",
+        "topbar.badge": "Atendimento Executivo",
+        "topbar.text": "Apoio tático e estratégico para PMEs industriais, distribuidoras e serviços",
+        "topbar.clientPortal": "Portal do Cliente",
+        "nav.tagline": "Tecnologia & Negócios",
+        "nav.why": "Por que a INNOVY",
+        "nav.services": "Onde Atuamos",
+        "nav.methodology": "Como Funciona",
+        "nav.expert": "O Especialista",
+        "nav.faq": "Dúvidas",
+        "nav.cta": "Diagnóstico Gratuito",
+        "hero.badge": "Parceiro Estratégico de Negócio e Tecnologia para PMEs",
+        "hero.titleLead": "Sua empresa não precisa de mais um consultor técnico.",
+        "hero.titleAccent": "Precisa de um parceiro que faça a tecnologia gerar lucro e escala.",
+        "hero.subtitle": "Apoiamos empresários a destravar gargalos operacionais, transformar o ERP (Totvs Protheus e outros) em uma máquina de eficiência e organizar a governança de TI — sem o custo e a lentidão de um diretor de tecnologia CLT.",
+        "hero.check1": "<strong>Linguagem de Negócio:</strong> Foco em margem, processo e fluxo de caixa",
+        "hero.check2": "<strong>Fim do 'Tiopês':</strong> Você entende exatamente onde cada centavo rende",
+        "hero.check3": "<strong>ERP sem Trava:</strong> Otimização de módulos, compras, faturamento e estoque",
+        "hero.check4": "<strong>Interlocutor Sênior:</strong> Você fala diretamente com quem resolve",
+        "hero.ctaPrimary": "Agendar Diagnóstico Gratuito (30 min)",
+        "hero.ctaSecondary": "Fazer Autoavaliação Rápida",
+        "hero.stat1": "Anos de vivência em ERP & Processos",
+        "hero.stat2Label": "Foco 100%",
+        "hero.stat2": "em Pequenas e Médias Empresas",
+        "hero.stat3": "Dependência Técnica Vazia",
+        "card.title": "Papel do Parceiro Estratégico",
+        "card.subtitle": "Negócios, Governança & Sistemas",
+        "card.badge": "Sob Demanda",
+        "card.item1Title": "Destravamento Operacional",
+        "card.item1Desc": "Alinhamos os módulos do ERP (Protheus) ao fluxo real de compras, estoque e vendas da sua empresa.",
+        "card.item2Title": "Dados e Indicadores para Decisão",
+        "card.item2Desc": "Relatórios confiáveis e conciliação em tempo real. Fim das planilhas paralelas e da surpresa no fim do mês.",
+        "card.item3Title": "Coordenação de Terceiros e TI",
+        "card.item3Desc": "Assumimos a interlocução com fornecedores de software, infraestrutura e segurança para proteger seu tempo.",
+        "card.footerText": "Precisa de clareza sobre o estado atual da sua tecnologia?",
+        "card.footerBtn": "Falar com Rodrigo Martins",
+        "segments.ind": "Indústrias e Manufatura",
+        "segments.dist": "Distribuidoras e Atacado",
+        "segments.serv": "Empresas de Serviços e B2B",
+        "segments.totvs": "Ecossistema TOTVS Protheus",
+        "pains.badge": "O Desafio da PME",
+        "pains.title": "Sua empresa cresceu, mas a tecnologia virou uma dor de cabeça diária?",
+        "pains.subtitle": "Na maioria das pequenas e médias empresas, o cenário é sempre o mesmo: sistemas caros que ninguém usa direito e a sensação constante de insegurança operacional.",
+        "pains.card1Title": "O ERP virou um gargalo",
+        "pains.card1Desc": "Você investiu uma fortuna em implantação ou licenças do Protheus, mas a equipe ainda depende de dezenas de planilhas de Excel paralelas para trabalhar.",
+        "pains.card1Impact": "Consequência: Desperdício de licenças e lentidão operacional",
+        "pains.card2Title": "Consultorias que cobram horas",
+        "pains.card2Desc": "Você abre chamados, paga pacotes de horas caros, e os técnicos resolvem o sintoma imediato mas nunca a causa raiz do seu fluxo de negócio.",
+        "pains.card2Impact": "Consequência: Custos imprevisíveis e eterno retrabalho",
+        "pains.card3Title": "Decisões no escuro",
+        "pains.card3Desc": "O fechamento contábil e fiscal é demorado, o estoque real nunca bate com o sistema e a diretoria não tem números transparentes de margem e lucratividade.",
+        "pains.card3Impact": "Consequência: Risco de caixa e insegurança nas decisões",
+        "pains.card4Title": "Empresário refém da TI",
+        "pains.card4Desc": "Como a empresa não tem um Diretor de TI interno, o próprio dono ou diretor financeiro gasta tempo precioso cobrando técnicos e mediando fornecedores.",
+        "pains.card4Impact": "Consequência: Desvio do foco em vendas, clientes e expansão",
+        "pains.summaryBadge": "A virada de chave",
+        "pains.summaryTitle": "Você não precisa trocar de software e nem contratar uma equipe cara de TI.",
+        "pains.summaryDesc": "O que sua empresa precisa é de alguém que entenda o <strong>fluxo do seu negócio</strong> (compras, estoque, chão de fábrica, fiscal e finanças) e configure a tecnologia para trabalhar a seu favor, com governança e prestação de contas.",
+        "pains.summaryCta": "Conversar com a INNOVY no WhatsApp",
+        "comp.badge": "Diferencial Competitivo",
+        "comp.title": "Por que não somos apenas mais uma consultoria?",
+        "comp.subtitle": "Veja a diferença prática entre contratar alguém que apenas digita código e ter um verdadeiro parceiro à mesa da sua diretoria.",
+        "comp.tradTitle": "Consultoria ERP Tradicional",
+        "comp.tradSub": "O modelo antigo que gera dependência",
+        "comp.tradItem1": "<strong>Foco em horas faturadas:</strong> Quanto mais tempo demorar para resolver o problema, mais horas a consultoria fatura de você.",
+        "comp.tradItem2": "<strong>'Faz o que manda':</strong> Se você pedir para customizar um processo errado, eles fazem sem alertar sobre o impacto financeiro.",
+        "comp.tradItem3": "<strong>Tiopês excessivo:</strong> Relatórios cheios de jargões técnicos que não ajudam o dono a entender a rentabilidade real.",
+        "comp.tradItem4": "<strong>Ausência de visão global:</strong> Cuidam só do Protheus e ignoram se o servidor caiu, se a internet falha ou se o fiscal vai ser autuado.",
+        "comp.innovyBadge": "O Jeito INNOVY",
+        "comp.innovyTitle": "INNOVY: Parceiro de Negócio & Tecnologia",
+        "comp.innovySub": "Gestão integrada orientada a lucro e eficiência",
+        "comp.innovyItem1": "<strong>Foco em ROI e produtividade:</strong> Buscamos a solução mais ágil e barata para que o sistema se pague e gere economia real.",
+        "comp.innovyItem2": "<strong>Inteligência de Processos (BPM):</strong> Questionamos o fluxo antes de gastar com customizações: simplificar o processo antes de codificar.",
+        "comp.innovyItem3": "<strong>Linguagem Executiva:</strong> Falamos sobre margem de contribuição, DRE, ruptura de estoque, produtividade e prazo de entrega.",
+        "comp.innovyItem4": "<strong>Head de TI como Serviço:</strong> Blindamos sua operação gerenciando fornecedores de ERP, nuvem, infra e segurança.",
+        "pillars.badge": "Onde Geramos Valor",
+        "pillars.title": "Nossas Frentes de Apoio e Escala",
+        "pillars.subtitle": "Atuamos em quatro frentes coordenadas para que a tecnologia seja a alavanca de crescimento da sua empresa, nunca o obstáculo.",
+        "pillars.p1Badge": "Especialidade Central",
+        "pillars.p1Title": "Gestão Estratégica de ERP Totvs Protheus",
+        "pillars.p1Desc": "O Protheus é poderoso, mas se mal configurado vira uma âncora pesada. Nós saneamos a base de dados, destravamos rotinas e alinhamos o sistema aos seus processos reais.",
+        "pillars.p1Item1": "Revisão e parametrização de módulos (Compras, Estoque, Faturamento, Financeiro, Fiscal)",
+        "pillars.p1Item2": "Eliminação de customizações desnecessárias que travam atualizações",
+        "pillars.p1Item3": "Apoio em migrações de versão, pacotes legais e rotinas fiscais sem surpresas",
+        "pillars.p1Item4": "Capacitação prática dos operadores e usuários-chave da empresa",
+        "pillars.p2Badge": "Governança & Segurança",
+        "pillars.p2Title": "TI como Serviço & Gestão Fracionada (Fractional CTO)",
+        "pillars.p2Desc": "Tenha a liderança de um Diretor de Tecnologia experiente para estruturar sua empresa, sem precisar contratar um executivo de alto custo fixo.",
+        "pillars.p2Item1": "Coordenação rigorosa de fornecedores externos (links, servidores, consultorias)",
+        "pillars.p2Item2": "Política de segurança, blindagem contra ataques e auditoria de backups diários",
+        "pillars.p2Item3": "Padronização de infraestrutura física e computação em nuvem",
+        "pillars.p2Item4": "Reuniões executivas periódicas de alinhamento com a diretoria",
+        "pillars.p3Badge": "Produtividade Máxima",
+        "pillars.p3Title": "Automação de Processos & Integrações",
+        "pillars.p3Desc": "Elimine a digitação duplicada entre setores. Conectamos seu ERP a canais de vendas, bancos, transportadoras, CRMs e plataformas digitais.",
+        "pillars.p3Item1": "Integração de APIs entre ERP e sistemas de terceiros",
+        "pillars.p3Item2": "Conciliação financeira e bancária automatizada sem conferência manual",
+        "pillars.p3Item3": "Rastreabilidade de pedidos da fábrica até a entrega ao cliente",
+        "pillars.p3Item4": "Alertas automáticos de inconsistências fiscais e rupturas de estoque",
+        "pillars.p4Badge": "Tomada de Decisão",
+        "pillars.p4Title": "Dashboards & Relatórios Gerenciais Confiáveis",
+        "pillars.p4Desc": "Tenha os números vitais da sua empresa na tela do seu computador ou celular, sem depender de planilhas manuais da equipe.",
+        "pillars.p4Item1": "Visão executiva de DRE gerencial, margens brutas e ponto de equilíbrio",
+        "pillars.p4Item2": "Curva ABC de clientes, faturamento por vendedor e produtos mais rentáveis",
+        "pillars.p4Item3": "Indicadores de giro de estoque, compras em excesso e capital parado",
+        "pillars.p4Item4": "Dados extraídos diretamente da fonte, sem manipulação manual",
+        "method.badge": "Metodologia Sem Fricção",
+        "method.title": "Como transformamos a tecnologia da sua empresa em 4 passos",
+        "method.subtitle": "Sem diagnósticos intermináveis que nunca saem do papel. Entregamos clareza e resultados táticos rápidos.",
+        "method.step1Title": "Diagnóstico Inicial (30 min)",
+        "method.step1Desc": "Uma conversa objetiva com a diretoria para mapear os 3 principais gargalos operacionais e sistêmicos que estão drenando tempo e dinheiro.",
+        "method.step2Title": "Plano Tático & Quick Wins",
+        "method.step2Desc": "Apresentamos um roteiro prioritário: vitórias rápidas para estancar erros imediatos e o plano de estruturação definitivo para o ERP.",
+        "method.step3Title": "Execução & Alinhamento",
+        "method.step3Desc": "Mão na massa técnica no sistema, alinhamento com usuários-chave e simplificação de processos para que a equipe realmente utilize a solução.",
+        "method.step4Title": "Acompanhamento & Escala",
+        "method.step4Desc": "Atuação contínua como braço direito tecnológico, garantindo que o crescimento da empresa ocorra sem gargalos e com segurança.",
+        "method.cta": "Começar pelo Passo 1: Diagnóstico Gratuito",
+        "expert.seal": "Especialista Sênior TOTVS",
+        "expert.badge": "Liderança & Compromisso Direto",
+        "expert.quote": "\"Na INNOVY, você não fala com estagiários ou atendentes. Fala diretamente com quem entende e resolve.\"",
+        "expert.p1": "Meu nome é <strong>Rodrigo Martins da Silva</strong>, fundador da INNOVY. Ao longo de mais de 15 anos no ecossistema de gestão empresarial e ERPs (especialmente TOTVS Protheus), vi centenas de empresários frustrados por terem investido fortunas em tecnologia sem receber o retorno esperado.",
+        "expert.p2": "A razão é simples: consultorias tradicionais olham apenas para linhas de código e horas faturadas. Elas não conhecem a dor de fechar a folha, de ter um caminhão parado por nota fiscal travada ou de tomar uma decisão de compra sem saber o estoque real.",
+        "expert.p3": "Criei a INNOVY para ser o <strong>parceiro de negócio e tecnologia</strong> que eu sempre achei que as PMEs mereciam: alguém que senta à mesa da diretoria para discutir estratégia, e depois assume a rédea técnica para garantir que os sistemas trabalhem para a empresa lucrar e crescer com tranquilidade.",
+        "expert.role": "Fundador & Diretor de Tecnologia e Processos",
+        "expert.cta": "Conversar com o Rodrigo",
+        "quiz.badge": "Autoavaliação Rápida (1 Minuto)",
+        "quiz.title": "Qual é o principal gargalo tecnológico da sua empresa hoje?",
+        "quiz.subtitle": "Selecione suas respostas abaixo para receber uma orientação direta e personalizada.",
+        "quiz.q1": "1. Qual o tamanho aproximado da sua equipe?",
+        "quiz.q1Opt1": "👥 Até 25 colaboradores",
+        "quiz.q1Opt2": "🏢 25 a 100 colaboradores",
+        "quiz.q1Opt3": "🏭 Mais de 100 colaboradores",
+        "quiz.q2": "2. Como está o seu sistema ERP atualmente?",
+        "quiz.q2Opt1": "⚠️ Temos Protheus, mas está mal aproveitado",
+        "quiz.q2Opt2": "🔄 Temos outro ERP e precisamos de integração",
+        "quiz.q2Opt3": "📊 Muitas planilhas manuais e falta de controle",
+        "quiz.q2Opt4": "🛡️ Não temos TI interno e precisamos de liderança",
+        "quiz.q3": "3. Qual o principal objetivo nos próximos 6 meses?",
+        "quiz.q3Opt1": "📉 Cortar custos e retrabalho",
+        "quiz.q3Opt2": "📈 Ter relatórios confiáveis (DRE/BI)",
+        "quiz.q3Opt3": "🚀 Escalar operações com segurança",
+        "quiz.submitBtn": "Enviar Respostas para o Rodrigo no WhatsApp",
+        "quiz.footerNote": "Resposta rápida e direta. Sem robôs, você falará diretamente com o especialista.",
+        "faq.badge": "Perguntas Frequentes",
+        "faq.title": "Tire suas dúvidas antes de dar o próximo passo",
+        "faq.subtitle": "Transparência total sobre como atuamos no dia a dia da sua empresa.",
+        "faq.q1": "Minha empresa já tem uma consultoria técnica contratada. Vocês entram para substituir?",
+        "faq.a1": "Não necessariamente. Muitas vezes atuamos como o <strong>Head de Tecnologia & Negócios da sua empresa</strong>, auditando o que a consultoria atual entrega, cobrando prazos e evitando que você pague horas por soluções ineficientes. Se você já tem técnicos, nós damos a direção estratégica. Se não tem, assumimos a execução completa.",
+        "faq.q2": "Precisamos trocar de ERP para ter processos organizados?",
+        "faq.a2": "Em 90% dos casos, <strong>não</strong>. O problema quase nunca é o software em si, mas sim como ele foi parametrizado e a falta de aderência aos processos reais da equipe. Trocar de ERP custa caro e gera caos. Nosso primeiro foco é sempre otimizar e destravar o investimento que você já fez.",
+        "faq.q3": "Não temos ninguém de TI dentro da empresa. Como funciona?",
+        "faq.a3": "Esse é exatamente o perfil que mais atendemos. Assumimos o papel de departamento externo de TI e Processos. Cuidamos do ERP, coordenamos suporte a usuários, garantimos que servidores e backups funcionem e representamos sua empresa diante de qualquer fornecedor de tecnologia.",
+        "faq.q4": "O atendimento é remoto ou presencial?",
+        "faq.a4": "Atuamos em modelo híbrido. A grande maioria das otimizações e alinhamentos é feita de forma remota com agilidade total, com visitas presenciais estratégicas em São Paulo e região metropolitana para imersões de chão de fábrica, auditorias de processo e alinhamento de diretoria. Para clientes internacionais, atuamos 100% de forma remota com alinhamento contínuo.",
+        "faq.q5": "Como funciona o Diagnóstico Estratégico Gratuito de 30 minutos?",
+        "faq.a5": "É uma reunião direta entre você e o Rodrigo Martins via Google Meet ou Teams. Você nos conta a dinâmica da sua empresa e os principais entraves com sistema e processos. Nós apontamos na hora onde estão os riscos e possíveis caminhos de solução. Sem compromisso e sem termos técnicos complexos.",
+        "ctaFinal.badge": "Dê o próximo passo com segurança",
+        "ctaFinal.title": "Pronto para transformar sua tecnologia em uma alavanca de lucro e escala?",
+        "ctaFinal.subtitle": "Agende uma conversa estratégica de 30 minutos sem nenhum custo. Vamos analisar sua operação atual e mostrar como destravar seu ERP e sua gestão.",
+        "ctaFinal.whatsappBtn": "Agendar Diagnóstico Gratuito no WhatsApp",
+        "ctaFinal.emailBtn": "Prefiro Enviar E-mail",
+        "footer.about": "RMS Serviços Especializados em Tecnologia | INNOVY.<br>Apoiando pequenas e médias empresas a conectar negócios, processos e sistemas ERP para crescer com segurança e governança.",
+        "footer.location": "São Paulo - SP | Atendimento em todo o Brasil e Operações Internacionais",
+        "footer.navTitle": "Navegação",
+        "footer.contactTitle": "Contato & Suporte",
+        "footer.tickets": "Portal de Chamados (Clientes)",
+        "footer.rights": "Todos os direitos reservados.",
+        "footer.terms": "Termos de Uso",
+        "footer.privacy": "Privacidade"
+      },
+      en: {
+        pageTitle: "INNOVY | Strategic Business & Technology Partner for Growing Companies",
+        pageMetaDesc: "We support business leaders and international subsidiaries in Brazil to streamline operations, master ERP Totvs Protheus, and turn technology into profit and scale.",
+        whatsappMsg: "Hello Rodrigo! I would like to schedule a 30-minute Strategic IT & Business Assessment for my company.",
+        emailSubject: "Strategic IT & Business Assessment - INNOVY",
+        "topbar.badge": "Executive Advisory",
+        "topbar.text": "Strategic technology & operations partner for mid-market companies & Brazilian operations",
+        "topbar.clientPortal": "Client Portal",
+        "nav.tagline": "Technology & Business",
+        "nav.why": "Why INNOVY",
+        "nav.services": "Capabilities",
+        "nav.methodology": "How It Works",
+        "nav.expert": "Leadership",
+        "nav.faq": "FAQ",
+        "nav.cta": "Free Assessment",
+        "hero.badge": "Strategic Business & Technology Partner for SMBs",
+        "hero.titleLead": "Your company doesn't need another IT contractor.",
+        "hero.titleAccent": "It needs a strategic partner to turn technology into profit and scale.",
+        "hero.subtitle": "We help business owners, directors, and multinational subsidiaries overcome operational bottlenecks, maximize ERP Totvs Protheus, and structure IT governance — without the overhead of a full-time local IT executive.",
+        "hero.check1": "<strong>Business-First Language:</strong> Focused on profit margins, workflows, and cash flow",
+        "hero.check2": "<strong>Zero Tech Jargon:</strong> You clearly see the financial return of every system update",
+        "hero.check3": "<strong>Seamless ERP:</strong> Modules, procurement, billing, and inventory aligned to reality",
+        "hero.check4": "<strong>Senior Leadership:</strong> You communicate directly with the expert who solves it",
+        "hero.ctaPrimary": "Book Free 30-Min Strategic Assessment",
+        "hero.ctaSecondary": "Take Quick Self-Assessment",
+        "hero.stat1": "Years of experience in ERP & Process Management",
+        "hero.stat2Label": "100% Dedicated",
+        "hero.stat2": "to Small & Medium Enterprises & Subsidiaries",
+        "hero.stat3": "Zero Vendor Lock-in or Empty Billable Hours",
+        "card.title": "Strategic Partner Role",
+        "card.subtitle": "Business, Governance & Enterprise Systems",
+        "card.badge": "On Demand",
+        "card.item1Title": "Operational Unlocking",
+        "card.item1Desc": "We align ERP modules (Totvs Protheus) to your actual purchasing, inventory, and sales processes in Brazil.",
+        "card.item2Title": "Reliable Decision Data",
+        "card.item2Desc": "Audited reports and real-time reconciliation. No more spreadsheet chaos or unexpected end-of-month surprises.",
+        "card.item3Title": "Vendor & IT Coordination",
+        "card.item3Desc": "We manage local software vendors, cloud hosting, and cybersecurity to protect executive time.",
+        "card.footerText": "Need clarity on the current state of your Brazilian operations?",
+        "card.footerBtn": "Connect with Rodrigo Martins",
+        "segments.ind": "Manufacturing & Industrial",
+        "segments.dist": "Distribution & Wholesale",
+        "segments.serv": "B2B & Corporate Services",
+        "segments.totvs": "TOTVS Protheus Ecosystem",
+        "pains.badge": "The Mid-Market Challenge",
+        "pains.title": "Your company expanded, but technology became a daily bottleneck?",
+        "pains.subtitle": "Across growing companies and international subsidiaries in Brazil, the story repeats: expensive enterprise systems poorly adopted, leaving leadership feeling vulnerable.",
+        "pains.card1Title": "The ERP became a barrier",
+        "pains.card1Desc": "You invested heavily in Protheus licenses, yet departments still rely on dozens of disconnected Excel spreadsheets to operate.",
+        "pains.card1Impact": "Impact: High license waste and severe operational friction",
+        "pains.card2Title": "Hourly billing consultancies",
+        "pains.card2Desc": "Traditional IT agencies bill expensive hour packages, patching immediate symptoms while ignoring the root business workflow.",
+        "pains.card2Impact": "Impact: Unpredictable invoices and endless rework",
+        "pains.card3Title": "Operating in the dark",
+        "pains.card3Desc": "Tax closing is sluggish, physical inventory mismatches system numbers, and executive leadership lacks reliable profit margin visibility.",
+        "pains.card3Impact": "Impact: Cash flow risk and delayed executive decisions",
+        "pains.card4Title": "Executives trapped in IT issues",
+        "pains.card4Desc": "Without a local Head of IT, CEOs, CFOs, or Country Managers waste critical hours troubleshooting software vendors instead of growing business.",
+        "pains.card4Impact": "Impact: Loss of focus on revenue, clients, and expansion",
+        "pains.summaryBadge": "The Strategic Shift",
+        "pains.summaryTitle": "You don't need to replace your software or hire an expensive in-house IT team.",
+        "pains.summaryDesc": "What your company needs is an ally who understands <strong>business operations</strong> (purchasing, inventory, supply chain, Brazilian tax, and finance) and tunes technology to work for you with accountability.",
+        "pains.summaryCta": "Chat with INNOVY on WhatsApp",
+        "comp.badge": "Competitive Edge",
+        "comp.title": "Why we are not just another IT consultancy",
+        "comp.subtitle": "Discover the tangible difference between hiring code-only technicians versus having a trusted business & tech advisor at your executive table.",
+        "comp.tradTitle": "Traditional ERP Contractor",
+        "comp.tradSub": "The obsolete model that breeds vendor dependency",
+        "comp.tradItem1": "<strong>Billed hours focus:</strong> The longer an issue takes to resolve, the more billable hours they invoice.",
+        "comp.tradItem2": "<strong>Blind order takers:</strong> They code faulty processes without warning leadership about operational inefficiencies.",
+        "comp.tradItem3": "<strong>Heavy tech jargon:</strong> Incomprehensible technical memos that don't help executives make profitable decisions.",
+        "comp.tradItem4": "<strong>Siloed scope:</strong> They only look at software code, ignoring server outages, network failures, or tax liabilities.",
+        "comp.innovyBadge": "The INNOVY Way",
+        "comp.innovyTitle": "INNOVY: Business & Technology Partner",
+        "comp.innovySub": "Integrated governance driven by ROI and operational efficiency",
+        "comp.innovyItem1": "<strong>ROI & Productivity focus:</strong> We seek the leanest, most agile solution so your systems pay for themselves.",
+        "comp.innovyItem2": "<strong>BPM & Process Intelligence:</strong> We optimize and streamline the business workflow before writing a single line of code.",
+        "comp.innovyItem3": "<strong>Executive Language:</strong> We talk gross margins, EBITDA, inventory turnover, operational lead time, and delivery deadlines.",
+        "comp.innovyItem4": "<strong>Fractional Head of IT:</strong> We shield your operations by coordinating ERP, cloud infrastructure, and security partners.",
+        "pillars.badge": "Core Value Pillars",
+        "pillars.title": "How We Empower and Scale Your Business",
+        "pillars.subtitle": "Coordinated action across four core fronts so technology accelerates your company's growth rather than hindering it.",
+        "pillars.p1Badge": "Core Specialty",
+        "pillars.p1Title": "Strategic Totvs Protheus ERP Management",
+        "pillars.p1Desc": "TOTVS Protheus is Brazil's dominant ERP platform, but complex local rules can slow you down. We audit databases, fix bottlenecks, and align modules to your real workflow.",
+        "pillars.p1Item1": "Module optimization (Procurement, Warehouse, Invoicing, Finance, Brazilian Tax Compliance)",
+        "pillars.p1Item2": "Eliminating redundant custom code that breaks version updates",
+        "pillars.p1Item3": "Smooth version migrations, legal packages, and electronic tax invoicing (NF-e/SPED)",
+        "pillars.p1Item4": "Practical hands-on training for operational teams and department leads",
+        "pillars.p2Badge": "Governance & Security",
+        "pillars.p2Title": "Fractional CTO & IT as a Service",
+        "pillars.p2Desc": "Access senior technology leadership to steer your company, without the financial burden of an executive full-time compensation package.",
+        "pillars.p2Item1": "Vigorous management of local tech suppliers (hosting, telecom, software vendors)",
+        "pillars.p2Item2": "Information security policies, cyber resilience, and daily automated backup audits",
+        "pillars.p2Item3": "Cloud infrastructure optimization (AWS, Azure, private cloud)",
+        "pillars.p2Item4": "Regular executive steering meetings with leadership and board members",
+        "pillars.p3Badge": "Maximum Productivity",
+        "pillars.p3Title": "Workflow Automation & System Integrations",
+        "pillars.p3Desc": "Eliminate manual data re-entry. We integrate your ERP with e-commerce, banking APIs, CRM, logistics, and international reporting systems.",
+        "pillars.p3Item1": "Custom REST/SOAP APIs connecting your ERP with third-party software",
+        "pillars.p3Item2": "Automated banking reconciliation and payment processing without manual checks",
+        "pillars.p3Item3": "End-to-end order traceability from warehouse floor to final delivery",
+        "pillars.p3Item4": "Real-time alerts on inventory shortages and fiscal inconsistencies",
+        "pillars.p4Badge": "Decision Intelligence",
+        "pillars.p4Title": "Executive Dashboards & Reliable BI Reports",
+        "pillars.p4Desc": "Get real-time operational and financial numbers on your mobile or desktop, without waiting for manual weekly spreadsheets from staff.",
+        "pillars.p4Item1": "Executive P&L statements, contribution margins, and break-even metrics",
+        "pillars.p4Item2": "ABC client curve, sales performance by rep, and high-margin product analysis",
+        "pillars.p4Item3": "Inventory turnover KPIs, dead stock reduction, and working capital optimization",
+        "pillars.p4Item4": "Live data extracted directly from source databases, free of human bias",
+        "method.badge": "Frictionless Methodology",
+        "method.title": "Transforming your company's technology in 4 clear steps",
+        "method.subtitle": "No endless consulting decks that collect dust. We deliver tangible clarity and rapid operational wins.",
+        "method.step1Title": "Initial Assessment (30 min)",
+        "method.step1Desc": "A direct executive session with leadership to pinpoint the top 3 operational and systemic bottlenecks burning time and capital.",
+        "method.step2Title": "Action Plan & Quick Wins",
+        "method.step2Desc": "We lay out a prioritized roadmap: quick wins to immediately halt errors, followed by structural ERP optimizations.",
+        "method.step3Title": "Execution & Alignment",
+        "method.step3Desc": "Hands-on system configuration, user alignment, and process simplification so your staff embraces the solution seamlessly.",
+        "method.step4Title": "Ongoing Advisory & Scale",
+        "method.step4Desc": "Continuous guidance as your tech & business advisor, ensuring smooth, secure scaling without operational breakdowns.",
+        "method.cta": "Start with Step 1: Free Assessment",
+        "expert.seal": "Senior TOTVS Specialist",
+        "expert.badge": "Direct Leadership & Accountability",
+        "expert.quote": "\"At INNOVY, you don't deal with junior interns or call-center reps. You speak directly with the senior expert who solves the problem.\"",
+        "expert.p1": "My name is <strong>Rodrigo Martins da Silva</strong>, founder of INNOVY. Over 15+ years in enterprise management systems and ERPs (particularly TOTVS Protheus in Brazil), I have seen countless business leaders frustrated after spending fortunes on software with dismal business return.",
+        "expert.p2": "The reason is simple: conventional IT consultancies only care about billing hours and lines of code. They don't know the pain of payroll deadlines, trucks halted by tax validation errors, or buying blind without knowing inventory.",
+        "expert.p3": "I created INNOVY to be the <strong>strategic business & technology partner</strong> mid-market companies and international subsidiaries truly need: sitting at the executive table to discuss business strategy, and leading technical delivery so systems work for company profitability.",
+        "expert.role": "Founder & Managing Director of Technology & Processes",
+        "expert.cta": "Connect with Rodrigo",
+        "quiz.badge": "1-Minute Self-Assessment",
+        "quiz.title": "What is the primary tech or operational bottleneck in your company?",
+        "quiz.subtitle": "Select your answers below to receive a personalized, direct evaluation.",
+        "quiz.q1": "1. What is your current team size?",
+        "quiz.q1Opt1": "👥 Up to 25 employees",
+        "quiz.q1Opt2": "🏢 25 to 100 employees",
+        "quiz.q1Opt3": "🏭 Over 100 employees",
+        "quiz.q2": "2. What is the current status of your ERP in Brazil?",
+        "quiz.q2Opt1": "⚠️ We use Protheus, but it's underutilized or sluggish",
+        "quiz.q2Opt2": "🔄 We use another ERP and need integrations/oversight",
+        "quiz.q2Opt3": "📊 Heavy reliance on manual spreadsheets & lack of control",
+        "quiz.q2Opt4": "🛡️ No dedicated local IT leadership and need strategic steering",
+        "quiz.q3": "3. What is your primary objective over the next 6 months?",
+        "quiz.q3Opt1": "📉 Cut operational costs and eliminate rework",
+        "quiz.q3Opt2": "📈 Gain reliable executive reports (P&L / BI)",
+        "quiz.q3Opt3": "🚀 Scale operations safely without bottlenecks",
+        "quiz.submitBtn": "Send Answers to Rodrigo via WhatsApp",
+        "quiz.footerNote": "Fast, direct reply. No chatbots — you communicate directly with senior leadership.",
+        "faq.badge": "Frequently Asked Questions",
+        "faq.title": "Get clear answers before taking the next step",
+        "faq.subtitle": "Complete transparency on how we operate alongside your business.",
+        "faq.q1": "We already have an external technical IT vendor. Do you replace them?",
+        "faq.a1": "Not necessarily. We frequently act as your company's <strong>Fractional Head of Technology & Operations</strong>, auditing what existing vendors deliver, holding them accountable to deadlines, and ensuring you don't overpay for ineffective fixes. If you have developers, we provide strategic direction. If not, we manage full execution.",
+        "faq.q2": "Do we need to replace our current ERP to fix broken processes?",
+        "faq.a2": "In 90% of cases, <strong>no</strong>. The issue is rarely the software itself, but how it was configured and its misalignment with daily business reality. Replacing an ERP is costly and disruptive. Our primary focus is always unlocking and maximizing the investment you already made.",
+        "faq.q3": "We have no in-house IT department in Brazil. How does this work?",
+        "faq.a3": "This is our core specialty. We serve as your outsourced technology & operations department. We optimize your ERP, coordinate user support, safeguard servers and backups, and represent your firm before any third-party tech provider.",
+        "faq.q4": "Is your service delivered remotely or on-site?",
+        "faq.a4": "We work in a flexible hybrid model. Most optimizations and executive reviews are handled remotely with speed. On-site visits are conducted for process audits and board reviews in the São Paulo metro area. For foreign headquarters, we operate 100% seamlessly via remote collaboration.",
+        "faq.q5": "How does the Free 30-Minute Strategic Assessment work?",
+        "faq.a5": "It is a direct video session between you and Rodrigo Martins via Google Meet or Microsoft Teams. You share your operational dynamics and pain points with systems in Brazil; we immediately pinpoint risks and viable solution paths. Zero commitment and strictly plain-English business talk.",
+        "ctaFinal.badge": "Take the next step with confidence",
+        "ctaFinal.title": "Ready to turn your technology into an engine of profit and scale in Brazil?",
+        "ctaFinal.subtitle": "Schedule a complimentary 30-minute strategic consultation. We'll analyze your current operations and show you how to unlock your ERP and process efficiency.",
+        "ctaFinal.whatsappBtn": "Schedule Free Assessment on WhatsApp",
+        "ctaFinal.emailBtn": "Send an Email Instead",
+        "footer.about": "RMS Specialized Technology Services | INNOVY.<br>Supporting mid-market businesses and international operations to bridge business strategy, processes, and ERP systems for secure, governed growth.",
+        "footer.location": "São Paulo - Brazil | Serving nationwide and international subsidiaries",
+        "footer.navTitle": "Navigation",
+        "footer.contactTitle": "Contact & Support",
+        "footer.tickets": "Support Ticket Portal",
+        "footer.rights": "All rights reserved.",
+        "footer.terms": "Terms of Service",
+        "footer.privacy": "Privacy Policy"
+      },
+      es: {
+        pageTitle: "INNOVY | Socio Estratégico de Negocios y Tecnología para Empresas",
+        pageMetaDesc: "Apoyamos a empresarios y filiales en Brasil a destrabar cuellos de botella operativos, optimizar el ERP Totvs Protheus y transformar la tecnología en rentabilidad y escala.",
+        whatsappMsg: "¡Hola Rodrigo! Me gustaría programar un Diagnóstico Estratégico de TI y Procesos (30 min) para mi empresa.",
+        emailSubject: "Diagnóstico Estratégico de TI y Procesos - INNOVY",
+        "topbar.badge": "Asesoría Ejecutiva",
+        "topbar.text": "Apoyo táctico y estratégico para PyMEs y operaciones corporativas en Brasil",
+        "topbar.clientPortal": "Portal de Clientes",
+        "nav.tagline": "Tecnología & Negocios",
+        "nav.why": "Por qué INNOVY",
+        "nav.services": "Áreas de Actuación",
+        "nav.methodology": "Cómo Funciona",
+        "nav.expert": "El Especialista",
+        "nav.faq": "Dudas",
+        "nav.cta": "Diagnóstico Gratuito",
+        "hero.badge": "Socio Estratégico de Negocios y Tecnología para PyMEs",
+        "hero.titleLead": "Su empresa no necesita otro consultor técnico.",
+        "hero.titleAccent": "Necesita un socio que haga que la tecnología genere rentabilidad y escala.",
+        "hero.subtitle": "Apoyamos a empresarios, directores y filiales internacionales a destrabar cuellos de botella, convertir el ERP (Totvs Protheus y otros) en un motor de eficiencia y estructurar la gobernanza de TI — sin los altos costos de un director de TI a tiempo completo.",
+        "hero.check1": "<strong>Lenguaje de Negocios:</strong> Enfoque en márgenes, procesos y flujo de caja",
+        "hero.check2": "<strong>Cero Jerga Técnica:</strong> Usted comprende con claridad el retorno de cada cambio",
+        "hero.check3": "<strong>ERP sin Trabas:</strong> Optimización de compras, inventario, facturación y finanzas",
+        "hero.check4": "<strong>Interlocutor Senior:</strong> Habla directamente con quien resuelve el problema",
+        "hero.ctaPrimary": "Agendar Diagnóstico Gratuito (30 min)",
+        "hero.ctaSecondary": "Realizar Autoevaluación Rápida",
+        "hero.stat1": "Años de experiencia práctica en ERP & Procesos",
+        "hero.stat2Label": "Enfoque 100%",
+        "hero.stat2": "en Pequeñas y Medianas Empresas y Filiales",
+        "hero.stat3": "Cero Dependencia Técnica Vacía",
+        "card.title": "Rol del Socio Estratégico",
+        "card.subtitle": "Negocios, Gobernanza & Sistemas ERP",
+        "card.badge": "Bajo Demanda",
+        "card.item1Title": "Destrabe Operativo",
+        "card.item1Desc": "Alineamos los módulos de su ERP (Protheus) al flujo real de compras, inventario y ventas de su empresa en Brasil.",
+        "card.item2Title": "Datos Confiables para Decisión",
+        "card.item2Desc": "Informes precisos y conciliación en tiempo real. Fin del caos de planillas y sorpresas al cierre de mes.",
+        "card.item3Title": "Coordinación de Terceros y TI",
+        "card.item3Desc": "Asumimos la gestión de proveedores de software, nube e infraestructura para proteger el tiempo de la directiva.",
+        "card.footerText": "¿Necesita claridad sobre el estado actual de su tecnología?",
+        "card.footerBtn": "Hablar con Rodrigo Martins",
+        "segments.ind": "Industrias y Manufactura",
+        "segments.dist": "Distribución y Mayoristas",
+        "segments.serv": "Servicios Corporativos y B2B",
+        "segments.totvs": "Ecosistema TOTVS Protheus",
+        "pains.badge": "El Desafío de las PyMEs",
+        "pains.title": "¿Su empresa creció, pero la tecnología se volvió un dolor de cabeza diario?",
+        "pains.subtitle": "En la mayoría de las empresas en crecimiento y filiales en Brasil, el escenario se repite: sistemas costosos mal aprovechados y una constante sensación de inseguridad operativa.",
+        "pains.card1Title": "El ERP se volvió una traba",
+        "pains.card1Desc": "Invirtió fuertemente en licencias de Protheus, pero su equipo todavía depende de decenas de planillas de Excel para operar.",
+        "pains.card1Impact": "Consecuencia: Desperdicio de licencias y lentitud operativa",
+        "pains.card2Title": "Consultoras que cobran por hora",
+        "pains.card2Desc": "Abre tickets, paga paquetes de horas costosos y los técnicos solucionan el síntoma inmediato pero nunca la causa raíz del negocio.",
+        "pains.card2Impact": "Consecuencia: Costos impredecibles y eterno retrabajo",
+        "pains.card3Title": "Decisiones a ciegas",
+        "pains.card3Desc": "El cierre contable y fiscal es tardío, el stock físico no coincide con el sistema y la dirección carece de cifras claras de rentabilidad.",
+        "pains.card3Impact": "Consecuencia: Riesgo de caja e inseguridad en las decisiones",
+        "pains.card4Title": "Empresario rehén de la TI",
+        "pains.card4Desc": "Al no tener un director de TI interno, el propio dueño o director financiero pierde horas valiosas lidiando con técnicos y proveedores.",
+        "pains.card4Impact": "Consecuencia: Pérdida de foco en ventas, clientes y expansión",
+        "pains.summaryBadge": "El Giro Estratégico",
+        "pains.summaryTitle": "No necesita cambiar de sistema ni contratar un costoso equipo interno de TI.",
+        "pains.summaryDesc": "Lo que su empresa necesita es un socio que entienda el <strong>flujo de su negocio</strong> (compras, almacén, planta, impuestos y finanzas) y configure la tecnología para generar resultados con rendición de cuentas.",
+        "pains.summaryCta": "Conversar con INNOVY por WhatsApp",
+        "comp.badge": "Diferencial Competitivo",
+        "comp.title": "¿Por qué no somos una consultora más del mercado?",
+        "comp.subtitle": "Descubra la diferencia práctica entre contratar a alguien que solo escribe código versus contar con un asesor estratégico a su lado.",
+        "comp.tradTitle": "Consultoría ERP Tradicional",
+        "comp.tradSub": "El modelo obsoleto que genera dependencia",
+        "comp.tradItem1": "<strong>Foco en horas facturadas:</strong> Cuanto más tarde en resolverse el problema, más horas le facturan.",
+        "comp.tradItem2": "<strong>Solo ejecutan sin cuestionar:</strong> Si pide parametrizar un proceso defectuoso, lo hacen sin alertar sobre el impacto financiero.",
+        "comp.tradItem3": "<strong>Exceso de tecnicismos:</strong> Informes llenos de palabras técnicas que no ayudan al dueño a entender la rentabilidad real.",
+        "comp.tradItem4": "<strong>Visión aislada:</strong> Solo miran el ERP e ignoran caídas de red, problemas de servidor o riesgos fiscales en Brasil.",
+        "comp.innovyBadge": "El Método INNOVY",
+        "comp.innovyTitle": "INNOVY: Socio de Negocio & Tecnología",
+        "comp.innovySub": "Gestión integrada orientada a rentabilidad y eficiencia",
+        "comp.innovyItem1": "<strong>Foco en ROI y productividad:</strong> Buscamos la solución más ágil y económica para que el sistema se pague solo.",
+        "comp.innovyItem2": "<strong>Inteligencia de Procesos (BPM):</strong> Cuestionamos el flujo antes de gastar en customizaciones: simplificar antes de codificar.",
+        "comp.innovyItem3": "<strong>Lenguaje Ejecutivo:</strong> Hablamos de margen de contribución, EBITDA, rotación de inventario y plazos de entrega.",
+        "comp.innovyItem4": "<strong>Director de TI Fraccionado:</strong> Blindamos su operación coordinando proveedores de ERP, nube, redes y ciberseguridad.",
+        "pillars.badge": "Pilares de Valor",
+        "pillars.title": "Nuestras Frentes de Apoyo y Escala",
+        "pillars.subtitle": "Actuamos en cuatro frentes coordinados para que la tecnología sea la palanca de crecimiento de su empresa y nunca una traba.",
+        "pillars.p1Badge": "Especialidad Central",
+        "pillars.p1Title": "Gestión Estratégica de ERP Totvs Protheus",
+        "pillars.p1Desc": "Protheus es potente, pero si está mal configurado frena su empresa. Saneamos bases de datos, destrabamos rutinas y alineamos el sistema a su operación en Brasil.",
+        "pillars.p1Item1": "Revisión y parametrización de módulos (Compras, Stock, Facturación, Finanzas, Fiscal brasileño)",
+        "pillars.p1Item2": "Eliminación de desarrollos a medida innecesarios que traban actualizaciones de versión",
+        "pillars.p1Item3": "Acompañamiento en migraciones de versión, paquetes legales y facturación electrónica (NF-e/SPED)",
+        "pillars.p1Item4": "Capacitación práctica para usuarios clave y personal operativo",
+        "pillars.p2Badge": "Gobernanza & Seguridad",
+        "pillars.p2Title": "TI como Servicio & Dirección Fraccionada (Fractional CTO)",
+        "pillars.p2Desc": "Tenga el liderazgo de un director de tecnología experimentado para estructurar su empresa, sin asumir un alto salario corporativo fijo.",
+        "pillars.p2Item1": "Coordinación rigurosa de proveedores externos (enlaces, servidores, consultoras de software)",
+        "pillars.p2Item2": "Políticas de seguridad de la información, protección contra ataques y auditoría de copias de seguridad",
+        "pillars.p2Item3": "Estandarización de infraestructura local y nube (AWS, Azure)",
+        "pillars.p2Item4": "Reuniones ejecutivas periódicas de alineamiento con la junta directiva",
+        "pillars.p3Badge": "Máxima Productividad",
+        "pillars.p3Title": "Automatización de Procesos & Integraciones",
+        "pillars.p3Desc": "Elimine la digitación duplicada entre sectores. Conectamos su ERP a plataformas de venta, bancos, logística y sistemas internacionales.",
+        "pillars.p3Item1": "Integración de APIs entre el ERP y sistemas de terceros",
+        "pillars.p3Item2": "Conciliación financiera y bancaria automatizada sin comprobación manual",
+        "pillars.p3Item3": "Trazabilidad de pedidos desde almacén hasta la entrega final al cliente",
+        "pillars.p3Item4": "Alertas automáticas de inconsistencias fiscales y quiebres de inventario",
+        "pillars.p4Badge": "Inteligencia de Decisión",
+        "pillars.p4Title": "Dashboards & Reportes Gerenciales Confiables",
+        "pillars.p4Desc": "Tenga los números vitales de su empresa en su pantalla o teléfono móvil, sin esperar planillas manuales de su equipo.",
+        "pillars.p4Item1": "Visión ejecutiva de estado de resultados (P&L), margen bruto y punto de equilibrio",
+        "pillars.p4Item2": "Curva ABC de clientes, ventas por representante y productos más rentables",
+        "pillars.p4Item3": "Indicadores de rotación de stock, compras en exceso y capital inmovilizado",
+        "pillars.p4Item4": "Datos extraídos directamente de las fuentes, sin manipulación humana",
+        "method.badge": "Metodología Sin Fricción",
+        "method.title": "Cómo transformamos la tecnología de su empresa en 4 pasos",
+        "method.subtitle": "Sin diagnósticos eternos que nunca se aplican. Entregamos claridad y resultados operativos rápidos.",
+        "method.step1Title": "Diagnóstico Inicial (30 min)",
+        "method.step1Desc": "Una sesión ejecutiva directa para identificar los 3 principales cuellos de botella operativos y sistémicos que drenan tiempo y recursos.",
+        "method.step2Title": "Plan Táctico & Quick Wins",
+        "method.step2Desc": "Presentamos una hoja de ruta prioritaria: victorias rápidas para frenar fallas inmediatas y el plan definitivo para el ERP.",
+        "method.step3Title": "Ejecución & Alineamiento",
+        "method.step3Desc": "Trabajo técnico en el sistema, alineación con usuarios clave y simplificación de procesos para adopción real.",
+        "method.step4Title": "Acompañamiento Continuo & Escala",
+        "method.step4Desc": "Acompañamiento como su mano derecha tecnológica, garantizando que el crecimiento ocurra de manera segura y sin trabas.",
+        "method.cta": "Comenzar por el Paso 1: Diagnóstico Gratuito",
+        "expert.seal": "Especialista Senior TOTVS",
+        "expert.badge": "Liderazgo & Compromiso Directo",
+        "expert.quote": "\"En INNOVY, usted no habla con becarios ni con operadores. Habla directamente con quien entiende y resuelve el negocio.\"",
+        "expert.p1": "Mi nombre es <strong>Rodrigo Martins da Silva</strong>, fundador de INNOVY. A lo largo de más de 15 años en sistemas de gestión empresarial y ERPs (especialmente TOTVS Protheus en Brasil), vi a cientos de empresarios frustrados tras invertir fortunas en software sin recibir el retorno esperado.",
+        "expert.p2": "La razón es simple: las consultoras convencionales solo se preocupan por facturar horas y líneas de código. No conocen el desafío de cerrar nóminas, tener un camión detenido por trabas tributarias o comprar a ciegas.",
+        "expert.p3": "Creé INNOVY para ser el <strong>socio estratégico de negocio y tecnología</strong> que las empresas merecen: sentándonos a la mesa ejecutiva para definir estrategia y asegurando que los sistemas trabajen para la rentabilidad de la empresa.",
+        "expert.role": "Fundador & Director de Tecnología y Procesos",
+        "expert.cta": "Conversar con Rodrigo",
+        "quiz.badge": "Autoevaluación Rápida (1 Minuto)",
+        "quiz.title": "¿Cuál es el principal cuello de botella tecnológico de su empresa hoy?",
+        "quiz.subtitle": "Seleccione sus respuestas para recibir una orientación directa y personalizada.",
+        "quiz.q1": "1. ¿Cuál es el tamaño aproximado de su equipo?",
+        "quiz.q1Opt1": "👥 Hasta 25 colaboradores",
+        "quiz.q1Opt2": "🏢 25 a 100 colaboradores",
+        "quiz.q1Opt3": "🏭 Más de 100 colaboradores",
+        "quiz.q2": "2. ¿Cómo se encuentra su sistema ERP en Brasil actualmente?",
+        "quiz.q2Opt1": "⚠️ Usamos Protheus, pero está mal aprovechado o lento",
+        "quiz.q2Opt2": "🔄 Usamos otro ERP y necesitamos integración/dirección",
+        "quiz.q2Opt3": "📊 Muchas planillas manuales y falta de control",
+        "quiz.q2Opt4": "🛡️ No tenemos TI interno y necesitamos liderazgo estratégico",
+        "quiz.q3": "3. ¿Cuál es el principal objetivo en los próximos 6 meses?",
+        "quiz.q3Opt1": "📉 Reducir costos y retrabajo operativo",
+        "quiz.q3Opt2": "📈 Tener informes gerenciales confiables (P&L/BI)",
+        "quiz.q3Opt3": "🚀 Escalar operaciones con seguridad",
+        "quiz.submitBtn": "Enviar Respuestas a Rodrigo por WhatsApp",
+        "quiz.footerNote": "Respuesta rápida y directa. Sin robots, hablará directamente con el especialista.",
+        "faq.badge": "Preguntas Frecuentes",
+        "faq.title": "Despeje sus dudas antes de dar el siguiente paso",
+        "faq.subtitle": "Transparencia total sobre nuestra forma de trabajar junto a su empresa.",
+        "faq.q1": "¿Mi empresa ya tiene una consultora técnica. Ustedes entran a reemplazarla?",
+        "faq.a1": "No necesariamente. A menudo actuamos como el <strong>Director de Tecnología & Operaciones Fraccionado</strong> de su empresa, auditando lo que entrega la consultora actual, exigiendo plazos y evitando que pague horas de más. Si tiene técnicos, damos dirección estratégica. Si no tiene, asumimos la ejecución completa.",
+        "faq.q2": "¿Necesitamos cambiar de ERP para organizar nuestros procesos?",
+        "faq.a2": "En el 90% de los casos, <strong>no</strong>. El problema rara vez es el software en sí, sino cómo fue parametrizado y la desconexión con los procesos reales. Cambiar de ERP es costoso y caótico. Nuestro primer objetivo es siempre optimizar la inversión ya realizada.",
+        "faq.q3": "¿No tenemos a nadie de TI dentro de la empresa. Cómo funciona?",
+        "faq.a3": "Es exactamente el perfil que más atendemos. Asumimos el rol de departamento externo de TI y Procesos. Cuidamos el ERP, coordinamos el soporte a usuarios, garantizamos copias de seguridad y servidores, y representamos a su empresa ante cualquier proveedor tecnológico.",
+        "faq.q4": "¿El servicio es remoto o presencial?",
+        "faq.a4": "Trabajamos en modelo híbrido. La gran mayoría de las optimizaciones se gestionan de forma remota con máxima agilidad, con visitas presenciales estratégicas en la región metropolitana de São Paulo para auditorías de procesos y alineación con directores. Para clientes internacionales, operamos 100% de manera remota con sincronización continua.",
+        "faq.q5": "¿Cómo funciona el Diagnóstico Estratégico Gratuito de 30 minutos?",
+        "faq.a5": "Es una reunión por Google Meet o Teams directamente entre usted y Rodrigo Martins. Nos expone la dinámica de su empresa y los principales obstáculos con sistemas y procesos; señalamos en el momento riesgos y vías de solución. Sin compromiso y sin tecnicismos.",
+        "ctaFinal.badge": "Dé el siguiente paso con seguridad",
+        "ctaFinal.title": "¿Listo para transformar su tecnología en una palanca de rentabilidad y escala?",
+        "ctaFinal.subtitle": "Agende una conversación estratégica de 30 minutos sin costo. Analizaremos su operación y le mostraremos cómo destrabar su ERP y su gestión.",
+        "ctaFinal.whatsappBtn": "Agendar Diagnóstico Gratuito por WhatsApp",
+        "ctaFinal.emailBtn": "Prefiero Enviar un Correo",
+        "footer.about": "RMS Servicios Especializados en Tecnología | INNOVY.<br>Apoyando a pequeñas y medianas empresas a conectar negocios, procesos y sistemas ERP para crecer con gobernanza.",
+        "footer.location": "São Paulo - Brasil | Atención nacional e internacional",
+        "footer.navTitle": "Navegación",
+        "footer.contactTitle": "Contacto & Soporte",
+        "footer.tickets": "Portal de Soporte (Clientes)",
+        "footer.rights": "Todos los derechos reservados.",
+        "footer.terms": "Términos de Uso",
+        "footer.privacy": "Privacidad"
+      }
+    };
+
+    let currentLang = 'pt';
+
+    const langFlags = { pt: '🇧🇷', en: '🇺🇸', es: '🇪🇸' };
+    const langLabels = { pt: 'PT', en: 'EN', es: 'ES' };
+
+    function switchLanguage(lang) {
+      if (!translations[lang]) return;
+      currentLang = lang;
+      localStorage.setItem('innovy_lang', lang);
+
+      // Atualiza lang no elemento <html>
+      document.documentElement.lang = lang === 'pt' ? 'pt-BR' : (lang === 'en' ? 'en' : 'es');
+
+      // Atualiza URL com query parameter discreto
+      const url = new URL(window.location);
+      url.searchParams.set('lang', lang);
+      window.history.replaceState({}, '', url);
+
+      // Atualiza Seletor Desktop
+      const flagEl = document.getElementById('currentLangFlag');
+      const textEl = document.getElementById('currentLangText');
+      if (flagEl) flagEl.textContent = langFlags[lang];
+      if (textEl) textEl.textContent = langLabels[lang];
+
+      // Fecha dropdown desktop
+      const menu = document.getElementById('langDropdownMenu');
+      if (menu) menu.classList.add('hidden');
+
+      // Atualiza botões Mobile
+      ['pt', 'en', 'es'].forEach(l => {
+        const btn = document.getElementById('mobileBtn' + l.charAt(0).toUpperCase() + l.slice(1));
+        if (btn) {
+          if (l === lang) {
+            btn.className = 'px-2 py-1 rounded bg-white shadow-sm text-slate-900 font-bold';
+          } else {
+            btn.className = 'px-2 py-1 rounded text-slate-500 hover:text-slate-900';
+          }
+        }
+      });
+
+      // Aplica traduções textuais
+      const dict = translations[lang];
+
+      // Título e Meta
+      document.title = dict.pageTitle;
+      const metaDesc = document.getElementById('pageMetaDesc');
+      if (metaDesc) metaDesc.setAttribute('content', dict.pageMetaDesc);
+
+      // Elementos com data-i18n
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (dict[key] !== undefined) {
+          el.textContent = dict[key];
+        }
+      });
+
+      // Elementos com data-i18n-html
+      document.querySelectorAll('[data-i18n-html]').forEach(el => {
+        const key = el.getAttribute('data-i18n-html');
+        if (dict[key] !== undefined) {
+          el.innerHTML = dict[key];
+        }
+      });
+
+      // Atualiza links de WhatsApp com mensagem traduzida
+      const encodedMsg = encodeURIComponent(dict.whatsappMsg);
+      const waUrl = "https://wa.me/5511961787709?text=" + encodedMsg;
+
+      ['topbarWhatsappLink', 'navCtaBtn', 'mobileCtaBtn', 'heroPrimaryCta', 'cardWhatsappBtn', 'painsWhatsappBtn', 'methodCtaBtn', 'expertWhatsappBtn', 'footerPrimaryCta'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.href = waUrl;
+      });
+
+      // Atualiza link de e-mail
+      const emailEl = document.getElementById('footerEmailBtn');
+      if (emailEl) {
+        emailEl.href = "mailto:rodrigo.martins@innovy.com.br?subject=" + encodeURIComponent(dict.emailSubject);
+      }
+    }
+
+    // Inicialização do Idioma
+    window.addEventListener('DOMContentLoaded', () => {
+      // 1. Dropdown desktop toggle
+      const dropdownBtn = document.getElementById('langDropdownBtn');
+      const dropdownMenu = document.getElementById('langDropdownMenu');
+
+      if (dropdownBtn && dropdownMenu) {
+        dropdownBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          dropdownMenu.classList.toggle('hidden');
+        });
+
+        document.addEventListener('click', () => {
+          dropdownMenu.classList.add('hidden');
+        });
+      }
+
+      // 2. Detecção de idioma
+      const urlParams = new URLSearchParams(window.location.search);
+      const urlLang = urlParams.get('lang');
+      const storedLang = localStorage.getItem('innovy_lang');
+      const browserLang = (navigator.language || '').toLowerCase();
+
+      let targetLang = 'pt';
+      if (urlLang && translations[urlLang]) {
+        targetLang = urlLang;
+      } else if (storedLang && translations[storedLang]) {
+        targetLang = storedLang;
+      } else if (browserLang.startsWith('en')) {
+        targetLang = 'en';
+      } else if (browserLang.startsWith('es')) {
+        targetLang = 'es';
+      }
+
+      if (targetLang !== 'pt') {
+        switchLanguage(targetLang);
+      }
+    });
+
+    // ================= MENU MOBILE =================
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
     const mobileMenu = document.getElementById('mobileMenu');
     const menuIconClosed = document.getElementById('menuIconClosed');
     const menuIconOpen = document.getElementById('menuIconOpen');
 
-    mobileMenuBtn.addEventListener('click', () => {
-      const isHidden = mobileMenu.classList.contains('hidden');
-      if (isHidden) {
-        mobileMenu.classList.remove('hidden');
-        menuIconClosed.classList.add('hidden');
-        menuIconOpen.classList.remove('hidden');
-      } else {
-        mobileMenu.classList.add('hidden');
-        menuIconClosed.classList.remove('hidden');
-        menuIconOpen.classList.add('hidden');
-      }
-    });
+    if (mobileMenuBtn) {
+      mobileMenuBtn.addEventListener('click', () => {
+        const isHidden = mobileMenu.classList.contains('hidden');
+        if (isHidden) {
+          mobileMenu.classList.remove('hidden');
+          menuIconClosed.classList.add('hidden');
+          menuIconOpen.classList.remove('hidden');
+        } else {
+          mobileMenu.classList.add('hidden');
+          menuIconClosed.classList.remove('hidden');
+          menuIconOpen.classList.add('hidden');
+        }
+      });
+    }
 
     document.querySelectorAll('.mobile-nav-link').forEach(link => {
       link.addEventListener('click', () => {
@@ -1169,13 +1842,12 @@
       });
     });
 
-    // 2. FAQ Accordion Toggle
+    // ================= FAQ ACCORDION =================
     function toggleFaq(button) {
       const content = button.nextElementSibling;
       const icon = button.querySelector('.faq-icon');
       const isHidden = content.classList.contains('hidden');
 
-      // Fecha outros que estiverem abertos para manter limpeza visual
       document.querySelectorAll('.faq-content').forEach(c => c.classList.add('hidden'));
       document.querySelectorAll('.faq-icon').forEach(i => i.textContent = '+');
 
@@ -1185,7 +1857,7 @@
       }
     }
 
-    // 3. Quiz / Autoavaliação com Geração Dinâmica de WhatsApp
+    // ================= QUIZ INTERATIVO =================
     const quizState = {
       team: 'Não informado',
       erp: 'Não informado',
@@ -1195,24 +1867,37 @@
     function selectQuiz(field, value, buttonElement) {
       quizState[field] = value;
       
-      // Remove estilo ativo dos irmãos
       const parent = buttonElement.parentElement;
       parent.querySelectorAll('button').forEach(btn => {
         btn.classList.remove('border-brand-600', 'bg-brand-50', 'text-brand-900', 'font-bold');
         btn.classList.add('border-slate-300', 'bg-white', 'text-slate-700');
       });
 
-      // Aplica estilo ativo
       buttonElement.classList.remove('border-slate-300', 'bg-white', 'text-slate-700');
       buttonElement.classList.add('border-brand-600', 'bg-brand-50', 'text-brand-900', 'font-bold');
     }
 
     function submitQuizWhatsApp() {
-      let msg = "Olá Rodrigo! Fiz a autoavaliação no site da INNOVY:\n\n";
-      msg += "• Equipe: " + quizState.team + "\n";
-      msg += "• Situação Atual: " + quizState.erp + "\n";
-      msg += "• Principal Objetivo: " + quizState.goal + "\n\n";
-      msg += "Gostaria de agendar nosso diagnóstico operacional de 30 minutos.";
+      let msg = "";
+      if (currentLang === 'en') {
+        msg = "Hello Rodrigo! I completed the assessment on INNOVY's website:\n\n";
+        msg += "• Team Size: " + quizState.team + "\n";
+        msg += "• Current Situation: " + quizState.erp + "\n";
+        msg += "• Main Goal: " + quizState.goal + "\n\n";
+        msg += "I would like to book our 30-minute strategic assessment.";
+      } else if (currentLang === 'es') {
+        msg = "¡Hola Rodrigo! Realicé la autoevaluación en el sitio de INNOVY:\n\n";
+        msg += "• Equipo: " + quizState.team + "\n";
+        msg += "• Situación Actual: " + quizState.erp + "\n";
+        msg += "• Objetivo Principal: " + quizState.goal + "\n\n";
+        msg += "Me gustaría agendar nuestro diagnóstico estratégico de 30 minutos.";
+      } else {
+        msg = "Olá Rodrigo! Fiz a autoavaliação no site da INNOVY:\n\n";
+        msg += "• Equipe: " + quizState.team + "\n";
+        msg += "• Situação Atual: " + quizState.erp + "\n";
+        msg += "• Principal Objetivo: " + quizState.goal + "\n\n";
+        msg += "Gostaria de agendar nosso diagnóstico operacional de 30 minutos.";
+      }
 
       const encoded = encodeURIComponent(msg);
       window.open("https://wa.me/5511961787709?text=" + encoded, "_blank");
