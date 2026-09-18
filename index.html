@@ -67,16 +67,12 @@
   </script>
 
   <style>
-    html {
-      scroll-behavior: smooth;
-      scroll-padding-top: 5.5rem;
-    }
     body {
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
     }
     .hero-glow {
-      background: radial-gradient(circle at 50% 15%, rgba(0, 82, 163, 0.12) 0%, rgba(16, 185, 129, 0.05) 45%, transparent 70%);
+      background: radial-gradient(circle at 50% 15%, rgba(0, 82, 163, 0.08) 0%, rgba(16, 185, 129, 0.04) 45%, transparent 70%);
     }
     .card-hover-effect {
       transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
@@ -85,12 +81,24 @@
       transform: translateY(-3px);
       box-shadow: 0 16px 30px -8px rgba(6, 26, 53, 0.09);
     }
-    /* Indicador de navegação ativa */
-    .nav-item {
+    /* Estilo de página independente / painel */
+    .page-panel {
+      display: none;
+      opacity: 0;
+      transform: translateY(6px);
+      transition: opacity 0.25s ease-out, transform 0.25s ease-out;
+    }
+    .page-panel.active {
+      display: block;
+      opacity: 1;
+      transform: translateY(0);
+    }
+    /* Indicador ativo na navbar */
+    .nav-link-item {
       position: relative;
       transition: color 0.2s ease;
     }
-    .nav-item::after {
+    .nav-link-item::after {
       content: "";
       position: absolute;
       left: 0;
@@ -101,20 +109,20 @@
       background: linear-gradient(90deg, #0052a3, #10b981);
       transition: right 0.25s ease;
     }
-    .nav-item:hover::after,
-    .nav-item.active::after {
+    .nav-link-item:hover::after,
+    .nav-link-item.active::after {
       right: 0;
     }
   </style>
 </head>
 
-<body class="bg-slate-50 text-slate-800 font-body flex flex-col min-h-screen">
+<body class="bg-slate-50 text-slate-800 font-body flex flex-col min-h-screen selection:bg-brand-500 selection:text-white">
 
-  <!-- ================= 1. TOP NOTIFICATION BAR (EXECUTIVA) ================= -->
-  <div class="bg-brand-950 text-slate-200 text-xs py-2.5 px-4 border-b border-white/10 relative z-50">
+  <!-- ================= 1. TOP NOTIFICATION BAR ================= -->
+  <div class="bg-brand-950 text-slate-200 text-xs py-2 px-4 border-b border-white/10 relative z-50">
     <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
       <div class="flex items-center gap-2">
-        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-growth-500/20 text-growth-400 border border-growth-500/30" data-i18n="topbar.badge">
+        <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-semibold bg-growth-500/20 text-growth-400 border border-growth-500/30" data-i18n="topbar.badge">
           Atendimento Executivo
         </span>
         <span class="hidden sm:inline text-slate-300" data-i18n="topbar.text">
@@ -134,7 +142,7 @@
     </div>
   </div>
 
-  <!-- ================= 2. NAVBAR MODERNA & MINIMALISTA ================= -->
+  <!-- ================= 2. NAVBAR (COM CONCEITO DE NAVEGAÇÃO DE PÁGINAS) ================= -->
   <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200/90 shadow-sm transition-all">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-20">
@@ -148,16 +156,16 @@
           </div>
         </a>
 
-        <!-- Desktop Navigation Links (com o novo botão Parceiros) -->
+        <!-- Desktop Navigation Links (Páginas) -->
         <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-slate-600">
-          <a href="#inicio" class="nav-item hover:text-brand-700 transition" data-i18n="nav.home">Início</a>
-          <a href="#servicos" class="nav-item hover:text-brand-700 transition" data-i18n="nav.services">Serviços</a>
-          <a href="#sobre" class="nav-item hover:text-brand-700 transition" data-i18n="nav.about">Sobre</a>
-          <a href="#parceiros" class="nav-item hover:text-brand-700 transition flex items-center gap-1.5" data-i18n="nav.partners">
+          <a href="#inicio" data-page="inicio" class="nav-link-item active text-brand-700 transition" data-i18n="nav.home">Início</a>
+          <a href="#servicos" data-page="servicos" class="nav-link-item hover:text-brand-700 transition" data-i18n="nav.services">Serviços</a>
+          <a href="#sobre" data-page="sobre" class="nav-link-item hover:text-brand-700 transition" data-i18n="nav.about">Sobre</a>
+          <a href="#parceiros" data-page="parceiros" class="nav-link-item hover:text-brand-700 transition flex items-center gap-1.5" data-i18n="nav.partners">
             <span>Parceiros</span>
-            <span class="px-1.5 py-0.5 rounded text-[10px] font-bold bg-growth-500/15 text-growth-600 border border-growth-500/30">Novo</span>
+            <span class="px-1.5 py-0.5 rounded text-[10px] font-bold bg-growth-500/15 text-growth-700 border border-growth-500/30">Novo</span>
           </a>
-          <a href="#contato" class="nav-item hover:text-brand-700 transition" data-i18n="nav.contact">Contato</a>
+          <a href="#contato" data-page="contato" class="nav-link-item hover:text-brand-700 transition" data-i18n="nav.contact">Contato</a>
         </nav>
 
         <!-- Right Side: Language Switcher + CTA -->
@@ -185,7 +193,7 @@
             </div>
           </div>
 
-          <!-- CTA Header (Leva direto ao Contato/Diagnóstico) -->
+          <!-- CTA Header (Leva à página de Contato) -->
           <a id="navCtaBtn" href="#contato" class="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl font-bold text-sm text-white bg-gradient-to-r from-brand-700 via-brand-600 to-growth-600 hover:from-brand-800 hover:to-growth-500 shadow-md shadow-brand-700/20 hover:shadow-lg transition-all duration-200">
             <span data-i18n="nav.cta">Diagnóstico Gratuito</span>
             <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
@@ -194,7 +202,6 @@
 
         <!-- Mobile Controls (Lang + Menu Toggle) -->
         <div class="md:hidden flex items-center gap-2">
-          <!-- Mobile Lang Selector -->
           <div class="flex items-center gap-1 bg-slate-100 p-1 rounded-lg text-xs font-bold border border-slate-200">
             <button type="button" onclick="switchLanguage('pt')" id="mobileBtnPt" class="px-2 py-1 rounded bg-white shadow-sm text-slate-900">🇧🇷</button>
             <button type="button" onclick="switchLanguage('en')" id="mobileBtnEn" class="px-2 py-1 rounded text-slate-500 hover:text-slate-900">🇺🇸</button>
@@ -229,617 +236,619 @@
     </div>
   </header>
 
-  <!-- ================= 3. SEÇÃO INÍCIO (HERO EXECUTIVO ENXUTO & DIRETO) ================= -->
-  <section id="inicio" class="relative pt-12 pb-16 md:pt-20 md:pb-24 overflow-hidden hero-glow">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-      <div class="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-        
-        <!-- Hero Left / Copywriting -->
-        <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+  <!-- ================= 3. CONTAINER PRINCIPAL DAS PÁGINAS (PAGES) ================= -->
+  <main class="flex-grow">
+
+    <!-- ================= PÁGINA 1: INÍCIO ================= -->
+    <div id="page-inicio" class="page-panel active min-h-[calc(100vh-140px)] flex flex-col justify-center py-12 md:py-16 relative overflow-hidden hero-glow">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+        <div class="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           
-          <!-- Badge -->
-          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-50 border border-brand-200/80 text-brand-800 text-xs sm:text-sm font-semibold shadow-sm">
-            <span class="flex h-2 w-2 rounded-full bg-growth-500 animate-pulse"></span>
-            <span data-i18n="hero.badge">Parceiro Estratégico de Negócio e Tecnologia para PMEs</span>
+          <!-- Hero Left / Copywriting -->
+          <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-50 border border-brand-200/80 text-brand-800 text-xs sm:text-sm font-semibold shadow-sm">
+              <span class="flex h-2 w-2 rounded-full bg-growth-500 animate-pulse"></span>
+              <span data-i18n="hero.badge">Parceiro Estratégico de Negócio e Tecnologia para PMEs</span>
+            </div>
+
+            <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-brand-950 tracking-tight leading-[1.15] font-sans">
+              <span data-i18n="hero.titleLead">Sua empresa não precisa de mais um consultor técnico.</span>
+              <span class="block mt-2 text-transparent bg-clip-text bg-gradient-to-r from-brand-700 via-brand-600 to-growth-600" data-i18n="hero.titleAccent">
+                Precisa de um parceiro que faça a tecnologia gerar lucro e escala.
+              </span>
+            </h1>
+
+            <p class="text-base sm:text-lg text-slate-600 max-w-2xl leading-relaxed" data-i18n="hero.subtitle">
+              Apoiamos empresários a destravar gargalos operacionais, transformar o ERP (Totvs Protheus) em uma máquina de eficiência e estruturar a gestão de tecnologia — unindo visão executiva de margens a um atendimento sênior direto.
+            </p>
+
+            <!-- Ações Diretas para outras Páginas -->
+            <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+              <a href="#contato" class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-xl font-bold text-sm text-white bg-gradient-to-r from-brand-700 via-brand-600 to-growth-600 hover:from-brand-800 hover:to-growth-500 shadow-lg shadow-brand-700/20 hover:shadow-xl transition duration-200">
+                <span data-i18n="hero.ctaPrimary">Solicitar Diagnóstico Gratuito</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+              </a>
+
+              <a href="#servicos" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-bold text-sm text-brand-900 bg-white hover:bg-slate-100 border border-slate-300 shadow-sm transition">
+                <span data-i18n="hero.ctaSecondary">Conhecer Soluções</span>
+              </a>
+
+              <a href="#parceiros" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl font-bold text-sm text-growth-700 bg-growth-500/10 hover:bg-growth-500/20 border border-growth-500/30 transition">
+                <span data-i18n="hero.ctaPartners">Ver Parceiros (Elonext)</span>
+              </a>
+            </div>
+
+            <!-- Badges de Autoridade -->
+            <div class="pt-4 border-t border-slate-200/80 grid grid-cols-2 sm:grid-cols-3 gap-3 text-left">
+              <div class="flex items-center gap-2 text-xs font-semibold text-slate-700">
+                <span class="text-growth-600 text-base font-bold">✓</span>
+                <span data-i18n="hero.check1">Linguagem de Negócio</span>
+              </div>
+              <div class="flex items-center gap-2 text-xs font-semibold text-slate-700">
+                <span class="text-growth-600 text-base font-bold">✓</span>
+                <span data-i18n="hero.check2">Atendimento Sênior Direto</span>
+              </div>
+              <div class="flex items-center gap-2 text-xs font-semibold text-slate-700 col-span-2 sm:col-span-1">
+                <span class="text-growth-600 text-base font-bold">✓</span>
+                <span data-i18n="hero.check3">Foco em Margem & ROI</span>
+              </div>
+            </div>
+
           </div>
 
-          <!-- Headline de Alto Impacto -->
-          <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-brand-950 tracking-tight leading-[1.15] font-sans">
-            <span data-i18n="hero.titleLead">Sua empresa não precisa de mais um consultor técnico.</span>
-            <span class="block mt-2 text-transparent bg-clip-text bg-gradient-to-r from-brand-700 via-brand-600 to-growth-600" data-i18n="hero.titleAccent">
-              Precisa de um parceiro que faça a tecnologia gerar lucro e escala.
-            </span>
-          </h1>
+          <!-- Hero Right: Painel Executivo de Negócio & Tecnologia -->
+          <div class="lg:col-span-5">
+            <div class="bg-white rounded-3xl p-6 sm:p-8 shadow-xl border border-slate-200 relative">
+              <div class="flex items-center justify-between border-b border-slate-100 pb-4 mb-5">
+                <div>
+                  <h3 class="text-base font-bold text-brand-950 font-sans" data-i18n="hero.cardTitle">Hub de Tecnologia & Negócio</h3>
+                  <p class="text-xs text-slate-500" data-i18n="hero.cardSub">Gestão Integrada para PMEs</p>
+                </div>
+                <span class="px-2.5 py-1 rounded-md text-[11px] font-bold bg-growth-500/15 text-growth-700 border border-growth-500/20" data-i18n="hero.activeStatus">Ativo</span>
+              </div>
 
-          <!-- Subheadline -->
-          <p class="text-base sm:text-lg text-slate-600 max-w-2xl leading-relaxed" data-i18n="hero.subtitle">
-            Apoiamos empresários a destravar gargalos operacionais, transformar o ERP (Totvs Protheus) em uma máquina de eficiência e estruturar a gestão de tecnologia — unindo visão executiva de margens a um atendimento sênior direto.
-          </p>
+              <!-- Grid das 4 Especialidades -->
+              <div class="grid grid-cols-2 gap-3 mb-5">
+                <div class="p-3.5 rounded-2xl bg-slate-50 border border-slate-100">
+                  <div class="text-xl mb-1">⚡</div>
+                  <h4 class="text-xs font-bold text-brand-900">TOTVS Protheus</h4>
+                  <p class="text-[11px] text-slate-500 mt-0.5" data-i18n="hero.item1">Otimização e governança</p>
+                </div>
+                <div class="p-3.5 rounded-2xl bg-slate-50 border border-slate-100">
+                  <div class="text-xl mb-1">🎯</div>
+                  <h4 class="text-xs font-bold text-brand-900">Fractional CTO</h4>
+                  <p class="text-[11px] text-slate-500 mt-0.5" data-i18n="hero.item2">Liderança executiva</p>
+                </div>
+                <div class="p-3.5 rounded-2xl bg-slate-50 border border-slate-100">
+                  <div class="text-xl mb-1">📊</div>
+                  <h4 class="text-xs font-bold text-brand-900">BI & Controladoria</h4>
+                  <p class="text-[11px] text-slate-500 mt-0.5" data-i18n="hero.item3">DRE e fluxo em tempo real</p>
+                </div>
+                <div class="p-3.5 rounded-2xl bg-slate-50 border border-slate-100">
+                  <div class="text-xl mb-1">🔄</div>
+                  <h4 class="text-xs font-bold text-brand-900">Automação & APIs</h4>
+                  <p class="text-[11px] text-slate-500 mt-0.5" data-i18n="hero.item4">Fim do retrabalho manual</p>
+                </div>
+              </div>
 
-          <!-- CTAs de Ação Imediata (Todos os Botões 100% Funcionais com Âncoras) -->
-          <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
-            <a href="#contato" class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-xl font-bold text-sm text-white bg-gradient-to-r from-brand-700 via-brand-600 to-growth-600 hover:from-brand-800 hover:to-growth-500 shadow-lg shadow-brand-700/20 hover:shadow-xl transition duration-200">
-              <span data-i18n="hero.ctaPrimary">Solicitar Diagnóstico Gratuito</span>
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
-            </a>
-
-            <a href="#servicos" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-bold text-sm text-brand-900 bg-white hover:bg-slate-100 border border-slate-300 shadow-sm transition">
-              <span data-i18n="hero.ctaSecondary">Conhecer Soluções</span>
-            </a>
-
-            <a href="#parceiros" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl font-bold text-sm text-growth-700 bg-growth-500/10 hover:bg-growth-500/20 border border-growth-500/30 transition">
-              <span data-i18n="hero.ctaPartners">Ver Parceiros (Elonext)</span>
-            </a>
-          </div>
-
-          <!-- Badges de Autoridade -->
-          <div class="pt-4 border-t border-slate-200/80 grid grid-cols-2 sm:grid-cols-3 gap-3 text-left">
-            <div class="flex items-center gap-2 text-xs font-semibold text-slate-700">
-              <span class="text-growth-600 text-base font-bold">✓</span>
-              <span data-i18n="hero.check1">Linguagem de Negócio</span>
-            </div>
-            <div class="flex items-center gap-2 text-xs font-semibold text-slate-700">
-              <span class="text-growth-600 text-base font-bold">✓</span>
-              <span data-i18n="hero.check2">Atendimento Sênior Direto</span>
-            </div>
-            <div class="flex items-center gap-2 text-xs font-semibold text-slate-700 col-span-2 sm:col-span-1">
-              <span class="text-growth-600 text-base font-bold">✓</span>
-              <span data-i18n="hero.check3">Foco em Margem & ROI</span>
+              <!-- Perfil Rodrigo -->
+              <div class="flex items-center gap-3.5 pt-4 border-t border-slate-100">
+                <img src="assets/rodrigo-martins.png?v=2" alt="Rodrigo Martins" class="w-12 h-12 rounded-xl object-cover border border-slate-200 shadow-sm">
+                <div>
+                  <p class="text-xs font-bold text-brand-950">Rodrigo Martins da Silva</p>
+                  <p class="text-[11px] text-slate-500 font-medium" data-i18n="hero.authorRole">Fundador & Especialista Sênior</p>
+                </div>
+              </div>
             </div>
           </div>
 
         </div>
 
-        <!-- Hero Right: Painel Executivo de Negócio & Tecnologia -->
-        <div class="lg:col-span-5">
-          <div class="bg-white rounded-3xl p-6 sm:p-8 shadow-xl border border-slate-200 relative">
-            <div class="flex items-center justify-between border-b border-slate-100 pb-4 mb-5">
-              <div>
-                <h3 class="text-base font-bold text-brand-950 font-sans" data-i18n="hero.cardTitle">Hub de Tecnologia & Negócio</h3>
-                <p class="text-xs text-slate-500" data-i18n="hero.cardSub">Gestão Integrada para PMEs</p>
-              </div>
-              <span class="px-2.5 py-1 rounded-md text-[11px] font-bold bg-growth-500/15 text-growth-700 border border-growth-500/20" data-i18n="hero.activeStatus">Ativo</span>
-            </div>
-
-            <!-- Grid das 4 Especialidades -->
-            <div class="grid grid-cols-2 gap-3 mb-5">
-              <div class="p-3.5 rounded-2xl bg-slate-50 border border-slate-100">
-                <div class="text-xl mb-1">⚡</div>
-                <h4 class="text-xs font-bold text-brand-900">TOTVS Protheus</h4>
-                <p class="text-[11px] text-slate-500 mt-0.5" data-i18n="hero.item1">Otimização e governança</p>
-              </div>
-              <div class="p-3.5 rounded-2xl bg-slate-50 border border-slate-100">
-                <div class="text-xl mb-1">🎯</div>
-                <h4 class="text-xs font-bold text-brand-900">Fractional CTO</h4>
-                <p class="text-[11px] text-slate-500 mt-0.5" data-i18n="hero.item2">Liderança executiva</p>
-              </div>
-              <div class="p-3.5 rounded-2xl bg-slate-50 border border-slate-100">
-                <div class="text-xl mb-1">📊</div>
-                <h4 class="text-xs font-bold text-brand-900">BI & Controladoria</h4>
-                <p class="text-[11px] text-slate-500 mt-0.5" data-i18n="hero.item3">DRE e fluxo em tempo real</p>
-              </div>
-              <div class="p-3.5 rounded-2xl bg-slate-50 border border-slate-100">
-                <div class="text-xl mb-1">🔄</div>
-                <h4 class="text-xs font-bold text-brand-900">Automação & APIs</h4>
-                <p class="text-[11px] text-slate-500 mt-0.5" data-i18n="hero.item4">Fim do retrabalho manual</p>
-              </div>
-            </div>
-
-            <!-- Perfil Rodrigo -->
-            <div class="flex items-center gap-3.5 pt-4 border-t border-slate-100">
-              <img src="assets/rodrigo-martins.png?v=2" alt="Rodrigo Martins" class="w-12 h-12 rounded-xl object-cover border border-slate-200 shadow-sm">
-              <div>
-                <p class="text-xs font-bold text-brand-950">Rodrigo Martins da Silva</p>
-                <p class="text-[11px] text-slate-500 font-medium" data-i18n="hero.authorRole">Fundador & Especialista Sênior</p>
-              </div>
-            </div>
+        <!-- Métricas Reais e Objetivas -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12 pt-8 border-t border-slate-200/80">
+          <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm text-center sm:text-left">
+            <div class="text-3xl font-extrabold text-brand-900 font-sans">15<span class="text-brand-600">+</span></div>
+            <p class="text-xs font-medium text-slate-600 mt-1" data-i18n="metrics.years">Anos no Ecossistema ERP & Gestão</p>
+          </div>
+          <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm text-center sm:text-left">
+            <div class="text-3xl font-extrabold text-brand-900 font-sans">100<span class="text-growth-600">+</span></div>
+            <p class="text-xs font-medium text-slate-600 mt-1" data-i18n="metrics.projects">Projetos Entregues com Sucesso</p>
+          </div>
+          <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm text-center sm:text-left">
+            <div class="text-3xl font-extrabold text-brand-900 font-sans">100<span class="text-brand-600">%</span></div>
+            <p class="text-xs font-medium text-slate-600 mt-1" data-i18n="metrics.roi">Foco em ROI e Rentabilidade</p>
+          </div>
+          <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm text-center sm:text-left">
+            <div class="text-3xl font-extrabold text-brand-900 font-sans">PMEs</div>
+            <p class="text-xs font-medium text-slate-600 mt-1" data-i18n="metrics.focus">Indústria, Distribuição & Serviços</p>
           </div>
         </div>
 
       </div>
-
-      <!-- Métricas Reais e Objetivas -->
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12 pt-8 border-t border-slate-200/80">
-        <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm text-center sm:text-left">
-          <div class="text-3xl font-extrabold text-brand-900 font-sans">15<span class="text-brand-600">+</span></div>
-          <p class="text-xs font-medium text-slate-600 mt-1" data-i18n="metrics.years">Anos no Ecossistema ERP & Gestão</p>
-        </div>
-        <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm text-center sm:text-left">
-          <div class="text-3xl font-extrabold text-brand-900 font-sans">100<span class="text-growth-600">+</span></div>
-          <p class="text-xs font-medium text-slate-600 mt-1" data-i18n="metrics.projects">Projetos Entregues com Sucesso</p>
-        </div>
-        <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm text-center sm:text-left">
-          <div class="text-3xl font-extrabold text-brand-900 font-sans">100<span class="text-brand-600">%</span></div>
-          <p class="text-xs font-medium text-slate-600 mt-1" data-i18n="metrics.roi">Foco em ROI e Rentabilidade</p>
-        </div>
-        <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm text-center sm:text-left">
-          <div class="text-3xl font-extrabold text-brand-900 font-sans">PMEs</div>
-          <p class="text-xs font-medium text-slate-600 mt-1" data-i18n="metrics.focus">Indústria, Distribuição & Serviços</p>
-        </div>
-      </div>
-
     </div>
-  </section>
 
-  <!-- ================= 4. SEÇÃO SERVIÇOS & SOLUÇÕES ================= -->
-  <section id="servicos" class="py-16 md:py-24 bg-white border-y border-slate-200/80">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      <!-- Cabeçalho da Seção -->
-      <div class="text-center max-w-3xl mx-auto mb-14">
-        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-50 border border-brand-200 text-brand-800 text-xs font-bold uppercase tracking-wider mb-3">
-          <span data-i18n="services.tag">Onde Atuamos</span>
-        </div>
-        <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-950 font-sans tracking-tight" data-i18n="services.title">
-          Soluções que Destravam e Escalam sua Empresa
-        </h2>
-        <p class="text-base text-slate-600 mt-3" data-i18n="services.subtitle">
-          Chega de pagar mensalidades caras para consultorias que só vendem horas e falam linguagem técnica sem entender seu negócio.
-        </p>
-      </div>
-
-      <!-- Grid dos 4 Pilares -->
-      <div class="grid md:grid-cols-2 gap-6 mb-12">
+    <!-- ================= PÁGINA 2: SERVIÇOS ================= -->
+    <div id="page-servicos" class="page-panel min-h-[calc(100vh-140px)] py-12 md:py-16 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <!-- Pilar 1 -->
-        <div class="bg-slate-50 rounded-3xl p-8 border border-slate-200 card-hover-effect space-y-4">
-          <div class="w-12 h-12 rounded-2xl bg-brand-100 flex items-center justify-center text-brand-700 text-2xl font-bold">
-            ⚙️
+        <!-- Cabeçalho -->
+        <div class="text-center max-w-3xl mx-auto mb-12">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-50 border border-brand-200 text-brand-800 text-xs font-bold uppercase tracking-wider mb-3">
+            <span data-i18n="services.tag">Onde Atuamos</span>
           </div>
-          <h3 class="text-xl font-bold text-brand-950 font-sans" data-i18n="services.s1Title">
-            Gestão Estratégica TOTVS Protheus
-          </h3>
-          <p class="text-sm text-slate-600 leading-relaxed" data-i18n="services.s1Desc">
-            Destravamos módulos essenciais (Compras, Estoque, Faturamento, Financeiro, Fiscal e Contábil). Saneamento de cadastros, parametrizações precisas e eliminação de customizações desnecessárias.
-          </p>
-          <ul class="text-xs text-slate-500 space-y-2 pt-2 border-t border-slate-200">
-            <li class="flex items-center gap-2">✓ <span data-i18n="services.s1i1">Aproveitamento máximo dos módulos nativos</span></li>
-            <li class="flex items-center gap-2">✓ <span data-i18n="services.s1i2">Auditoria e conformidade fiscal</span></li>
-          </ul>
-        </div>
-
-        <!-- Pilar 2 -->
-        <div class="bg-slate-50 rounded-3xl p-8 border border-slate-200 card-hover-effect space-y-4">
-          <div class="w-12 h-12 rounded-2xl bg-growth-500/15 flex items-center justify-center text-growth-600 text-2xl font-bold">
-            🎯
-          </div>
-          <h3 class="text-xl font-bold text-brand-950 font-sans" data-i18n="services.s2Title">
-            TI como Serviço & Fractional CTO
-          </h3>
-          <p class="text-sm text-slate-600 leading-relaxed" data-i18n="services.s2Desc">
-            Tenha um executivo de tecnologia experiente ao lado da sua diretoria. Governança, coordenação de fornecedores, avaliação de investimentos e segurança da informação sem o custo de um diretor CLT fixo.
-          </p>
-          <ul class="text-xs text-slate-500 space-y-2 pt-2 border-t border-slate-200">
-            <li class="flex items-center gap-2">✓ <span data-i18n="services.s2i1">Decisões técnicas fundamentadas em ROI</span></li>
-            <li class="flex items-center gap-2">✓ <span data-i18n="services.s2i2">Gestão de chamados e conformidade de SLAs</span></li>
-          </ul>
-        </div>
-
-        <!-- Pilar 3 -->
-        <div class="bg-slate-50 rounded-3xl p-8 border border-slate-200 card-hover-effect space-y-4">
-          <div class="w-12 h-12 rounded-2xl bg-blue-50 flex items-center justify-center text-brand-600 text-2xl font-bold">
-            🔄
-          </div>
-          <h3 class="text-xl font-bold text-brand-950 font-sans" data-i18n="services.s3Title">
-            Automação de Processos & Integrações
-          </h3>
-          <p class="text-sm text-slate-600 leading-relaxed" data-i18n="services.s3Desc">
-            Fim das planilhas paralelas e da digitação duplicada. Conectamos seu ERP a plataformas de e-commerce, CRM, bancos, portais fiscais e ferramentas logísticas via APIs modernas e seguras.
-          </p>
-          <ul class="text-xs text-slate-500 space-y-2 pt-2 border-t border-slate-200">
-            <li class="flex items-center gap-2">✓ <span data-i18n="services.s3i1">Eliminação de retrabalho manual humano</span></li>
-            <li class="flex items-center gap-2">✓ <span data-i18n="services.s3i2">Fluxos ágeis de conciliação bancária</span></li>
-          </ul>
-        </div>
-
-        <!-- Pilar 4 -->
-        <div class="bg-slate-50 rounded-3xl p-8 border border-slate-200 card-hover-effect space-y-4">
-          <div class="w-12 h-12 rounded-2xl bg-emerald-50 flex items-center justify-center text-growth-600 text-2xl font-bold">
-            📊
-          </div>
-          <h3 class="text-xl font-bold text-brand-950 font-sans" data-i18n="services.s4Title">
-            Dashboards Gerenciais & BI
-          </h3>
-          <p class="text-sm text-slate-600 leading-relaxed" data-i18n="services.s4Desc">
-            Dados confiáveis para tomadas de decisão rápidas. Construímos painéis executivos com DRE em tempo real, curva ABC de clientes e produtos, margem de contribuição e fluxo de caixa projetado.
-          </p>
-          <ul class="text-xs text-slate-500 space-y-2 pt-2 border-t border-slate-200">
-            <li class="flex items-center gap-2">✓ <span data-i18n="services.s4i1">Visão clara de rentabilidade por canal</span></li>
-            <li class="flex items-center gap-2">✓ <span data-i18n="services.s4i2">Fim de decisões no escuro</span></li>
-          </ul>
-        </div>
-
-      </div>
-
-      <!-- Diferencial de Valor Executivo -->
-      <div class="bg-brand-950 text-white rounded-3xl p-8 sm:p-10 shadow-xl flex flex-col md:flex-row items-center justify-between gap-6">
-        <div>
-          <span class="text-xs font-bold uppercase tracking-wider text-growth-400" data-i18n="services.diffTag">Nosso Compromisso</span>
-          <h4 class="text-xl sm:text-2xl font-bold font-sans mt-1" data-i18n="services.diffTitle">
-            Parceiro de Negócio e Lucro vs. Consultoria de Horas
-          </h4>
-          <p class="text-sm text-slate-300 mt-2 max-w-2xl leading-relaxed" data-i18n="services.diffDesc">
-            Não lucramos com a ineficiência do seu sistema nem enrolamos prazos. Nosso foco é entregar soluções objetivas que tragam retorno financeiro real para o seu negócio.
-          </p>
-        </div>
-        <a href="#contato" class="whitespace-nowrap px-7 py-3.5 rounded-xl font-bold text-sm text-brand-950 bg-growth-400 hover:bg-growth-500 transition shadow-lg">
-          <span data-i18n="services.ctaDiagnostic">Fazer Diagnóstico Agora</span>
-        </a>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ================= 5. SEÇÃO SOBRE & METODOLOGIA ================= -->
-  <section id="sobre" class="py-16 md:py-24 bg-slate-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      <div class="grid lg:grid-cols-12 gap-12 items-center mb-16">
-        
-        <!-- Foto Rodrigo Martins (Limpa, sem logos terceiros) -->
-        <div class="lg:col-span-5 text-center">
-          <div class="relative inline-block max-w-sm mx-auto">
-            <div class="absolute -inset-2 bg-gradient-to-r from-brand-600 to-growth-500 rounded-3xl blur-lg opacity-20"></div>
-            <img src="assets/rodrigo-martins.png?v=2" alt="Rodrigo Martins da Silva - INNOVY" class="relative rounded-2xl w-full h-auto object-cover shadow-2xl border-4 border-white">
-            
-            <div class="absolute -bottom-3 right-3 bg-brand-950 text-white px-3.5 py-1.5 rounded-xl text-xs font-bold shadow-lg border border-white/20" data-i18n="about.badgePhoto">
-              Especialista em Negócio & Tecnologia
-            </div>
-          </div>
-        </div>
-
-        <!-- Bio Executiva -->
-        <div class="lg:col-span-7 space-y-5">
-          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-50 border border-brand-200 text-brand-800 text-xs font-bold uppercase tracking-wider">
-            <span data-i18n="about.tag">Liderança & Autoridade Direta</span>
-          </div>
-
-          <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-950 font-sans tracking-tight" data-i18n="about.title">
-            "Na INNOVY, você não fala com estagiários. Fala com quem entende e resolve."
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-950 font-sans tracking-tight" data-i18n="services.title">
+            Soluções que Destravam e Escalam sua Empresa
           </h2>
-
-          <p class="text-base text-slate-600 leading-relaxed" data-i18n="about.p1">
-            Meu nome é <strong>Rodrigo Martins da Silva</strong>, fundador da INNOVY. Com mais de 15 anos no ecossistema de gestão e ERPs (especialmente TOTVS Protheus), vi centenas de empresários investirem valores expressivos em softwares sem colher os benefícios prometidos.
+          <p class="text-base text-slate-600 mt-3" data-i18n="services.subtitle">
+            Chega de pagar mensalidades caras para consultorias que só vendem horas e falam linguagem técnica sem entender seu negócio.
           </p>
-
-          <p class="text-base text-slate-600 leading-relaxed" data-i18n="about.p2">
-            A INNOVY nasceu para quebrar esse ciclo: combinamos profundidade técnica e visão pragmática de negócios, garantindo que cada sistema implantado ou mantido gere dados confiáveis, reduza despesas operacionais e prepare a empresa para crescer com estabilidade.
-          </p>
-
-          <div class="grid grid-cols-2 gap-4 pt-3">
-            <div class="p-4 rounded-xl bg-white border border-slate-200 shadow-sm">
-              <div class="text-brand-700 font-bold text-sm" data-i18n="about.bullet1Title">✓ Atendimento Sênior</div>
-              <p class="text-xs text-slate-500 mt-1" data-i18n="about.bullet1Desc">Sem estagiários repassando chamados</p>
-            </div>
-            <div class="p-4 rounded-xl bg-white border border-slate-200 shadow-sm">
-              <div class="text-growth-600 font-bold text-sm" data-i18n="about.bullet2Title">✓ Foco em Rentabilidade</div>
-              <p class="text-xs text-slate-500 mt-1" data-i18n="about.bullet2Desc">Soluções diretas que geram caixa</p>
-            </div>
-          </div>
         </div>
 
-      </div>
-
-      <!-- Metodologia em 4 Passos -->
-      <div class="border-t border-slate-200 pt-14">
-        <div class="text-center max-w-2xl mx-auto mb-12">
-          <span class="text-xs font-bold uppercase tracking-widest text-brand-600" data-i18n="about.methodTag">Como Trabalhamos</span>
-          <h3 class="text-2xl sm:text-3xl font-extrabold text-brand-950 font-sans mt-1" data-i18n="about.methodTitle">
-            Metodologia Ágil em 4 Passos
-          </h3>
-        </div>
-
-        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm card-hover-effect">
-            <span class="text-xs font-extrabold text-brand-600">PASSO 01</span>
-            <h4 class="text-base font-bold text-brand-950 font-sans mt-1" data-i18n="about.step1Title">Diagnóstico 360°</h4>
-            <p class="text-xs text-slate-500 mt-2 leading-relaxed" data-i18n="about.step1Desc">Mapeamento dos gargalos, rotinas do ERP e custos ocultos sem cobrança inicial.</p>
-          </div>
-          <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm card-hover-effect">
-            <span class="text-xs font-extrabold text-brand-600">PASSO 02</span>
-            <h4 class="text-base font-bold text-brand-950 font-sans mt-1" data-i18n="about.step2Title">Plano Executivo</h4>
-            <p class="text-xs text-slate-500 mt-2 leading-relaxed" data-i18n="about.step2Desc">Cronograma priorizado por impacto financeiro e destravamento operacional rápido.</p>
-          </div>
-          <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm card-hover-effect">
-            <span class="text-xs font-extrabold text-brand-600">PASSO 03</span>
-            <h4 class="text-base font-bold text-brand-950 font-sans mt-1" data-i18n="about.step3Title">Execução Técnica</h4>
-            <p class="text-xs text-slate-500 mt-2 leading-relaxed" data-i18n="about.step3Desc">Parametrizações precisas, integrações e relatórios com entregas em sprints curtas.</p>
-          </div>
-          <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm card-hover-effect">
-            <span class="text-xs font-extrabold text-growth-600">PASSO 04</span>
-            <h4 class="text-base font-bold text-brand-950 font-sans mt-1" data-i18n="about.step4Title">Governança & Escala</h4>
-            <p class="text-xs text-slate-500 mt-2 leading-relaxed" data-i18n="about.step4Desc">Atuação contínua como braço direito tecnológico para garantir crescimento seguro.</p>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ================= 6. SEÇÃO PARCEIROS (NOVA ABA COM ELONEXT) ================= -->
-  <section id="parceiros" class="py-16 md:py-24 bg-white border-y border-slate-200/80">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      <!-- Cabeçalho da Seção -->
-      <div class="text-center max-w-3xl mx-auto mb-14">
-        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-growth-500/15 border border-growth-500/30 text-growth-700 text-xs font-bold uppercase tracking-wider mb-3">
-          <span data-i18n="partners.tag">Ecossistema de Soluções</span>
-        </div>
-        <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-950 font-sans tracking-tight" data-i18n="partners.title">
-          Parceiros Estratégicos & Sinergia de Negócios
-        </h2>
-        <p class="text-base text-slate-600 mt-3" data-i18n="partners.subtitle">
-          Conectamos sua empresa a especialistas e metodologias complementares para cobrir processos, governança e tecnologia de ponta a ponta.
-        </p>
-      </div>
-
-      <!-- Card Nobre de Destaque: ELONEXT -->
-      <div class="bg-gradient-to-br from-slate-50 via-white to-growth-500/5 rounded-3xl p-8 sm:p-12 border-2 border-growth-500/30 shadow-xl relative overflow-hidden mb-12">
-        <div class="grid lg:grid-cols-12 gap-8 items-center">
+        <!-- Grid dos 4 Pilares -->
+        <div class="grid md:grid-cols-2 gap-6 mb-10">
           
-          <div class="lg:col-span-8 space-y-4">
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-growth-500/20 text-growth-800 text-xs font-bold border border-growth-500/30">
-              <span class="w-2 h-2 rounded-full bg-growth-500 animate-ping"></span>
-              <span data-i18n="partners.elonext.badge">Nova Operação • Gestão & Processos</span>
+          <!-- Pilar 1 -->
+          <div class="bg-slate-50 rounded-3xl p-8 border border-slate-200 card-hover-effect space-y-4">
+            <div class="w-12 h-12 rounded-2xl bg-brand-100 flex items-center justify-center text-brand-700 text-2xl font-bold">
+              ⚙️
             </div>
-
-            <h3 class="text-2xl sm:text-3xl font-extrabold text-brand-950 font-sans">
-              <span class="text-brand-700">Elonext</span> — <span data-i18n="partners.elonext.title">Consultoria em Gestão, Processos & BPM</span>
+            <h3 class="text-xl font-bold text-brand-950 font-sans" data-i18n="services.s1Title">
+              Gestão Estratégica TOTVS Protheus
             </h3>
-
-            <p class="text-base text-slate-600 leading-relaxed" data-i18n="partners.elonext.desc">
-              A <strong>Elonext</strong> nasce com foco exclusivo em arquitetura de processos (BPM) e consultoria executiva para as áreas essenciais do negócio. Enquanto a INNOVY cuida da inteligência de sistemas e tecnologia (ERP TOTVS Protheus), a Elonext estrutura e otimiza a governança nas áreas <strong>Administrativa, Financeira, Contábil, Fiscal e Controladoria</strong>.
+            <p class="text-sm text-slate-600 leading-relaxed" data-i18n="services.s1Desc">
+              Destravamos módulos essenciais (Compras, Estoque, Faturamento, Financeiro, Fiscal e Contábil). Saneamento de cadastros, parametrizações precisas e eliminação de customizações desnecessárias.
             </p>
-
-            <!-- 4 Áreas de Atuação da Elonext -->
-            <div class="grid sm:grid-cols-2 gap-3 pt-2">
-              <div class="p-4 rounded-xl bg-white border border-slate-200 shadow-sm">
-                <div class="text-xs font-bold text-brand-900 flex items-center gap-2">
-                  <span class="text-growth-600 font-extrabold">⚡</span> <span data-i18n="partners.elonext.f1Title">BPM & Mapeamento de Processos</span>
-                </div>
-                <p class="text-[11px] text-slate-500 mt-1" data-i18n="partners.elonext.f1Desc">Desenho de rotinas e eliminação de gargalos nos fluxos de trabalho.</p>
-              </div>
-
-              <div class="p-4 rounded-xl bg-white border border-slate-200 shadow-sm">
-                <div class="text-xs font-bold text-brand-900 flex items-center gap-2">
-                  <span class="text-brand-600 font-extrabold">📊</span> <span data-i18n="partners.elonext.f2Title">Controladoria & Gestão Financeira</span>
-                </div>
-                <p class="text-[11px] text-slate-500 mt-1" data-i18n="partners.elonext.f2Desc">DRE estruturada, fluxo de caixa, orçamento e governança de margens.</p>
-              </div>
-
-              <div class="p-4 rounded-xl bg-white border border-slate-200 shadow-sm">
-                <div class="text-xs font-bold text-brand-900 flex items-center gap-2">
-                  <span class="text-indigo-600 font-extrabold">⚖️</span> <span data-i18n="partners.elonext.f3Title">Contábil & Fiscal Estratégico</span>
-                </div>
-                <p class="text-[11px] text-slate-500 mt-1" data-i18n="partners.elonext.f3Desc">Conformidade tributária e parametrização segura para mitigação de riscos.</p>
-              </div>
-
-              <div class="p-4 rounded-xl bg-white border border-slate-200 shadow-sm">
-                <div class="text-xs font-bold text-brand-900 flex items-center gap-2">
-                  <span class="text-blue-600 font-extrabold">🏢</span> <span data-i18n="partners.elonext.f4Title">Gestão Administrativa 360°</span>
-                </div>
-                <p class="text-[11px] text-slate-500 mt-1" data-i18n="partners.elonext.f4Desc">Alinhamento operacional, padronização e governança executiva.</p>
-              </div>
-            </div>
+            <ul class="text-xs text-slate-500 space-y-2 pt-2 border-t border-slate-200">
+              <li class="flex items-center gap-2">✓ <span data-i18n="services.s1i1">Aproveitamento máximo dos módulos nativos</span></li>
+              <li class="flex items-center gap-2">✓ <span data-i18n="services.s1i2">Auditoria e conformidade fiscal</span></li>
+            </ul>
           </div>
 
-          <!-- Coluna Direita Elonext (Sinergia & Botão WhatsApp) -->
-          <div class="lg:col-span-4 flex flex-col items-center justify-center p-6 rounded-2xl bg-white border border-slate-200 shadow-md text-center">
-            <div class="w-16 h-16 rounded-2xl bg-growth-500/15 border border-growth-500/30 flex items-center justify-center text-3xl mb-4">
-              🚀
+          <!-- Pilar 2 -->
+          <div class="bg-slate-50 rounded-3xl p-8 border border-slate-200 card-hover-effect space-y-4">
+            <div class="w-12 h-12 rounded-2xl bg-growth-500/15 flex items-center justify-center text-growth-600 text-2xl font-bold">
+              🎯
             </div>
-            <h4 class="text-base font-bold text-brand-950 font-sans">Sinergia Completa</h4>
-            <p class="text-xs text-slate-500 mt-2 mb-6" data-i18n="partners.elonext.synergy">
-              INNOVY (Tecnologia & ERP) + Elonext (Processos & BPM) = Transformação Total da sua Empresa.
+            <h3 class="text-xl font-bold text-brand-950 font-sans" data-i18n="services.s2Title">
+              TI como Serviço & Fractional CTO
+            </h3>
+            <p class="text-sm text-slate-600 leading-relaxed" data-i18n="services.s2Desc">
+              Tenha um executivo de tecnologia experiente ao lado da sua diretoria. Governança, coordenação de fornecedores, avaliação de investimentos e segurança da informação sem o custo de um diretor CLT fixo.
             </p>
-            <a href="https://wa.me/5511961787709?text=Ol%C3%A1%2C%20gostaria%20de%20conversar%20sobre%20a%20Elonext%20e%20assessoria%20de%20processos%20BPM." target="_blank" class="w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl font-bold text-xs text-white bg-growth-600 hover:bg-growth-700 transition shadow-md">
-              <span data-i18n="partners.elonext.cta">Falar sobre Processos & BPM</span>
-            </a>
+            <ul class="text-xs text-slate-500 space-y-2 pt-2 border-t border-slate-200">
+              <li class="flex items-center gap-2">✓ <span data-i18n="services.s2i1">Decisões técnicas fundamentadas em ROI</span></li>
+              <li class="flex items-center gap-2">✓ <span data-i18n="services.s2i2">Gestão de chamados e conformidade de SLAs</span></li>
+            </ul>
+          </div>
+
+          <!-- Pilar 3 -->
+          <div class="bg-slate-50 rounded-3xl p-8 border border-slate-200 card-hover-effect space-y-4">
+            <div class="w-12 h-12 rounded-2xl bg-blue-50 flex items-center justify-center text-brand-600 text-2xl font-bold">
+              🔄
+            </div>
+            <h3 class="text-xl font-bold text-brand-950 font-sans" data-i18n="services.s3Title">
+              Automação de Processos & Integrações
+            </h3>
+            <p class="text-sm text-slate-600 leading-relaxed" data-i18n="services.s3Desc">
+              Fim das planilhas paralelas e da digitação duplicada. Conectamos seu ERP a plataformas de e-commerce, CRM, bancos, portais fiscais e ferramentas logísticas via APIs modernas e seguras.
+            </p>
+            <ul class="text-xs text-slate-500 space-y-2 pt-2 border-t border-slate-200">
+              <li class="flex items-center gap-2">✓ <span data-i18n="services.s3i1">Eliminação de retrabalho manual humano</span></li>
+              <li class="flex items-center gap-2">✓ <span data-i18n="services.s3i2">Fluxos ágeis de conciliação bancária</span></li>
+            </ul>
+          </div>
+
+          <!-- Pilar 4 -->
+          <div class="bg-slate-50 rounded-3xl p-8 border border-slate-200 card-hover-effect space-y-4">
+            <div class="w-12 h-12 rounded-2xl bg-emerald-50 flex items-center justify-center text-growth-600 text-2xl font-bold">
+              📊
+            </div>
+            <h3 class="text-xl font-bold text-brand-950 font-sans" data-i18n="services.s4Title">
+              Dashboards Gerenciais & BI
+            </h3>
+            <p class="text-sm text-slate-600 leading-relaxed" data-i18n="services.s4Desc">
+              Dados confiáveis para tomadas de decisão rápidas. Construímos painéis executivos com DRE em tempo real, curva ABC de clientes e produtos, margem de contribuição e fluxo de caixa projetado.
+            </p>
+            <ul class="text-xs text-slate-500 space-y-2 pt-2 border-t border-slate-200">
+              <li class="flex items-center gap-2">✓ <span data-i18n="services.s4i1">Visão clara de rentabilidade por canal</span></li>
+              <li class="flex items-center gap-2">✓ <span data-i18n="services.s4i2">Fim de decisões no escuro</span></li>
+            </ul>
           </div>
 
         </div>
-      </div>
 
-      <!-- Hub de Futuras Parcerias & Alianças Tecnológicas -->
-      <div class="grid md:grid-cols-2 gap-6">
-        <div class="bg-slate-50 rounded-3xl p-8 border border-slate-200">
-          <span class="text-xs font-bold uppercase tracking-wider text-brand-600" data-i18n="partners.hub.tag">Hub de Integrações</span>
-          <h4 class="text-xl font-bold text-brand-950 font-sans mt-1" data-i18n="partners.hub.title">Soluções & Alianças Tecnológicas</h4>
-          <p class="text-sm text-slate-600 mt-2 leading-relaxed" data-i18n="partners.hub.desc">
-            Integramos ferramentas homologadas de CRM, Business Intelligence, Infraestrutura em Nuvem e Inteligência Artificial ao ecossistema TOTVS Protheus para potencializar o resultado da sua equipe.
-          </p>
-        </div>
-
-        <div class="bg-slate-50 rounded-3xl p-8 border border-slate-200 flex flex-col justify-between">
+        <!-- Diferencial Executivo -->
+        <div class="bg-brand-950 text-white rounded-3xl p-8 shadow-xl flex flex-col md:flex-row items-center justify-between gap-6">
           <div>
-            <span class="text-xs font-bold uppercase tracking-wider text-growth-600" data-i18n="partners.join.tag">Expansão de Ecossistema</span>
-            <h4 class="text-xl font-bold text-brand-950 font-sans mt-1" data-i18n="partners.join.title">Seja um Parceiro Homologado</h4>
-            <p class="text-sm text-slate-600 mt-2 leading-relaxed" data-i18n="partners.join.desc">
-              Você desenvolve softwares corporativos ou atua com consultoria para PMEs? Conecte-se à rede INNOVY e construa soluções conjuntas de alto valor.
+            <span class="text-xs font-bold uppercase tracking-wider text-growth-400" data-i18n="services.diffTag">Nosso Compromisso</span>
+            <h4 class="text-xl sm:text-2xl font-bold font-sans mt-1" data-i18n="services.diffTitle">
+              Parceiro de Negócio e Lucro vs. Consultoria de Horas
+            </h4>
+            <p class="text-sm text-slate-300 mt-2 max-w-2xl leading-relaxed" data-i18n="services.diffDesc">
+              Não lucramos com a ineficiência do seu sistema nem enrolamos prazos. Nosso foco é entregar soluções objetivas que tragam retorno financeiro real para o seu negócio.
             </p>
           </div>
-          <div class="pt-5">
-            <a href="https://wa.me/5511961787709?text=Ol%C3%A1%2C%20tenho%20interesse%20em%20uma%20parceria%20estrat%C3%A9gica%20com%20a%20INNOVY." target="_blank" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs font-bold text-brand-900 bg-white hover:bg-slate-100 border border-slate-300 transition shadow-sm">
-              <span data-i18n="partners.join.cta">Propor Parceria Estratégica</span> →
-            </a>
-          </div>
+          <a href="#contato" class="whitespace-nowrap px-7 py-3.5 rounded-xl font-bold text-sm text-brand-950 bg-growth-400 hover:bg-growth-500 transition shadow-lg">
+            <span data-i18n="services.ctaDiagnostic">Fazer Diagnóstico Agora</span>
+          </a>
         </div>
+
       </div>
-
     </div>
-  </section>
 
-  <!-- ================= 7. SEÇÃO CONTATO & DIAGNÓSTICO ================= -->
-  <section id="contato" class="py-16 md:py-24 bg-slate-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      <div class="grid lg:grid-cols-12 gap-10">
+    <!-- ================= PÁGINA 3: SOBRE & METODOLOGIA ================= -->
+    <div id="page-sobre" class="page-panel min-h-[calc(100vh-140px)] py-12 md:py-16 bg-slate-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <!-- Contato & Informações -->
-        <div class="lg:col-span-5 space-y-6">
-          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-50 border border-brand-200 text-brand-800 text-xs font-bold uppercase tracking-wider">
-            <span data-i18n="contact.tag">Canais Diretos</span>
+        <div class="grid lg:grid-cols-12 gap-12 items-center mb-14">
+          
+          <!-- Foto Rodrigo Martins (Limpa, sem logos de terceiros) -->
+          <div class="lg:col-span-5 text-center">
+            <div class="relative inline-block max-w-sm mx-auto">
+              <div class="absolute -inset-2 bg-gradient-to-r from-brand-600 to-growth-500 rounded-3xl blur-lg opacity-20"></div>
+              <img src="assets/rodrigo-martins.png?v=2" alt="Rodrigo Martins da Silva - INNOVY" class="relative rounded-2xl w-full h-auto object-cover shadow-2xl border-4 border-white">
+              
+              <div class="absolute -bottom-3 right-3 bg-brand-950 text-white px-3.5 py-1.5 rounded-xl text-xs font-bold shadow-lg border border-white/20" data-i18n="about.badgePhoto">
+                Especialista em Negócio & Tecnologia
+              </div>
+            </div>
           </div>
 
-          <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-950 font-sans tracking-tight" data-i18n="contact.title">
-            Vamos Conversar Sobre o Seu Negócio?
-          </h2>
-
-          <p class="text-base text-slate-600 leading-relaxed" data-i18n="contact.subtitle">
-            Seja para destravar o ERP TOTVS Protheus, avaliar processos com a Elonext ou estruturar sua gestão de tecnologia, estamos prontos para ajudar.
-          </p>
-
-          <div class="space-y-3 pt-2">
-            <a href="https://wa.me/5511961787709" target="_blank" class="flex items-center gap-4 p-4 rounded-2xl bg-white border border-slate-200 hover:border-growth-500 shadow-sm transition group">
-              <div class="w-11 h-11 rounded-xl bg-growth-500/15 flex items-center justify-center text-growth-600 text-xl group-hover:scale-110 transition">
-                📱
-              </div>
-              <div>
-                <div class="text-xs text-slate-500">WhatsApp Comercial</div>
-                <div class="text-sm font-bold text-brand-950 group-hover:text-growth-600 transition">(11) 96178-7709</div>
-              </div>
-            </a>
-
-            <a href="mailto:contato@innovy.com.br" class="flex items-center gap-4 p-4 rounded-2xl bg-white border border-slate-200 hover:border-brand-500 shadow-sm transition group">
-              <div class="w-11 h-11 rounded-xl bg-brand-50 flex items-center justify-center text-brand-700 text-xl group-hover:scale-110 transition">
-                ✉️
-              </div>
-              <div>
-                <div class="text-xs text-slate-500">E-mail Corporativo</div>
-                <div class="text-sm font-bold text-brand-950 group-hover:text-brand-700 transition">contato@innovy.com.br</div>
-              </div>
-            </a>
-
-            <a href="https://innovy.freshdesk.com/support/home" target="_blank" class="flex items-center gap-4 p-4 rounded-2xl bg-white border border-slate-200 hover:border-brand-700 shadow-sm transition group">
-              <div class="w-11 h-11 rounded-xl bg-slate-100 flex items-center justify-center text-slate-700 text-xl group-hover:scale-110 transition">
-                🎫
-              </div>
-              <div>
-                <div class="text-xs text-slate-500">Portal de Chamados</div>
-                <div class="text-sm font-bold text-brand-950 group-hover:text-brand-700 transition">innovy.freshdesk.com</div>
-              </div>
-            </a>
-          </div>
-
-          <div class="p-4 rounded-2xl bg-white border border-slate-200 text-xs text-slate-600 shadow-sm">
-            📍 <strong class="text-brand-950" data-i18n="contact.coverageTitle">Atendimento:</strong> <span data-i18n="contact.coverageDesc">Remoto em todo o Brasil e presencial na Grande São Paulo e principais polos industriais.</span>
-          </div>
-        </div>
-
-        <!-- Simulador / Diagnóstico em 3 Passos -->
-        <div class="lg:col-span-7">
-          <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-xl">
-            <div class="border-b border-slate-100 pb-4 mb-6">
-              <span class="text-xs font-bold uppercase tracking-wider text-growth-600" data-i18n="quiz.badge">Diagnóstico em 30 Segundos</span>
-              <h3 class="text-xl font-bold text-brand-950 font-sans mt-1" data-i18n="quiz.title">Simulador Estratégico de TI & Processos</h3>
-              <p class="text-xs text-slate-500 mt-1" data-i18n="quiz.desc">Selecione suas respostas para receber uma análise personalizada sem custo no WhatsApp.</p>
+          <!-- Bio Executiva -->
+          <div class="lg:col-span-7 space-y-5">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-50 border border-brand-200 text-brand-800 text-xs font-bold uppercase tracking-wider">
+              <span data-i18n="about.tag">Liderança & Autoridade Direta</span>
             </div>
 
-            <form id="leadQuizForm" onsubmit="handleQuizSubmit(event)" class="space-y-5">
-              
-              <!-- Pergunta 1: Porte -->
-              <div>
-                <label class="block text-xs font-semibold text-slate-700 mb-2" data-i18n="quiz.q1Label">1. Qual o tamanho aproximado da sua equipe?</label>
-                <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
-                  <label class="cursor-pointer">
-                    <input type="radio" name="teamSize" value="1 a 15 colaboradores" class="peer sr-only" checked>
-                    <div class="p-3 text-center text-xs font-semibold rounded-xl bg-slate-50 border border-slate-200 peer-checked:bg-brand-700 peer-checked:border-brand-700 peer-checked:text-white transition shadow-sm">
-                      1 a 15
-                    </div>
-                  </label>
-                  <label class="cursor-pointer">
-                    <input type="radio" name="teamSize" value="16 a 50 colaboradores" class="peer sr-only">
-                    <div class="p-3 text-center text-xs font-semibold rounded-xl bg-slate-50 border border-slate-200 peer-checked:bg-brand-700 peer-checked:border-brand-700 peer-checked:text-white transition shadow-sm">
-                      16 a 50
-                    </div>
-                  </label>
-                  <label class="cursor-pointer">
-                    <input type="radio" name="teamSize" value="51 a 200 colaboradores" class="peer sr-only">
-                    <div class="p-3 text-center text-xs font-semibold rounded-xl bg-slate-50 border border-slate-200 peer-checked:bg-brand-700 peer-checked:border-brand-700 peer-checked:text-white transition shadow-sm">
-                      51 a 200
-                    </div>
-                  </label>
-                  <label class="cursor-pointer">
-                    <input type="radio" name="teamSize" value="Mais de 200 colaboradores" class="peer sr-only">
-                    <div class="p-3 text-center text-xs font-semibold rounded-xl bg-slate-50 border border-slate-200 peer-checked:bg-brand-700 peer-checked:border-brand-700 peer-checked:text-white transition shadow-sm">
-                      200+
-                    </div>
-                  </label>
-                </div>
-              </div>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-950 font-sans tracking-tight" data-i18n="about.title">
+              "Na INNOVY, você não fala com estagiários. Fala com quem entende e resolve."
+            </h2>
 
-              <!-- Pergunta 2: ERP -->
-              <div>
-                <label class="block text-xs font-semibold text-slate-700 mb-2" data-i18n="quiz.q2Label">2. Qual a situação atual do seu ERP?</label>
-                <div class="grid sm:grid-cols-3 gap-2">
-                  <label class="cursor-pointer">
-                    <input type="radio" name="erpStatus" value="TOTVS Protheus precisando de melhorias" class="peer sr-only" checked>
-                    <div class="p-3 text-center text-xs font-semibold rounded-xl bg-slate-50 border border-slate-200 peer-checked:bg-brand-700 peer-checked:border-brand-700 peer-checked:text-white transition shadow-sm">
-                      TOTVS Protheus
-                    </div>
-                  </label>
-                  <label class="cursor-pointer">
-                    <input type="radio" name="erpStatus" value="Outro ERP ou sistema legado" class="peer sr-only">
-                    <div class="p-3 text-center text-xs font-semibold rounded-xl bg-slate-50 border border-slate-200 peer-checked:bg-brand-700 peer-checked:border-brand-700 peer-checked:text-white transition shadow-sm">
-                      Outro ERP
-                    </div>
-                  </label>
-                  <label class="cursor-pointer">
-                    <input type="radio" name="erpStatus" value="Muitas planilhas e processos manuais" class="peer sr-only">
-                    <div class="p-3 text-center text-xs font-semibold rounded-xl bg-slate-50 border border-slate-200 peer-checked:bg-brand-700 peer-checked:border-brand-700 peer-checked:text-white transition shadow-sm">
-                      Planilhas Manuais
-                    </div>
-                  </label>
-                </div>
-              </div>
+            <p class="text-base text-slate-600 leading-relaxed" data-i18n-html="about.p1">
+              Meu nome é <strong>Rodrigo Martins da Silva</strong>, fundador da INNOVY. Com mais de 15 anos no ecossistema de gestão e ERPs (especialmente TOTVS Protheus), vi centenas de empresários investirem valores expressivos em softwares sem colher os benefícios prometidos.
+            </p>
 
-              <!-- Pergunta 3: Principal Desafio -->
-              <div>
-                <label class="block text-xs font-semibold text-slate-700 mb-2" data-i18n="quiz.q3Label">3. Qual seu maior objetivo agora?</label>
-                <div class="grid sm:grid-cols-2 gap-2">
-                  <label class="cursor-pointer">
-                    <input type="radio" name="mainGoal" value="Relatórios confiáveis e DRE em tempo real" class="peer sr-only" checked>
-                    <div class="p-3 text-left text-xs font-semibold rounded-xl bg-slate-50 border border-slate-200 peer-checked:bg-brand-700 peer-checked:border-brand-700 peer-checked:text-white transition shadow-sm">
-                      📊 Dashboards & DRE Confiável
-                    </div>
-                  </label>
-                  <label class="cursor-pointer">
-                    <input type="radio" name="mainGoal" value="Eliminar retrabalho e automatizar processos" class="peer sr-only">
-                    <div class="p-3 text-left text-xs font-semibold rounded-xl bg-slate-50 border border-slate-200 peer-checked:bg-brand-700 peer-checked:border-brand-700 peer-checked:text-white transition shadow-sm">
-                      🔄 Automação & Eliminar Retrabalho
-                    </div>
-                  </label>
-                  <label class="cursor-pointer">
-                    <input type="radio" name="mainGoal" value="Apoio executivo e Fractional CTO" class="peer sr-only">
-                    <div class="p-3 text-left text-xs font-semibold rounded-xl bg-slate-50 border border-slate-200 peer-checked:bg-brand-700 peer-checked:border-brand-700 peer-checked:text-white transition shadow-sm">
-                      🎯 Liderança & Fractional CTO
-                    </div>
-                  </label>
-                  <label class="cursor-pointer">
-                    <input type="radio" name="mainGoal" value="Estruturação de BPM e Processos Elonext" class="peer sr-only">
-                    <div class="p-3 text-left text-xs font-semibold rounded-xl bg-slate-50 border border-slate-200 peer-checked:bg-brand-700 peer-checked:border-brand-700 peer-checked:text-white transition shadow-sm">
-                      ⚡ BPM & Processos (Elonext)
-                    </div>
-                  </label>
-                </div>
-              </div>
+            <p class="text-base text-slate-600 leading-relaxed" data-i18n-html="about.p2">
+              A INNOVY nasceu para quebrar esse ciclo: combinamos profundidade técnica e visão pragmática de negócios, garantindo que cada sistema implantado ou mantido gere dados confiáveis, reduza despesas operacionais e prepare a empresa para crescer com estabilidade.
+            </p>
 
-              <!-- Botão Submit 100% Funcional -->
-              <button type="submit" class="w-full inline-flex items-center justify-center gap-2 py-4 rounded-xl font-bold text-sm text-white bg-gradient-to-r from-growth-600 to-growth-500 hover:from-growth-700 hover:to-growth-600 shadow-xl shadow-growth-500/25 transition">
-                <span data-i18n="quiz.btnSubmit">Enviar Respostas e Receber Diagnóstico no WhatsApp</span>
-                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.299.144.347.491 1.2.534 1.288.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.2.662.589 1.221.771 1.394.858.173.086.275.072.376-.043.101-.116.433-.506.549-.68.116-.173.231-.144.39-.086s1.011.477 1.184.564.289.13.332.202c.043.073.043.419-.101.824z"/></svg>
-              </button>
-            </form>
+            <div class="grid grid-cols-2 gap-4 pt-3">
+              <div class="p-4 rounded-xl bg-white border border-slate-200 shadow-sm">
+                <div class="text-brand-700 font-bold text-sm" data-i18n="about.bullet1Title">✓ Atendimento Sênior</div>
+                <p class="text-xs text-slate-500 mt-1" data-i18n="about.bullet1Desc">Sem estagiários repassando chamados</p>
+              </div>
+              <div class="p-4 rounded-xl bg-white border border-slate-200 shadow-sm">
+                <div class="text-growth-600 font-bold text-sm" data-i18n="about.bullet2Title">✓ Foco em Rentabilidade</div>
+                <p class="text-xs text-slate-500 mt-1" data-i18n="about.bullet2Desc">Soluções diretas que geram caixa</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Metodologia em 4 Passos -->
+        <div class="border-t border-slate-200 pt-12">
+          <div class="text-center max-w-2xl mx-auto mb-10">
+            <span class="text-xs font-bold uppercase tracking-widest text-brand-600" data-i18n="about.methodTag">Como Trabalhamos</span>
+            <h3 class="text-2xl sm:text-3xl font-extrabold text-brand-950 font-sans mt-1" data-i18n="about.methodTitle">
+              Metodologia Ágil em 4 Passos
+            </h3>
+          </div>
+
+          <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm card-hover-effect">
+              <span class="text-xs font-extrabold text-brand-600">PASSO 01</span>
+              <h4 class="text-base font-bold text-brand-950 font-sans mt-1" data-i18n="about.step1Title">Diagnóstico 360°</h4>
+              <p class="text-xs text-slate-500 mt-2 leading-relaxed" data-i18n="about.step1Desc">Mapeamento dos gargalos, rotinas do ERP e custos ocultos sem cobrança inicial.</p>
+            </div>
+            <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm card-hover-effect">
+              <span class="text-xs font-extrabold text-brand-600">PASSO 02</span>
+              <h4 class="text-base font-bold text-brand-950 font-sans mt-1" data-i18n="about.step2Title">Plano Executivo</h4>
+              <p class="text-xs text-slate-500 mt-2 leading-relaxed" data-i18n="about.step2Desc">Cronograma priorizado por impacto financeiro e destravamento operacional rápido.</p>
+            </div>
+            <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm card-hover-effect">
+              <span class="text-xs font-extrabold text-brand-600">PASSO 03</span>
+              <h4 class="text-base font-bold text-brand-950 font-sans mt-1" data-i18n="about.step3Title">Execução Técnica</h4>
+              <p class="text-xs text-slate-500 mt-2 leading-relaxed" data-i18n="about.step3Desc">Parametrizações precisas, integrações e relatórios com entregas em sprints curtas.</p>
+            </div>
+            <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm card-hover-effect">
+              <span class="text-xs font-extrabold text-growth-600">PASSO 04</span>
+              <h4 class="text-base font-bold text-brand-950 font-sans mt-1" data-i18n="about.step4Title">Governança & Escala</h4>
+              <p class="text-xs text-slate-500 mt-2 leading-relaxed" data-i18n="about.step4Desc">Atuação contínua como braço direito tecnológico para garantir crescimento seguro.</p>
+            </div>
           </div>
         </div>
 
       </div>
-
     </div>
-  </section>
 
-  <!-- ================= 8. RODAPÉ EXECUTIVO & AVISO LEGAL DE MARCAS ================= -->
-  <footer class="bg-brand-950 text-slate-400 text-xs py-12 border-t border-white/10 mt-auto">
+    <!-- ================= PÁGINA 4: PARCEIROS (COM ELONEXT) ================= -->
+    <div id="page-parceiros" class="page-panel min-h-[calc(100vh-140px)] py-12 md:py-16 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Cabeçalho -->
+        <div class="text-center max-w-3xl mx-auto mb-12">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-growth-500/15 border border-growth-500/30 text-growth-700 text-xs font-bold uppercase tracking-wider mb-3">
+            <span data-i18n="partners.tag">Ecossistema de Soluções</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-950 font-sans tracking-tight" data-i18n="partners.title">
+            Parceiros Estratégicos & Sinergia de Negócios
+          </h2>
+          <p class="text-base text-slate-600 mt-3" data-i18n="partners.subtitle">
+            Conectamos sua empresa a especialistas e metodologias complementares para cobrir processos, governança e tecnologia de ponta a ponta.
+          </p>
+        </div>
+
+        <!-- Card Especial da ELONEXT (com HTML renderizado corretamente) -->
+        <div class="bg-gradient-to-br from-slate-50 via-white to-growth-500/5 rounded-3xl p-8 sm:p-12 border-2 border-growth-500/30 shadow-xl relative overflow-hidden mb-10">
+          <div class="grid lg:grid-cols-12 gap-8 items-center">
+            
+            <div class="lg:col-span-8 space-y-4">
+              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-growth-500/20 text-growth-800 text-xs font-bold border border-growth-500/30">
+                <span class="w-2 h-2 rounded-full bg-growth-500 animate-ping"></span>
+                <span data-i18n="partners.elonext.badge">Nova Operação • Gestão & Processos</span>
+              </div>
+
+              <h3 class="text-2xl sm:text-3xl font-extrabold text-brand-950 font-sans">
+                <span class="text-brand-700">Elonext</span> — <span data-i18n="partners.elonext.title">Consultoria em Gestão, Processos & BPM</span>
+              </h3>
+
+              <!-- Parágrafo com data-i18n-html para renderizar as tags de negrito perfeitamente -->
+              <p class="text-base text-slate-600 leading-relaxed" data-i18n-html="partners.elonext.desc">
+                A <strong>Elonext</strong> nasce com foco exclusivo em arquitetura de processos (BPM) e consultoria executiva para as áreas essenciais do negócio. Enquanto a INNOVY cuida da inteligência de sistemas e tecnologia (ERP TOTVS Protheus), a Elonext estrutura e otimiza a governança nas áreas <strong>Administrativa, Financeira, Contábil, Fiscal e Controladoria</strong>.
+              </p>
+
+              <!-- 4 Pilares Elonext -->
+              <div class="grid sm:grid-cols-2 gap-3 pt-2">
+                <div class="p-4 rounded-xl bg-white border border-slate-200 shadow-sm">
+                  <div class="text-xs font-bold text-brand-900 flex items-center gap-2">
+                    <span class="text-growth-600 font-extrabold">⚡</span> <span data-i18n="partners.elonext.f1Title">BPM & Mapeamento de Processos</span>
+                  </div>
+                  <p class="text-[11px] text-slate-500 mt-1" data-i18n="partners.elonext.f1Desc">Desenho de rotinas e eliminação de gargalos nos fluxos de trabalho.</p>
+                </div>
+
+                <div class="p-4 rounded-xl bg-white border border-slate-200 shadow-sm">
+                  <div class="text-xs font-bold text-brand-900 flex items-center gap-2">
+                    <span class="text-brand-600 font-extrabold">📊</span> <span data-i18n="partners.elonext.f2Title">Controladoria & Gestão Financeira</span>
+                  </div>
+                  <p class="text-[11px] text-slate-500 mt-1" data-i18n="partners.elonext.f2Desc">DRE estruturada, fluxo de caixa, orçamento e governança de margens.</p>
+                </div>
+
+                <div class="p-4 rounded-xl bg-white border border-slate-200 shadow-sm">
+                  <div class="text-xs font-bold text-brand-900 flex items-center gap-2">
+                    <span class="text-indigo-600 font-extrabold">⚖️</span> <span data-i18n="partners.elonext.f3Title">Contábil & Fiscal Estratégico</span>
+                  </div>
+                  <p class="text-[11px] text-slate-500 mt-1" data-i18n="partners.elonext.f3Desc">Conformidade tributária e parametrização segura para mitigação de riscos.</p>
+                </div>
+
+                <div class="p-4 rounded-xl bg-white border border-slate-200 shadow-sm">
+                  <div class="text-xs font-bold text-brand-900 flex items-center gap-2">
+                    <span class="text-blue-600 font-extrabold">🏢</span> <span data-i18n="partners.elonext.f4Title">Gestão Administrativa 360°</span>
+                  </div>
+                  <p class="text-[11px] text-slate-500 mt-1" data-i18n="partners.elonext.f4Desc">Alinhamento operacional, padronização e governança executiva.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Coluna Direita Elonext -->
+            <div class="lg:col-span-4 flex flex-col items-center justify-center p-6 rounded-2xl bg-white border border-slate-200 shadow-md text-center">
+              <div class="w-16 h-16 rounded-2xl bg-growth-500/15 border border-growth-500/30 flex items-center justify-center text-3xl mb-4">
+                🚀
+              </div>
+              <h4 class="text-base font-bold text-brand-950 font-sans">Sinergia Completa</h4>
+              <p class="text-xs text-slate-500 mt-2 mb-6" data-i18n="partners.elonext.synergy">
+                INNOVY (Tecnologia & ERP) + Elonext (Processos & BPM) = Transformação Total da sua Empresa.
+              </p>
+              <a href="https://wa.me/5511961787709?text=Ol%C3%A1%2C%20gostaria%20de%20conversar%20sobre%20a%20Elonext%20e%20assessoria%20de%20processos%20BPM." target="_blank" class="w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl font-bold text-xs text-white bg-growth-600 hover:bg-growth-700 transition shadow-md">
+                <span data-i18n="partners.elonext.cta">Falar sobre Processos & BPM</span>
+              </a>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Hub de Parcerias -->
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="bg-slate-50 rounded-3xl p-8 border border-slate-200">
+            <span class="text-xs font-bold uppercase tracking-wider text-brand-600" data-i18n="partners.hub.tag">Hub de Integrações</span>
+            <h4 class="text-xl font-bold text-brand-950 font-sans mt-1" data-i18n="partners.hub.title">Soluções & Alianças Tecnológicas</h4>
+            <p class="text-sm text-slate-600 mt-2 leading-relaxed" data-i18n="partners.hub.desc">
+              Integramos ferramentas homologadas de CRM, Business Intelligence, Infraestrutura em Nuvem e Inteligência Artificial ao ecossistema TOTVS Protheus para potencializar o resultado da sua equipe.
+            </p>
+          </div>
+
+          <div class="bg-slate-50 rounded-3xl p-8 border border-slate-200 flex flex-col justify-between">
+            <div>
+              <span class="text-xs font-bold uppercase tracking-wider text-growth-600" data-i18n="partners.join.tag">Expansão de Ecossistema</span>
+              <h4 class="text-xl font-bold text-brand-950 font-sans mt-1" data-i18n="partners.join.title">Seja um Parceiro Homologado</h4>
+              <p class="text-sm text-slate-600 mt-2 leading-relaxed" data-i18n="partners.join.desc">
+                Você desenvolve softwares corporativos ou atua com consultoria para PMEs? Conecte-se à rede INNOVY e construa soluções conjuntas de alto valor.
+              </p>
+            </div>
+            <div class="pt-5">
+              <a href="https://wa.me/5511961787709?text=Ol%C3%A1%2C%20tenho%20interesse%20em%20uma%20parceria%20estrat%C3%A9gica%20com%20a%20INNOVY." target="_blank" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs font-bold text-brand-900 bg-white hover:bg-slate-100 border border-slate-300 transition shadow-sm">
+                <span data-i18n="partners.join.cta">Propor Parceria Estratégica</span> →
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ================= PÁGINA 5: CONTATO & DIAGNÓSTICO ================= -->
+    <div id="page-contato" class="page-panel min-h-[calc(100vh-140px)] py-12 md:py-16 bg-slate-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="grid lg:grid-cols-12 gap-10">
+          
+          <!-- Contato & Informações -->
+          <div class="lg:col-span-5 space-y-6">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-50 border border-brand-200 text-brand-800 text-xs font-bold uppercase tracking-wider">
+              <span data-i18n="contact.tag">Canais Diretos</span>
+            </div>
+
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-950 font-sans tracking-tight" data-i18n="contact.title">
+              Vamos Conversar Sobre o Seu Negócio?
+            </h2>
+
+            <p class="text-base text-slate-600 leading-relaxed" data-i18n="contact.subtitle">
+              Seja para destravar o ERP TOTVS Protheus, avaliar processos com a Elonext ou estruturar sua gestão de tecnologia, estamos prontos para ajudar.
+            </p>
+
+            <div class="space-y-3 pt-2">
+              <a href="https://wa.me/5511961787709" target="_blank" class="flex items-center gap-4 p-4 rounded-2xl bg-white border border-slate-200 hover:border-growth-500 shadow-sm transition group">
+                <div class="w-11 h-11 rounded-xl bg-growth-500/15 flex items-center justify-center text-growth-600 text-xl group-hover:scale-110 transition">
+                  📱
+                </div>
+                <div>
+                  <div class="text-xs text-slate-500">WhatsApp Comercial</div>
+                  <div class="text-sm font-bold text-brand-950 group-hover:text-growth-600 transition">(11) 96178-7709</div>
+                </div>
+              </a>
+
+              <a href="mailto:contato@innovy.com.br" class="flex items-center gap-4 p-4 rounded-2xl bg-white border border-slate-200 hover:border-brand-500 shadow-sm transition group">
+                <div class="w-11 h-11 rounded-xl bg-brand-50 flex items-center justify-center text-brand-700 text-xl group-hover:scale-110 transition">
+                  ✉️
+                </div>
+                <div>
+                  <div class="text-xs text-slate-500">E-mail Corporativo</div>
+                  <div class="text-sm font-bold text-brand-950 group-hover:text-brand-700 transition">contato@innovy.com.br</div>
+                </div>
+              </a>
+
+              <a href="https://innovy.freshdesk.com/support/home" target="_blank" class="flex items-center gap-4 p-4 rounded-2xl bg-white border border-slate-200 hover:border-brand-700 shadow-sm transition group">
+                <div class="w-11 h-11 rounded-xl bg-slate-100 flex items-center justify-center text-slate-700 text-xl group-hover:scale-110 transition">
+                  🎫
+                </div>
+                <div>
+                  <div class="text-xs text-slate-500">Portal de Chamados</div>
+                  <div class="text-sm font-bold text-brand-950 group-hover:text-brand-700 transition">innovy.freshdesk.com</div>
+                </div>
+              </a>
+            </div>
+
+            <div class="p-4 rounded-2xl bg-white border border-slate-200 text-xs text-slate-600 shadow-sm">
+              📍 <strong class="text-brand-950" data-i18n="contact.coverageTitle">Atendimento:</strong> <span data-i18n="contact.coverageDesc">Remoto em todo o Brasil e presencial na Grande São Paulo e principais polos industriais.</span>
+            </div>
+          </div>
+
+          <!-- Simulador / Diagnóstico em 3 Passos -->
+          <div class="lg:col-span-7">
+            <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-xl">
+              <div class="border-b border-slate-100 pb-4 mb-6">
+                <span class="text-xs font-bold uppercase tracking-wider text-growth-600" data-i18n="quiz.badge">Diagnóstico em 30 Segundos</span>
+                <h3 class="text-xl font-bold text-brand-950 font-sans mt-1" data-i18n="quiz.title">Simulador Estratégico de TI & Processos</h3>
+                <p class="text-xs text-slate-500 mt-1" data-i18n="quiz.desc">Selecione suas respostas para receber uma análise personalizada sem custo no WhatsApp.</p>
+              </div>
+
+              <form id="leadQuizForm" onsubmit="handleQuizSubmit(event)" class="space-y-5">
+                
+                <!-- Pergunta 1: Porte -->
+                <div>
+                  <label class="block text-xs font-semibold text-slate-700 mb-2" data-i18n="quiz.q1Label">1. Qual o tamanho aproximado da sua equipe?</label>
+                  <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                    <label class="cursor-pointer">
+                      <input type="radio" name="teamSize" value="1 a 15 colaboradores" class="peer sr-only" checked>
+                      <div class="p-3 text-center text-xs font-semibold rounded-xl bg-slate-50 border border-slate-200 peer-checked:bg-brand-700 peer-checked:border-brand-700 peer-checked:text-white transition shadow-sm">
+                        1 a 15
+                      </div>
+                    </label>
+                    <label class="cursor-pointer">
+                      <input type="radio" name="teamSize" value="16 a 50 colaboradores" class="peer sr-only">
+                      <div class="p-3 text-center text-xs font-semibold rounded-xl bg-slate-50 border border-slate-200 peer-checked:bg-brand-700 peer-checked:border-brand-700 peer-checked:text-white transition shadow-sm">
+                        16 a 50
+                      </div>
+                    </label>
+                    <label class="cursor-pointer">
+                      <input type="radio" name="teamSize" value="51 a 200 colaboradores" class="peer sr-only">
+                      <div class="p-3 text-center text-xs font-semibold rounded-xl bg-slate-50 border border-slate-200 peer-checked:bg-brand-700 peer-checked:border-brand-700 peer-checked:text-white transition shadow-sm">
+                        51 a 200
+                      </div>
+                    </label>
+                    <label class="cursor-pointer">
+                      <input type="radio" name="teamSize" value="Mais de 200 colaboradores" class="peer sr-only">
+                      <div class="p-3 text-center text-xs font-semibold rounded-xl bg-slate-50 border border-slate-200 peer-checked:bg-brand-700 peer-checked:border-brand-700 peer-checked:text-white transition shadow-sm">
+                        200+
+                      </div>
+                    </label>
+                  </div>
+                </div>
+
+                <!-- Pergunta 2: ERP -->
+                <div>
+                  <label class="block text-xs font-semibold text-slate-700 mb-2" data-i18n="quiz.q2Label">2. Qual a situação atual do seu ERP?</label>
+                  <div class="grid sm:grid-cols-3 gap-2">
+                    <label class="cursor-pointer">
+                      <input type="radio" name="erpStatus" value="TOTVS Protheus precisando de melhorias" class="peer sr-only" checked>
+                      <div class="p-3 text-center text-xs font-semibold rounded-xl bg-slate-50 border border-slate-200 peer-checked:bg-brand-700 peer-checked:border-brand-700 peer-checked:text-white transition shadow-sm">
+                        TOTVS Protheus
+                      </div>
+                    </label>
+                    <label class="cursor-pointer">
+                      <input type="radio" name="erpStatus" value="Outro ERP ou sistema legado" class="peer sr-only">
+                      <div class="p-3 text-center text-xs font-semibold rounded-xl bg-slate-50 border border-slate-200 peer-checked:bg-brand-700 peer-checked:border-brand-700 peer-checked:text-white transition shadow-sm">
+                        Outro ERP
+                      </div>
+                    </label>
+                    <label class="cursor-pointer">
+                      <input type="radio" name="erpStatus" value="Muitas planilhas e processos manuais" class="peer sr-only">
+                      <div class="p-3 text-center text-xs font-semibold rounded-xl bg-slate-50 border border-slate-200 peer-checked:bg-brand-700 peer-checked:border-brand-700 peer-checked:text-white transition shadow-sm">
+                        Planilhas Manuais
+                      </div>
+                    </label>
+                  </div>
+                </div>
+
+                <!-- Pergunta 3: Principal Desafio -->
+                <div>
+                  <label class="block text-xs font-semibold text-slate-700 mb-2" data-i18n="quiz.q3Label">3. Qual seu maior objetivo agora?</label>
+                  <div class="grid sm:grid-cols-2 gap-2">
+                    <label class="cursor-pointer">
+                      <input type="radio" name="mainGoal" value="Relatórios confiáveis e DRE em tempo real" class="peer sr-only" checked>
+                      <div class="p-3 text-left text-xs font-semibold rounded-xl bg-slate-50 border border-slate-200 peer-checked:bg-brand-700 peer-checked:border-brand-700 peer-checked:text-white transition shadow-sm">
+                        📊 Dashboards & DRE Confiável
+                      </div>
+                    </label>
+                    <label class="cursor-pointer">
+                      <input type="radio" name="mainGoal" value="Eliminar retrabalho e automatizar processos" class="peer sr-only">
+                      <div class="p-3 text-left text-xs font-semibold rounded-xl bg-slate-50 border border-slate-200 peer-checked:bg-brand-700 peer-checked:border-brand-700 peer-checked:text-white transition shadow-sm">
+                        🔄 Automação & Eliminar Retrabalho
+                      </div>
+                    </label>
+                    <label class="cursor-pointer">
+                      <input type="radio" name="mainGoal" value="Apoio executivo e Fractional CTO" class="peer sr-only">
+                      <div class="p-3 text-left text-xs font-semibold rounded-xl bg-slate-50 border border-slate-200 peer-checked:bg-brand-700 peer-checked:border-brand-700 peer-checked:text-white transition shadow-sm">
+                        🎯 Liderança & Fractional CTO
+                      </div>
+                    </label>
+                    <label class="cursor-pointer">
+                      <input type="radio" name="mainGoal" value="Estruturação de BPM e Processos Elonext" class="peer sr-only">
+                      <div class="p-3 text-left text-xs font-semibold rounded-xl bg-slate-50 border border-slate-200 peer-checked:bg-brand-700 peer-checked:border-brand-700 peer-checked:text-white transition shadow-sm">
+                        ⚡ BPM & Processos (Elonext)
+                      </div>
+                    </label>
+                  </div>
+                </div>
+
+                <!-- Botão Submit 100% Funcional -->
+                <button type="submit" class="w-full inline-flex items-center justify-center gap-2 py-4 rounded-xl font-bold text-sm text-white bg-gradient-to-r from-growth-600 to-growth-500 hover:from-growth-700 hover:to-growth-600 shadow-xl shadow-growth-500/25 transition">
+                  <span data-i18n="quiz.btnSubmit">Enviar Respostas e Receber Diagnóstico no WhatsApp</span>
+                  <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.299.144.347.491 1.2.534 1.288.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.2.662.589 1.221.771 1.394.858.173.086.275.072.376-.043.101-.116.433-.506.549-.68.116-.173.231-.144.39-.086s1.011.477 1.184.564.289.13.332.202c.043.073.043.419-.101.824z"/></svg>
+                </button>
+              </form>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ================= 4. RODAPÉ UNIFICADO & AVISO LEGAL ================= -->
+  <footer class="bg-brand-950 text-slate-400 text-xs py-10 border-t border-white/10 mt-auto">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
       
       <!-- Top Row: Brand & Quick Links -->
@@ -883,12 +892,12 @@
     </div>
   </footer>
 
-  <!-- ================= 9. BOTÃO FLUTUANTE WHATSAPP (SEMPRE ACESSÍVEL) ================= -->
+  <!-- ================= 5. BOTÃO FLUTUANTE WHATSAPP ================= -->
   <a id="waFab" href="https://wa.me/5511961787709?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20INNOVY%20e%20gostaria%20de%20conversar%20sobre%20solu%C3%A7%C3%B5es%20de%20tecnologia%20e%20gest%C3%A3o." target="_blank" class="fixed bottom-6 right-6 z-50 p-4 rounded-full bg-growth-500 hover:bg-growth-600 text-white shadow-2xl transition hover:scale-110 flex items-center justify-center border-2 border-white/30" aria-label="WhatsApp">
     <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.299.144.347.491 1.2.534 1.288.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.2.662.589 1.221.771 1.394.858.173.086.275.072.376-.043.101-.116.433-.506.549-.68.116-.173.231-.144.39-.086s1.011.477 1.184.564.289.13.332.202c.043.073.043.419-.101.824z"/></svg>
   </a>
 
-  <!-- ================= 10. JAVASCRIPT & DICIONÁRIO MULTILÍNGUE ================= -->
+  <!-- ================= 6. JAVASCRIPT & DICIONÁRIO MULTILÍNGUE ================= -->
   <script>
     // Dicionário i18n completo para PT, EN e ES
     const I18N = {
@@ -1217,7 +1226,7 @@
         "about.bullet1Desc": "Sin pasantes ni demoras en la mesa de ayuda",
         "about.bullet2Title": "✓ Enfoque en Rentabilidad",
         "about.bullet2Desc": "Soluciones directas que generan caja",
-        "about.methodTag": "Cómo Trabajamos",
+        "about.methodTag": "Cómo Trabalhamos",
         "about.methodTitle": "Metodología Ágil en 4 Pasos",
         "about.step1Title": "Diagnóstico 360°",
         "about.step1Desc": "Mapeo de cuellos de botella, rutinas del ERP y costos ocultos sin cargo inicial.",
@@ -1270,7 +1279,7 @@
         "footer.rights": "Todos los derechos reservados.",
         "footer.terms": "Términos de Uso",
         "footer.privacy": "Privacidad",
-        "footer.trademarkDisclaimer": "<p>Protheus y TOTVS son productos y marcas registradas de propiedad de TOTVS S.A. Los logotipos TOTVS y Protheus son propiedad de TOTVS S.A. INNOVY es una consultora independiente de tecnología y procesos, sin vínculo societario ni representación oficial de TOTVS S.A.</p>"
+        "footer.trademarkDisclaimer": "<p>Protheus y TOTVS son productos y marcas registradas de propiedad de TOTVS S.A. Los logotipos TOTVS e Protheus son propiedad de TOTVS S.A. INNOVY es una consultora independiente de tecnología y procesos, sin vínculo societario ni representación oficial de TOTVS S.A.</p>"
       }
     };
 
@@ -1299,16 +1308,16 @@
       localStorage.setItem('innovy_lang', lang);
       document.documentElement.lang = lang === 'pt' ? 'pt-BR' : lang;
 
-      // Atualiza textos textContent
+      // Atualiza textos simples textContent
       document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
-        if (I18N[lang][key]) el.textContent = I18N[lang][key];
+        if (I18N[lang] && I18N[lang][key]) el.textContent = I18N[lang][key];
       });
 
-      // Atualiza textos innerHTML
+      // Atualiza textos com tags HTML (evita que apareça <strong> na tela)
       document.querySelectorAll('[data-i18n-html]').forEach(el => {
         const key = el.getAttribute('data-i18n-html');
-        if (I18N[lang][key]) el.innerHTML = I18N[lang][key];
+        if (I18N[lang] && I18N[lang][key]) el.innerHTML = I18N[lang][key];
       });
 
       // Atualiza indicadores do menu desktop
@@ -1324,14 +1333,14 @@
         const mBtn = document.getElementById(`mobileBtn${l.charAt(0).toUpperCase() + l.slice(1)}`);
         if (mBtn) {
           if (l === lang) {
-            mBtn.className = 'px-2 py-1 rounded bg-white shadow-sm text-slate-900';
+            mBtn.className = 'px-2 py-1 rounded bg-white shadow-sm text-slate-900 font-bold';
           } else {
             mBtn.className = 'px-2 py-1 rounded text-slate-500 hover:text-slate-900';
           }
         }
       });
 
-      // Fecha dropdown se estiver aberto
+      // Fecha dropdown se aberto
       const menu = document.getElementById('langDropdownMenu');
       if (menu) menu.classList.add('hidden');
     }
@@ -1341,13 +1350,55 @@
       if (menu) menu.classList.toggle('hidden');
     }
 
-    // Fecha dropdown de idioma ao clicar fora
     document.addEventListener('click', (e) => {
       const wrapper = document.getElementById('langSelectorWrapper');
       const menu = document.getElementById('langDropdownMenu');
       if (wrapper && menu && !wrapper.contains(e.target)) {
         menu.classList.add('hidden');
       }
+    });
+
+    // ================= GERENCIAMENTO DAS PÁGINAS (CONCEITO DE PAGE) =================
+    const VALID_PAGES = ['inicio', 'servicos', 'sobre', 'parceiros', 'contato'];
+
+    function showPage(pageId) {
+      if (!VALID_PAGES.includes(pageId)) pageId = 'inicio';
+
+      // Mostra apenas a página selecionada, escondendo as outras
+      VALID_PAGES.forEach(id => {
+        const panel = document.getElementById(`page-${id}`);
+        if (panel) {
+          if (id === pageId) {
+            panel.classList.remove('hidden');
+            panel.classList.add('active');
+          } else {
+            panel.classList.add('hidden');
+            panel.classList.remove('active');
+          }
+        }
+      });
+
+      // Atualiza o link ativo na Navbar
+      document.querySelectorAll('.nav-link-item').forEach(link => {
+        const target = link.getAttribute('data-page');
+        if (target === pageId) {
+          link.classList.add('text-brand-700', 'active');
+          link.classList.remove('text-slate-600');
+        } else {
+          link.classList.remove('text-brand-700', 'active');
+          link.classList.add('text-slate-600');
+        }
+      });
+
+      // Rola para o topo suavemente
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Ouvinte nativo do evento de hash da URL (qualquer link <a href="#page"> muda a tela automaticamente)
+    window.addEventListener('hashchange', () => {
+      const hash = window.location.hash.replace('#', '') || 'inicio';
+      showPage(hash);
+      closeMobileMenu();
     });
 
     // Menu Mobile
@@ -1399,30 +1450,18 @@
       window.open(`https://wa.me/5511961787709?text=${encoded}`, '_blank');
     }
 
-    // ScrollSpy para indicar link ativo no menu conforme rolagem
-    window.addEventListener('scroll', () => {
-      const sections = ['inicio', 'servicos', 'sobre', 'parceiros', 'contato'];
-      const scrollY = window.pageYOffset;
-
-      sections.forEach(current => {
-        const sectionEl = document.getElementById(current);
-        if (!sectionEl) return;
-        const sectionHeight = sectionEl.offsetHeight;
-        const sectionTop = sectionEl.offsetTop - 120;
-        const navLink = document.querySelector(`.nav-item[href*=${current}]`);
-
-        if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-          if (navLink) navLink.classList.add('active', 'text-brand-700');
-        } else {
-          if (navLink) navLink.classList.remove('active', 'text-brand-700');
-        }
-      });
-    });
-
     // Inicialização ao carregar a página
     document.addEventListener('DOMContentLoaded', () => {
       const initialLang = getInitialLanguage();
       switchLanguage(initialLang);
+
+      // Detecta a página pelo hash na URL ou inicia em 'inicio'
+      const hash = window.location.hash.replace('#', '');
+      if (VALID_PAGES.includes(hash)) {
+        showPage(hash);
+      } else {
+        showPage('inicio');
+      }
     });
   </script>
 
